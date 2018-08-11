@@ -9,7 +9,10 @@ const config = {
   pixelArt: true,
   scene: MainScene,
   physics: {
-    default: "matter"
+    default: "matter",
+    matter: {
+      debug: false
+    }
   },
   plugins: {
     scene: [

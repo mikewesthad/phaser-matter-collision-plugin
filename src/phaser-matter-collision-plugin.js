@@ -2,8 +2,9 @@ import Phaser from "phaser";
 import { getRootBody, isMatterBody } from "./matter-utils";
 
 const isPhysicsObject = obj => isMatterBody(obj) || obj.body;
+const warn = console.warn;
 const warnInvalidObject = obj =>
-  console.warn(
+  warn(
     `Expected a matter body or a GameObject with a body property, but instead, recieved: ${obj}`
   );
 
@@ -14,24 +15,31 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
     this.scene = scene;
     this.systems = this.scene.sys;
 
+    // Proxies Matter collision events with more Phaser-oriented event data:
+    //  collisionstart, collisionend, collisionactive
+    //    event data is the normal matter.js event object with a pairs property, except that the
+    //    each pair will have a gameObjectA and gameObjectB property
+    //  paircollisionstart, paircollisionend, paircollisionactive
+    //    event data: {bodyA, bodyB, gameObjectA, gameObjectB, pair}
     this.events = new Phaser.Events.EventEmitter();
 
+    // Map from physics object => {target?, callback, context?}
     this.collisionStartListeners = new Map();
     this.collisionEndListeners = new Map();
     this.collisionActiveListeners = new Map();
 
+    // Create bound versions of the generice onCollisionEvent handler so it can be reused for the
+    // three Matter collision events
     this.onCollisionStart = this.onCollisionEvent.bind(
       this,
       this.collisionStartListeners,
       "collisionstart"
     );
-
     this.onCollisionEnd = this.onCollisionEvent.bind(
       this,
       this.collisionEndListeners,
       "collisionend"
     );
-
     this.onCollisionActive = this.onCollisionEvent.bind(
       this,
       this.collisionActiveListeners,
@@ -45,52 +53,77 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
   // other = Matter.Body|Sprite|Image|GO with body or array containing any of those
   // Could also add options: { checkTiles = true, checkMatterBodies = true, checkGameObjects = true }
   // Could add Tile as a possible parameter, or TilemapLayer
-  addCollisionStart(physicsObject, others, callback, context) {
-    this.addCollision(this.collisionStartListeners, physicsObject, others, callback, context);
+  addOnCollideStart({ objectA, objectB, callback, context } = {}) {
+    this.addCollision(this.collisionStartListeners, objectA, objectB, callback, context);
+    return this.removeOnCollideStart.bind(this, { objectA, objectB, callback, context });
   }
-  addCollisionEnd(physicsObject, others, callback, context) {
-    this.addCollision(this.collisionEndListeners, physicsObject, others, callback, context);
+  addOnCollideEnd({ objectA, objectB, callback, context } = {}) {
+    this.addCollision(this.collisionEndListeners, objectA, objectB, callback, context);
+    return this.removeOnCollideEnd.bind(this, { objectA, objectB, callback, context });
   }
-  addCollisionActive(physicsObject, others, callback, context) {
-    this.addCollision(this.collisionActiveListeners, physicsObject, others, callback, context);
-  }
-
-  removeCollisionStart(physicsObject, others, callback, context) {
-    this.removeCollision(this.collisionStartListeners, physicsObject, others, callback, context);
-  }
-  removeCollisionEnd(physicsObject, others, callback, context) {
-    this.removeCollision(this.collisionEndListeners, physicsObject, others, callback, context);
-  }
-  removeCollisionActive(physicsObject, others, callback, context) {
-    this.removeCollision(this.collisionActiveListeners, physicsObject, others, callback, context);
+  addOnCollideActive({ objectA, objectB, callback, context } = {}) {
+    this.addCollision(this.collisionActiveListeners, objectA, objectB, callback, context);
+    return this.removeOnCollideActive.bind(this, { objectA, objectB, callback, context });
   }
 
-  addCollision(map, physicsObject, others, callback, context) {
-    if (!isPhysicsObject(physicsObject)) {
-      warnInvalidObject();
+  removeOnCollideStart({ objectA, objectB, callback, context } = {}) {
+    this.removeCollision(this.collisionStartListeners, objectA, objectB, callback, context);
+  }
+  removeOnCollideEnd({ objectA, objectB, callback, context } = {}) {
+    this.removeCollision(this.collisionEndListeners, objectA, objectB, callback, context);
+  }
+  removeOnCollideActive({ objectA, objectB, callback, context } = {}) {
+    this.removeCollision(this.collisionActiveListeners, objectA, objectB, callback, context);
+  }
+
+  removeAllCollideStartListeners() {
+    this.collisionStartListeners.clear();
+  }
+  removeAllCollideActiveListeners() {
+    this.collisionActiveListeners.clear();
+  }
+  removeAllCollideEndListeners() {
+    this.collisionEndListeners.clear();
+  }
+  removeAllCollideListeners() {
+    this.removeAllCollideStartListeners();
+    this.removeAllCollideActiveListeners();
+    this.removeAllCollideEndListeners();
+  }
+
+  /** Private */
+  addOnCollide(map, objectA, objectB, callback, context) {
+    if (!callback || typeof callback !== "function") {
+      warn(`No valid callback specified. Received: ${callback}`);
       return;
     }
-    if (!Array.isArray(others)) others = [others];
-    others.forEach(other => {
-      if (!isPhysicsObject(other)) {
-        warnInvalidObject();
-        return;
-      }
-      this.addCollisionObjectVsObject(map, physicsObject, other, callback, context);
+    const objectsA = Array.isArray(objectsA) ? objectA : [objectA];
+    const objectsB = Array.isArray(objectsB) ? objectB : [objectB];
+    objectsA.forEach(a => {
+      if (!isPhysicsObject(a)) return warnInvalidObject();
+      objectsB.forEach(b => {
+        if (!isPhysicsObject(b)) return warnInvalidObject();
+        this.addOnCollideObjectVsObject(map, a, b, callback, context);
+      });
     });
   }
 
-  removeCollision(map, physicsObject, others, callback, context) {
-    if (!Array.isArray(others)) others = [others];
-    const callbacks = map.get(physicsObject) || [];
-    const remainingCallbacks = callbacks.filter(
-      cb => !(others.includes(cb.target) && cb.callback === callback && cb.context === context)
-    );
-    if (remainingCallbacks.length > 0) map.set(physicsObject, remainingCallbacks);
-    else map.delete(physicsObject);
+  /** Private */
+  removeOnCollide(map, objectA, objectB, callback, context) {
+    const objectsA = Array.isArray(objectsA) ? objectA : [objectA];
+    const objectsB = Array.isArray(objectsB) ? objectB : [objectB];
+    objectsA.forEach(a => {
+      const callbacks = map.get(a) || [];
+      const remainingCallbacks = callbacks.filter(
+        cb => !(objectsB.includes(cb.target) && cb.callback === callback && cb.context === context)
+      );
+      if (remainingCallbacks.length > 0) map.set(a, remainingCallbacks);
+      else map.delete(a);
+    });
   }
 
-  addCollisionObjectVsObject(map, objectA, objectB, callback, context) {
+  /** Private */
+  addOnCollideObjectVsObject(map, objectA, objectB, callback, context) {
     const callbacks = map.get(objectA) || [];
     callbacks.push({ target: objectB, callback, context });
     this.collisionStartListeners.set(objectA, callbacks);
@@ -103,59 +136,73 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
     this.systems.events.on("shutdown", this.shutdown, this);
     this.systems.events.once("destroy", this.destroy, this);
 
-    if (!this.scene.matter) {
-      console.warn("Plugin requires matter!");
-      return;
-    }
-
-    this.scene.matter.world.on("collisionstart", this.onCollisionStart);
-    this.scene.matter.world.on("collisionactive", this.onCollisionActive);
-    this.scene.matter.world.on("collisionend", this.onCollisionEnd);
+    if (!this.scene.matter) warn("Plugin requires matter!");
+    else this.subscribeMatterEvents();
   }
 
-  onCollisionEvent(trackersMap, eventName, event) {
+  // Emits collisionxxx & paircollisionxxx events, along with invoking listeners to specific body vs
+  // body collisions
+  onCollisionEvent(listenerMap, eventName, event) {
     const pairs = event.pairs;
-    pairs.map(pair => {
-      const gameObjectA = getRootBody(pair.bodyA).gameObject;
-      const gameObjectB = getRootBody(pair.bodyB).gameObject;
-      this.events.emit(eventName, pair.bodyA, gameObjectA, pair.bodyB, gameObjectB, pair);
-      if (trackersMap.size) {
-        this.checkAndEmit(trackersMap, pair.bodyA, pair.bodyB, gameObjectB, pair);
-        this.checkAndEmit(trackersMap, gameObjectA, pair.bodyB, gameObjectB, pair);
-        this.checkAndEmit(trackersMap, pair.bodyB, pair.bodyA, gameObjectA, pair);
-        this.checkAndEmit(trackersMap, gameObjectB, pair.bodyA, gameObjectA, pair);
+    const pairEventName = "pair" + eventName;
+
+    pairs.map((pair, i) => {
+      const { bodyA, bodyB } = pair;
+      const gameObjectA = getRootBody(bodyA).gameObject;
+      const gameObjectB = getRootBody(bodyB).gameObject;
+
+      pairs[i].gameObjectA = gameObjectA;
+      pairs[i].gameObjectB = gameObjectB;
+
+      if (this.events.listenerCount(pairEventName) > 0) {
+        this.events.emit(pairEventName, { bodyA, bodyB, gameObjectA, gameObjectB, pair });
+      }
+
+      if (listenerMap.size) {
+        const eventData = { bodyA, gameObjectA, bodyB, gameObjectB, pair };
+        this.checkPairAndEmit(listenerMap, bodyA, bodyB, gameObjectB, eventData);
+        this.checkPairAndEmit(listenerMap, gameObjectA, bodyB, gameObjectB, eventData);
+        this.checkPairAndEmit(listenerMap, bodyB, bodyA, gameObjectA, eventData);
+        this.checkPairAndEmit(listenerMap, gameObjectB, bodyA, gameObjectA, eventData);
       }
     });
+
+    this.events.emit(eventName, event.pairs);
   }
 
-  checkAndEmit(map, object, otherBody, otherGameObject, pair) {
-    const callbacks = map.get(object);
+  checkPairAndEmit(map, objectA, bodyB, gameObjectB, eventData) {
+    const callbacks = map.get(objectA);
     if (callbacks) {
       callbacks.forEach(({ target, callback, context }) => {
-        if (!target || target === otherBody || target === otherGameObject) {
-          callback.call(context, otherBody, otherGameObject, pair);
+        if (!target || target === bodyB || target === gameObjectB) {
+          callback.call(context, eventData);
         }
       });
     }
   }
 
-  clearAllListeners() {
-    this.collisionStartListeners.clear();
-    this.collisionEndListeners.clear();
-    this.collisionActiveListeners.clear();
+  subscribeMatterEvents() {
+    this.scene.matter.world.on("collisionstart", this.onCollisionStart);
+    this.scene.matter.world.on("collisionactive", this.onCollisionActive);
+    this.scene.matter.world.on("collisionend", this.onCollisionEnd);
+  }
+
+  unsubscribeMatterEvents() {
     this.scene.matter.world.off("collisionstart", this.onCollisionStart);
     this.scene.matter.world.off("collisionactive", this.onCollisionActive);
     this.scene.matter.world.off("collisionend", this.onCollisionEnd);
   }
 
   shutdown() {
-    this.clearAllListeners();
+    this.removeAllCollideListeners();
+    this.unsubscribeMatterEvents();
   }
 
   /** Phaser.Scene lifecycle event */
   destroy() {
     this.systems.events.off("start", this.start, this);
-    this.clearAllListeners();
+    this.removeAllCollideListeners();
+    this.unsubscribeMatterEvents();
     this.scene = undefined;
     this.systems = undefined;
   }
