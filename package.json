@@ -7,7 +7,8 @@
     "test": "",
     "build": "webpack --mode production --config config/webpack.config.js",
     "watch": "webpack --mode development  --config config/webpack.config.js --watch",
-    "dev": "npm run watch",
+    "serve": "browser-sync start --server --directory --open",
+    "dev": "npm run watch && npm run serve",
     "pull-types": "curl https://raw.githubusercontent.com/photonstorm/phaser3-docs/master/typescript/phaser.d.ts --create-dirs --location --output ./types/phaser.d.ts"
   },
   "repository": {
@@ -25,6 +26,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "browser-sync": "^2.24.6",
     "babel-core": "^6.26.3",
     "babel-jest": "^23.4.2",
     "babel-loader": "^7.1.5",
