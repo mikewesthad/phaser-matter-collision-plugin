@@ -60,26 +60,6 @@ export default class MainScene extends Phaser.Scene {
       .setExistingBody(compoundBody)
       .setPosition(400, 0);
 
-    // const cb = (otherBody, otherGameObject, pair) => {
-    //   console.log(`Angry emoji hit ${otherGameObject.getData("name")}`);
-    //   this.matterCollision.removeCollisionStart(image1, [image2, image3], cb);
-    // };
-    // this.matterCollision.addCollisionStart(image1, [image2, image3], cb);
-
-    // const extractName = (gameObject, body) => {
-    //   if (gameObject) {
-    //     if (gameObject.tile) return gameObject.tile.index;
-    //     else return gameObject.getData("name");
-    //   } else {
-    //     return body.label;
-    //   }
-    // };
-    // this.matterCollision.events.on("collisionstart", (bodyA, gameObjectA, bodyB, gameObjectB) => {
-    //   console.log(
-    //     `${extractName(gameObjectA, bodyA)} and ${extractName(gameObjectB, bodyB)} collided`
-    //   );
-    // });
-
     // All collision, with gameObjectA & gameObjectB installed on the pairs
     // this.matterCollision.events.on("collisionstart", event => {
     //   console.log(event);
@@ -95,18 +75,56 @@ export default class MainScene extends Phaser.Scene {
     // });
 
     // Called for each pair, with gameObjectA & gameObjectB in the pairData
-    this.matterCollision.events.on("paircollisionstart", pairData => {
-      console.log(pairData);
-      debugger;
+    // this.matterCollision.events.on("paircollisionstart", pairData => {
+    //   console.log(pairData);
+    //   debugger;
+    // });
+    // this.matterCollision.events.on("paircollisionactive", pairData => {
+    //   console.log(pairData);
+    //   debugger;
+    // });
+    // this.matterCollision.events.on("paircollisionend", pairData => {
+    //   console.log(pairData);
+    //   debugger;
+    // });
+
+    this.matterCollision.addOnCollideStart({
+      objectA: image1,
+      objectB: [image2, image3],
+      callback: pairData => {
+        console.log(
+          `${pairData.gameObjectA.getData("name")} emoji hit ${pairData.gameObjectB.getData(
+            "name"
+          )}`
+        );
+      }
     });
-    this.matterCollision.events.on("paircollisionactive", pairData => {
-      console.log(pairData);
-      debugger;
+
+    this.matterCollision.addOnCollideStart({
+      objectA: image2,
+      objectB: image3,
+      callback: pairData => {
+        console.log(
+          `${pairData.gameObjectA.getData("name")} emoji hit ${pairData.gameObjectB.getData(
+            "name"
+          )}`
+        );
+      }
     });
-    this.matterCollision.events.on("paircollisionend", pairData => {
-      console.log(pairData);
-      debugger;
-    });
+
+    // const extractName = (gameObject, body) => {
+    //   if (gameObject) {
+    //     if (gameObject.tile) return gameObject.tile.index;
+    //     else return gameObject.getData("name");
+    //   } else {
+    //     return body.label;
+    //   }
+    // };
+    // this.matterCollision.events.on("collisionstart", (bodyA, gameObjectA, bodyB, gameObjectB) => {
+    //   console.log(
+    //     `${extractName(gameObjectA, bodyA)} and ${extractName(gameObjectB, bodyB)} collided`
+    //   );
+    // });
 
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 

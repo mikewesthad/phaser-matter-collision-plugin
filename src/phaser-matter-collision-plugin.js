@@ -54,26 +54,26 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
   // Could also add options: { checkTiles = true, checkMatterBodies = true, checkGameObjects = true }
   // Could add Tile as a possible parameter, or TilemapLayer
   addOnCollideStart({ objectA, objectB, callback, context } = {}) {
-    this.addCollision(this.collisionStartListeners, objectA, objectB, callback, context);
+    this.addOnCollide(this.collisionStartListeners, objectA, objectB, callback, context);
     return this.removeOnCollideStart.bind(this, { objectA, objectB, callback, context });
   }
   addOnCollideEnd({ objectA, objectB, callback, context } = {}) {
-    this.addCollision(this.collisionEndListeners, objectA, objectB, callback, context);
+    this.addOnCollide(this.collisionEndListeners, objectA, objectB, callback, context);
     return this.removeOnCollideEnd.bind(this, { objectA, objectB, callback, context });
   }
   addOnCollideActive({ objectA, objectB, callback, context } = {}) {
-    this.addCollision(this.collisionActiveListeners, objectA, objectB, callback, context);
+    this.addOnCollide(this.collisionActiveListeners, objectA, objectB, callback, context);
     return this.removeOnCollideActive.bind(this, { objectA, objectB, callback, context });
   }
 
   removeOnCollideStart({ objectA, objectB, callback, context } = {}) {
-    this.removeCollision(this.collisionStartListeners, objectA, objectB, callback, context);
+    this.removeOnCollide(this.collisionStartListeners, objectA, objectB, callback, context);
   }
   removeOnCollideEnd({ objectA, objectB, callback, context } = {}) {
-    this.removeCollision(this.collisionEndListeners, objectA, objectB, callback, context);
+    this.removeOnCollide(this.collisionEndListeners, objectA, objectB, callback, context);
   }
   removeOnCollideActive({ objectA, objectB, callback, context } = {}) {
-    this.removeCollision(this.collisionActiveListeners, objectA, objectB, callback, context);
+    this.removeOnCollide(this.collisionActiveListeners, objectA, objectB, callback, context);
   }
 
   removeAllCollideStartListeners() {
@@ -97,8 +97,8 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
       warn(`No valid callback specified. Received: ${callback}`);
       return;
     }
-    const objectsA = Array.isArray(objectsA) ? objectA : [objectA];
-    const objectsB = Array.isArray(objectsB) ? objectB : [objectB];
+    const objectsA = Array.isArray(objectA) ? objectA : [objectA];
+    const objectsB = Array.isArray(objectB) ? objectB : [objectB];
     objectsA.forEach(a => {
       if (!isPhysicsObject(a)) return warnInvalidObject();
       objectsB.forEach(b => {
