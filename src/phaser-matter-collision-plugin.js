@@ -100,9 +100,7 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
     const objectsA = Array.isArray(objectA) ? objectA : [objectA];
     const objectsB = Array.isArray(objectB) ? objectB : [objectB];
     objectsA.forEach(a => {
-      if (!isPhysicsObject(a)) return warnInvalidObject();
       objectsB.forEach(b => {
-        if (!isPhysicsObject(b)) return warnInvalidObject();
         this.addOnCollideObjectVsObject(map, a, b, callback, context);
       });
     });
@@ -124,6 +122,13 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
 
   /** Private */
   addOnCollideObjectVsObject(map, objectA, objectB, callback, context) {
+    if (!isPhysicsObject(objectA)) {
+      warnInvalidObject(objectA);
+      return;
+    } else if (!isPhysicsObject(objectB)) {
+      warnInvalidObject(objectA);
+      return;
+    }
     const callbacks = map.get(objectA) || [];
     callbacks.push({ target: objectB, callback, context });
     map.set(objectA, callbacks);
