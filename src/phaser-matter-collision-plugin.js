@@ -13,7 +13,6 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
     super(scene, pluginManager);
 
     this.scene = scene;
-    this.systems = this.scene.sys;
 
     // Proxies Matter collision events with more Phaser-oriented event data:
     //  collisionstart, collisionend, collisionactive
@@ -136,10 +135,9 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
 
   /** Phaser.Scene lifecycle event */
   start() {
-    console.log("start"); // Verify this only runs once
-
-    this.systems.events.on("shutdown", this.shutdown, this);
-    this.systems.events.once("destroy", this.destroy, this);
+    // console.log("start"); // Verify this only runs once
+    this.scene.events.on("shutdown", this.shutdown, this);
+    this.scene.events.once("destroy", this.destroy, this);
     this.subscribeMatterEvents();
   }
 
@@ -190,9 +188,9 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
       logger.warn("Plugin requires matter!");
       return;
     }
-    this.scene.matter.world.on("collisionstart", this.onCollisionStart);
-    this.scene.matter.world.on("collisionactive", this.onCollisionActive);
-    this.scene.matter.world.on("collisionend", this.onCollisionEnd);
+    matter.world.on("collisionstart", this.onCollisionStart);
+    matter.world.on("collisionactive", this.onCollisionActive);
+    matter.world.on("collisionend", this.onCollisionEnd);
   }
 
   unsubscribeMatterEvents() {
@@ -212,10 +210,10 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
 
   /** Phaser.Scene lifecycle event */
   destroy() {
-    this.systems.events.off("start", this.start, this);
+    this.scene.events.off("start", this.start, this);
+    this.scene.events.off("shutdown", this.shutdown, this);
     this.removeAllCollideListeners();
     this.unsubscribeMatterEvents();
     this.scene = undefined;
-    this.systems = undefined;
   }
 }
