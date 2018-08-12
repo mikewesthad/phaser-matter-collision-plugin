@@ -126,7 +126,7 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
   addOnCollideObjectVsObject(map, objectA, objectB, callback, context) {
     const callbacks = map.get(objectA) || [];
     callbacks.push({ target: objectB, callback, context });
-    this.collisionStartListeners.set(objectA, callbacks);
+    map.set(objectA, callbacks);
   }
 
   /** Phaser.Scene lifecycle event */
