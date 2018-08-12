@@ -3,6 +3,7 @@ types
 node_modules
 cypress/screenshots
 cypress/videos
+tests/*/build
 
 # Ignore files used for publishing to gh-pages
 .publish
