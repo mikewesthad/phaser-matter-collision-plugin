@@ -167,7 +167,7 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
       }
     });
 
-    this.events.emit(eventName, event.pairs);
+    this.events.emit(eventName, event);
   }
 
   checkPairAndEmit(map, objectA, bodyB, gameObjectB, eventData) {
