@@ -4,11 +4,15 @@
   "description": "A plugin for making it easier to manage collisions with Phaser + Matter.js",
   "main": "dist/phaser-matter-collision-plugin.js",
   "scripts": {
-    "test": "",
-    "build": "webpack --mode production --config config/webpack.config.js",
-    "watch": "webpack --mode development  --config config/webpack.config.js --watch",
-    "serve": "browser-sync start --server --directory --open",
-    "dev": "concurrently \"npm run watch\" \"npm run serve\"",
+    "build:library": "webpack --mode production --config config/webpack.config.js",
+    "build:tests": "webpack --mode development --config config/webpack.test.config.js",
+    "watch:library": "webpack --mode development --config config/webpack.config.js --watch",
+    "watch:tests": "webpack --mode development --config config/webpack.test.config.js --watch",
+    "serve": "browser-sync start --server \".\" --directory --watch --startPath \"/tests\"",
+    "dev": "concurrently \"npm run watch:tests\" \"npm run watch:library\" \"npm run serve\"",
+    "dev:cypress": "concurrently \"npm run watch:tests\" \"npm run watch:library\" \"cypress open\"",
+    "pretest": "npm run build:tests",
+    "test": "cypress run",
     "pull-types": "curl https://raw.githubusercontent.com/photonstorm/phaser3-docs/master/typescript/phaser.d.ts --create-dirs --location --output ./types/phaser.d.ts"
   },
   "repository": {
