@@ -135,9 +135,7 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
 
     this.systems.events.on("shutdown", this.shutdown, this);
     this.systems.events.once("destroy", this.destroy, this);
-
-    if (!this.scene.matter) warn("Plugin requires matter!");
-    else this.subscribeMatterEvents();
+    this.subscribeMatterEvents();
   }
 
   // Emits collisionxxx & paircollisionxxx events, along with invoking listeners to specific body vs
@@ -182,15 +180,24 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   subscribeMatterEvents() {
+    const matter = this.scene.matter;
+    if (!matter || !matter.world) {
+      warn("Plugin requires matter!");
+      return;
+    }
     this.scene.matter.world.on("collisionstart", this.onCollisionStart);
     this.scene.matter.world.on("collisionactive", this.onCollisionActive);
     this.scene.matter.world.on("collisionend", this.onCollisionEnd);
   }
 
   unsubscribeMatterEvents() {
-    this.scene.matter.world.off("collisionstart", this.onCollisionStart);
-    this.scene.matter.world.off("collisionactive", this.onCollisionActive);
-    this.scene.matter.world.off("collisionend", this.onCollisionEnd);
+    // Don't unsub if matter next existing or if the game is destroyed (since the matter world will
+    // be already gone)
+    const matter = this.scene.matter;
+    if (!matter || !matter.world) return;
+    matter.world.off("collisionstart", this.onCollisionStart);
+    matter.world.off("collisionactive", this.onCollisionActive);
+    matter.world.off("collisionend", this.onCollisionEnd);
   }
 
   shutdown() {
