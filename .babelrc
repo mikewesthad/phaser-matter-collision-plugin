@@ -12,17 +12,7 @@
   ],
   "env": {
     "test": {
-      "presets": [
-        [
-          "env",
-          {
-            "targets": {
-              "browsers": ["last 2 versions"]
-            },
-            "modules": "commonjs"
-          }
-        ]
-      ]
+      "presets": [["env"]]
     }
   }
 }
