@@ -1,10 +1,10 @@
 import Phaser from "phaser";
 import { getRootBody, isMatterBody } from "./matter-utils";
+import logger from "./logger";
 
 const isPhysicsObject = obj => isMatterBody(obj) || obj.body;
-const warn = console.warn;
 const warnInvalidObject = obj =>
-  warn(
+  logger.warn(
     `Expected a matter body or a GameObject with a body property, but instead, recieved: ${obj}`
   );
 
@@ -187,7 +187,7 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
   subscribeMatterEvents() {
     const matter = this.scene.matter;
     if (!matter || !matter.world) {
-      warn("Plugin requires matter!");
+      logger.warn("Plugin requires matter!");
       return;
     }
     this.scene.matter.world.on("collisionstart", this.onCollisionStart);
