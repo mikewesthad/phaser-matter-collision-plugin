@@ -165,4 +165,21 @@ describe("scene started with matter", () => {
     expect(activeCallback.mock.calls.length).toBe(0);
     expect(startCallback.mock.calls.length).toBe(0);
   });
+
+  test("removeOnCollideStart should only remove callbacks that match given arguments", () => {
+    const objectA = createBody();
+    const objectB = createBody();
+    const objectC = createBody();
+    const abCallback = jest.fn();
+    const acCallback = jest.fn();
+    const abPair = createPair(objectA, objectB);
+    const acPair = createPair(objectA, objectC);
+    plugin.addOnCollideStart({ objectA, objectB, callback: abCallback });
+    plugin.addOnCollideStart({ objectA, objectB: objectC, callback: acCallback });
+    plugin.removeOnCollideStart({ objectA, objectB: objectC, callback: acCallback });
+    emitMatterCollisionEvent(scene, "collisionstart", [abPair]);
+    emitMatterCollisionEvent(scene, "collisionstart", [acPair]);
+    expect(abCallback.mock.calls.length).toBe(1);
+    expect(acCallback.mock.calls.length).toBe(0);
+  });
 });
