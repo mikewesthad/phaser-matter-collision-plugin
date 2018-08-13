@@ -147,4 +147,22 @@ describe("scene started with matter", () => {
     emitMatterCollisionEvent(scene, "collisionstart", [pair1, pair2]);
     expect(callback.mock.calls.length).toBe(1);
   });
+
+  test("addOnCollideXXX's return value should remove callback", () => {
+    const objectA = createBody();
+    const objectB = createBody();
+    const startCallback = jest.fn();
+    const activeCallback = jest.fn();
+    const endCallback = jest.fn();
+    const pair = createPair(objectA, objectB);
+    plugin.addOnCollideEnd({ objectA, objectB, callback: endCallback })();
+    plugin.addOnCollideActive({ objectA, objectB, callback: activeCallback })();
+    plugin.addOnCollideStart({ objectA, objectB, callback: startCallback })();
+    emitMatterCollisionEvent(scene, "collisionstart", [pair]);
+    emitMatterCollisionEvent(scene, "collisionactive", [pair]);
+    emitMatterCollisionEvent(scene, "collisionend", [pair]);
+    expect(endCallback.mock.calls.length).toBe(0);
+    expect(activeCallback.mock.calls.length).toBe(0);
+    expect(startCallback.mock.calls.length).toBe(0);
+  });
 });
