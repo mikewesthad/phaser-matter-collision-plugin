@@ -1,42 +1,18 @@
 import Plugin from "./phaser-matter-collision-plugin";
 import EventEmitter from "eventemitter3";
+import Scene from "./mocks/scene";
+import { emitMatterCollisionEvent, createBody, createPair } from "./mocks/matter";
 
 jest.mock("./logger.js");
-
 import logger from "./logger";
-
-// Mocks
-const createScene = ({ addMatter = true }) => {
-  const mockScene = { events: new EventEmitter() };
-  if (addMatter) {
-    mockScene.matter = { world: new EventEmitter() };
-  }
-  return mockScene;
-};
-const createPluginManager = () => ({});
-const emitMatterCollisionEvent = (scene, eventName, pairs) => {
-  scene.matter.world.emit(eventName, { pairs });
-};
-const createMatterBody = (options = {}) => {
-  // Necessary for faking body detection: collisionFilter, slop, parts
-  if (!options.collisionFilter) options.collisionFilter = 0;
-  if (!options.slop) options.slop = 0.05;
-  const body = { ...options };
-  body.parts = [body];
-  body.parent = body;
-  return body;
-};
-const createPair = (bodyA, bodyB) => ({ bodyA, bodyB });
 
 describe("scene started without matter", () => {
   let scene;
-  let manager;
   let plugin;
 
   beforeEach(() => {
-    scene = createScene({ addMatter: false });
-    manager = createPluginManager();
-    plugin = new Plugin(scene, manager);
+    scene = new Scene({ addMatter: false });
+    plugin = new Plugin(scene, {});
     scene.events.emit("start");
   });
 
@@ -48,13 +24,11 @@ describe("scene started without matter", () => {
 
 describe("scene started with matter", () => {
   let scene;
-  let manager;
   let plugin;
 
   beforeEach(() => {
-    scene = createScene({ addMatter: true });
-    manager = createPluginManager();
-    plugin = new Plugin(scene, manager);
+    scene = new Scene({ addMatter: true });
+    plugin = new Plugin(scene, {});
     scene.events.emit("start");
   });
 
@@ -84,8 +58,8 @@ describe("scene started with matter", () => {
   });
 
   test("addOnCollideStart between two colliding matter bodies should invoke the callback with the correct event data", () => {
-    const objectA = createMatterBody();
-    const objectB = createMatterBody();
+    const objectA = createBody();
+    const objectB = createBody();
     const callback = jest.fn();
     const context = "test-context";
     const pair = createPair(objectA, objectB);
@@ -102,8 +76,8 @@ describe("scene started with matter", () => {
   });
 
   test("addOnCollideActive between two colliding matter bodies should invoke the callback", () => {
-    const objectA = createMatterBody();
-    const objectB = createMatterBody();
+    const objectA = createBody();
+    const objectB = createBody();
     const callback = jest.fn();
     const context = "test-context";
     const pair = createPair(objectA, objectB);
@@ -113,8 +87,8 @@ describe("scene started with matter", () => {
   });
 
   test("addOnCollideEnd between two colliding matter bodies should invoke the callback", () => {
-    const objectA = createMatterBody();
-    const objectB = createMatterBody();
+    const objectA = createBody();
+    const objectB = createBody();
     const callback = jest.fn();
     const context = "test-context";
     const pair = createPair(objectA, objectB);
@@ -124,8 +98,8 @@ describe("scene started with matter", () => {
   });
 
   test("addOnCollideXXX should only be invoked for the corresponding matter collision event", () => {
-    const objectA = createMatterBody();
-    const objectB = createMatterBody();
+    const objectA = createBody();
+    const objectB = createBody();
     const startCallback = jest.fn();
     const activeCallback = jest.fn();
     const endCallback = jest.fn();
@@ -145,8 +119,8 @@ describe("scene started with matter", () => {
   });
 
   test("addOnCollideXXX should no longer fire callback after removeOnCollideXXX", () => {
-    const objectA = createMatterBody();
-    const objectB = createMatterBody();
+    const objectA = createBody();
+    const objectB = createBody();
     const startCallback = jest.fn();
     const activeCallback = jest.fn();
     const endCallback = jest.fn();
@@ -166,8 +140,8 @@ describe("scene started with matter", () => {
   });
 
   test("removeAllCollideListeners should remove all callbacks", () => {
-    const objectA = createMatterBody();
-    const objectB = createMatterBody();
+    const objectA = createBody();
+    const objectB = createBody();
     const startCallback = jest.fn();
     const activeCallback = jest.fn();
     const endCallback = jest.fn();
@@ -185,9 +159,9 @@ describe("scene started with matter", () => {
   });
 
   test("addOnCollideStart without objectB should listen for all objectA collisions", () => {
-    const objectA = createMatterBody();
-    const objectB = createMatterBody();
-    const objectC = createMatterBody();
+    const objectA = createBody();
+    const objectB = createBody();
+    const objectC = createBody();
     const callback = jest.fn();
     const pair1 = createPair(objectA, objectB);
     const pair2 = createPair(objectA, objectC);
@@ -197,8 +171,8 @@ describe("scene started with matter", () => {
   });
 
   test("addOnCollideStart should listen for objectA regardless of pair ordering", () => {
-    const objectA = createMatterBody();
-    const objectB = createMatterBody();
+    const objectA = createBody();
+    const objectB = createBody();
     const callback = jest.fn();
     const pair1 = createPair(objectA, objectB);
     const pair2 = createPair(objectB, objectA);
@@ -208,9 +182,9 @@ describe("scene started with matter", () => {
   });
 
   test("addOnCollideStart without objectB should ONLY listen for all objectA collisions", () => {
-    const objectA = createMatterBody();
-    const objectB = createMatterBody();
-    const objectC = createMatterBody();
+    const objectA = createBody();
+    const objectB = createBody();
+    const objectC = createBody();
     const callback = jest.fn();
     const pair1 = createPair(objectA, objectB);
     const pair2 = createPair(objectB, objectC);
