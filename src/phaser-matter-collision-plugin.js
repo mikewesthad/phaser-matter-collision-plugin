@@ -121,13 +121,18 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
 
   /** Private */
   addOnCollideObjectVsObject(map, objectA, objectB, callback, context) {
-    if (!isPhysicsObject(objectA)) {
-      warnInvalidObject(objectA);
-      return;
-    } else if (!isPhysicsObject(objectB)) {
+    // Can't do anything if the first object is not defined or invalid
+    if (!objectA || !isPhysicsObject(objectA)) {
       warnInvalidObject(objectA);
       return;
     }
+
+    // The second object can be undefined or a valid body
+    if (objectB && !isPhysicsObject(objectB)) {
+      warnInvalidObject(objectA);
+      return;
+    }
+
     const callbacks = map.get(objectA) || [];
     callbacks.push({ target: objectB, callback, context });
     map.set(objectA, callbacks);
