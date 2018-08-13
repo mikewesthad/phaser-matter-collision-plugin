@@ -2,7 +2,8 @@ import Phaser from "phaser";
 import { getRootBody, isMatterBody } from "./matter-utils";
 import logger from "./logger";
 
-const isPhysicsObject = obj => isMatterBody(obj) || obj.body;
+const Tile = Phaser.Tilemaps.Tile;
+const isPhysicsObject = obj => isMatterBody(obj) || obj.body || obj instanceof Tile;
 const warnInvalidObject = obj =>
   logger.warn(
     `Expected a matter body or a GameObject with a body property, but instead, recieved: ${obj}`
@@ -48,8 +49,8 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
     this.scene.events.once("start", this.start, this);
   }
 
-  // physicsObject = Matter.Body|Sprite|Image|GO with body
-  // other = Matter.Body|Sprite|Image|GO with body or array containing any of those
+  // physicsObject = Matter.Body|Tile|Sprite|Image|GO with body
+  // other = Matter.Body|Tile|Sprite|Image|GO with body or array containing any of those
   // Could also add options: { checkTiles = true, checkMatterBodies = true, checkGameObjects = true }
   // Could add Tile as a possible parameter, or TilemapLayer
   addOnCollideStart({ objectA, objectB, callback, context } = {}) {
@@ -154,8 +155,14 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
 
     pairs.map((pair, i) => {
       const { bodyA, bodyB } = pair;
-      const gameObjectA = getRootBody(bodyA).gameObject;
-      const gameObjectB = getRootBody(bodyB).gameObject;
+
+      let gameObjectA = getRootBody(bodyA).gameObject;
+      let gameObjectB = getRootBody(bodyB).gameObject;
+
+      // Special case for tiles, where it's more useful to have a reference to the Tile object not
+      // the TileBody. This is hot code, so use a property check instead of instanceof.
+      if (gameObjectA && gameObjectA.tile) gameObjectA = gameObjectA.tile;
+      if (gameObjectB && gameObjectB.tile) gameObjectB = gameObjectB.tile;
 
       pairs[i].gameObjectA = gameObjectA;
       pairs[i].gameObjectB = gameObjectB;
