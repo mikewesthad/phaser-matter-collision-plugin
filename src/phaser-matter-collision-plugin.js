@@ -1,26 +1,42 @@
+/**
+ * A valid physics-enabled game object or a native Matter body
+ * @typedef {object} ObjectWithBody
+ * @property {Matter.Body} body - A native Matter body
+ */
+
+/**
+ * A valid physics-enabled game object or a native Matter body
+ * @typedef {(Phaser.Physics.Matter.Sprite|Phaser.Physics.Matter.Image|Phaser.Physics.Matter.MatterGameObject|Phaser.Tilemaps.Tile)} PhysicsObject
+ */
+
 import Phaser from "phaser";
 import { getRootBody, isMatterBody } from "./matter-utils";
 import logger from "./logger";
 
 const Tile = Phaser.Tilemaps.Tile;
 const isPhysicsObject = obj => isMatterBody(obj) || obj.body || obj instanceof Tile;
+
 const warnInvalidObject = obj =>
   logger.warn(
     `Expected a matter body or a GameObject with a body property, but instead, recieved: ${obj}`
   );
 
+/**
+ * @export
+ * @class MatterCollisionPlugin
+ * @extends {Phaser.Plugins.ScenePlugin}
+ */
 export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
+  /**
+   * Creates an instance of MatterCollisionPlugin.
+   * @param {Phaser.Scene} scene
+   * @param {Phaser.Plugins.PluginManager} pluginManager
+   * @memberof MatterCollisionPlugin
+   */
   constructor(scene, pluginManager) {
     super(scene, pluginManager);
 
     this.scene = scene;
-
-    // Proxies Matter collision events with more Phaser-oriented event data:
-    //  collisionstart, collisionend, collisionactive
-    //    event data is the normal matter.js event object with a pairs property, except that the
-    //    each pair will have a gameObjectA and gameObjectB property
-    //  paircollisionstart, paircollisionend, paircollisionactive
-    //    event data: {bodyA, bodyB, gameObjectA, gameObjectB, pair}
     this.events = new Phaser.Events.EventEmitter();
 
     // Map from physics object => {target?, callback, context?}
@@ -28,18 +44,30 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
     this.collisionEndListeners = new Map();
     this.collisionActiveListeners = new Map();
 
-    // Create bound versions of the generice onCollisionEvent handler so it can be reused for the
-    // three Matter collision events
+    /**
+     * @fires CollisionStart
+     * @fires PairCollisionStart
+     */
     this.onCollisionStart = this.onCollisionEvent.bind(
       this,
       this.collisionStartListeners,
       "collisionstart"
     );
+
+    /**
+     * @fires CollisionEnd
+     * @fires PairCollisionEnd
+     */
     this.onCollisionEnd = this.onCollisionEvent.bind(
       this,
       this.collisionEndListeners,
       "collisionend"
     );
+
+    /**
+     * @fires CollisionActive
+     * @fires PairCollisionActive
+     */
     this.onCollisionActive = this.onCollisionEvent.bind(
       this,
       this.collisionActiveListeners,
@@ -49,49 +77,115 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
     this.scene.events.once("start", this.start, this);
   }
 
-  // physicsObject = Matter.Body|Tile|Sprite|Image|GO with body
-  // other = Matter.Body|Tile|Sprite|Image|GO with body or array containing any of those
-  // Could also add options: { checkTiles = true, checkMatterBodies = true, checkGameObjects = true }
-  // Could add Tile as a possible parameter, or TilemapLayer
+  /**
+   * Add a listener for collidestart events between objectA and objectB. The collidestart event is
+   * fired by Matter when two bodies start colliding within a tick of the engine. If objectB is
+   * omitted, any collisions with objectA will be passed along to the listener. @see
+   * {@link PairCollisionStart} for information on callback parameters.
+   *
+   * @param {object} options
+   * @param {PhysicsObject|ObjectWithBody} options.objectA - The first object to watch for in
+   * colliding pairs.
+   * @param {PhysicsObject|ObjectWithBody} [options.objectB] - Optional, the second object to watch
+   * for in colliding pairs. If not defined, all collisions with objectA will trigger the callback
+   * @param {function} options.callback - The function to be invoked on collision
+   * @param {any} [options.context] - The context to apply when invoking the callback.
+   * @returns {function} A function that can be invoked to unsubscribe the listener that was just
+   * added.
+   * @memberof MatterCollisionPlugin
+   */
   addOnCollideStart({ objectA, objectB, callback, context } = {}) {
     this.addOnCollide(this.collisionStartListeners, objectA, objectB, callback, context);
     return this.removeOnCollideStart.bind(this, { objectA, objectB, callback, context });
   }
+
+  /**
+   * @see MatterCollisionPlugin#addOnCollideStart
+   * @memberof MatterCollisionPlugin
+   */
   addOnCollideEnd({ objectA, objectB, callback, context } = {}) {
     this.addOnCollide(this.collisionEndListeners, objectA, objectB, callback, context);
     return this.removeOnCollideEnd.bind(this, { objectA, objectB, callback, context });
   }
+
+  /**
+   * @see MatterCollisionPlugin#addOnCollideStart
+   * @memberof MatterCollisionPlugin
+   */
   addOnCollideActive({ objectA, objectB, callback, context } = {}) {
     this.addOnCollide(this.collisionActiveListeners, objectA, objectB, callback, context);
     return this.removeOnCollideActive.bind(this, { objectA, objectB, callback, context });
   }
 
+  /**
+   * Remove any listeners that were added with addOnCollideStart that match the given options object
+   * parameter exactly. I.e. this will only remove the listener if the listener was added via
+   * addOnCollideStart with the same parameters.
+   *
+   * @param {object} options
+   * @param {PhysicsObject|ObjectWithBody} options.objectA - The first object to watch for in
+   * colliding pairs.
+   * @param {PhysicsObject|ObjectWithBody} options.objectB - the second object to watch for in
+   * colliding pairs. If not defined, all collisions with objectA will trigger the callback
+   * @param {function} options.callback - The function to be invoked on collision
+   * @param {[any]} options.context - The context to apply when invoking the callback.
+   * @returns {function} A function that can be invoked to unsubscribe the listener that was just
+   * added.
+   * @memberof MatterCollisionPlugin
+   */
   removeOnCollideStart({ objectA, objectB, callback, context } = {}) {
     this.removeOnCollide(this.collisionStartListeners, objectA, objectB, callback, context);
   }
+
+  /**
+   * @see MatterCollisionPlugin#removeOnCollideStart
+   * @memberof MatterCollisionPlugin
+   */
   removeOnCollideEnd({ objectA, objectB, callback, context } = {}) {
     this.removeOnCollide(this.collisionEndListeners, objectA, objectB, callback, context);
   }
+
+  /**
+   * @see MatterCollisionPlugin#removeOnCollideStart
+   * @memberof MatterCollisionPlugin
+   */
   removeOnCollideActive({ objectA, objectB, callback, context } = {}) {
     this.removeOnCollide(this.collisionActiveListeners, objectA, objectB, callback, context);
   }
 
+  /**
+   * Remove any listeners that were added with addOnCollideStart.
+   * @memberof MatterCollisionPlugin
+   */
   removeAllCollideStartListeners() {
     this.collisionStartListeners.clear();
   }
+  /**
+   * Remove any listeners that were added with addOnCollideActive.
+   * @memberof MatterCollisionPlugin
+   */
   removeAllCollideActiveListeners() {
     this.collisionActiveListeners.clear();
   }
+  /**
+   * Remove any listeners that were added with addOnCollideEnd.
+   * @memberof MatterCollisionPlugin
+   */
   removeAllCollideEndListeners() {
     this.collisionEndListeners.clear();
   }
+  /**
+   * Remove any listeners that were added with addOnCollideStart, addOnCollideActive or
+   * addOnCollideEnd.
+   * @memberof MatterCollisionPlugin
+   */
   removeAllCollideListeners() {
     this.removeAllCollideStartListeners();
     this.removeAllCollideActiveListeners();
     this.removeAllCollideEndListeners();
   }
 
-  /** Private */
+  /** @private */
   addOnCollide(map, objectA, objectB, callback, context) {
     if (!callback || typeof callback !== "function") {
       warn(`No valid callback specified. Received: ${callback}`);
@@ -106,7 +200,7 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
     });
   }
 
-  /** Private */
+  /** @private */
   removeOnCollide(map, objectA, objectB, callback, context) {
     const objectsA = Array.isArray(objectsA) ? objectA : [objectA];
     const objectsB = Array.isArray(objectsB) ? objectB : [objectB];
@@ -120,7 +214,7 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
     });
   }
 
-  /** Private */
+  /** @private */
   addOnCollideObjectVsObject(map, objectA, objectB, callback, context) {
     // Can't do anything if the first object is not defined or invalid
     if (!objectA || !isPhysicsObject(objectA)) {
@@ -139,16 +233,10 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
     map.set(objectA, callbacks);
   }
 
-  /** Phaser.Scene lifecycle event */
-  start() {
-    // console.log("start"); // Verify this only runs once
-    this.scene.events.on("shutdown", this.shutdown, this);
-    this.scene.events.once("destroy", this.destroy, this);
-    this.subscribeMatterEvents();
-  }
-
-  // Emits collisionxxx & paircollisionxxx events, along with invoking listeners to specific body vs
-  // body collisions
+  /**
+   * Reusable handler for collisionstart, collisionend, collisionactive.
+   * @private
+   * */
   onCollisionEvent(listenerMap, eventName, event) {
     const pairs = event.pairs;
     const pairEventName = "pair" + eventName;
@@ -173,6 +261,7 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
 
       if (listenerMap.size) {
         const eventData = { bodyA, gameObjectA, bodyB, gameObjectB, pair };
+
         this.checkPairAndEmit(listenerMap, bodyA, bodyB, gameObjectB, eventData);
         this.checkPairAndEmit(listenerMap, gameObjectA, bodyB, gameObjectB, eventData);
         this.checkPairAndEmit(listenerMap, bodyB, bodyA, gameObjectA, eventData);
@@ -183,6 +272,7 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
     this.events.emit(eventName, event);
   }
 
+  /** @private */
   checkPairAndEmit(map, objectA, bodyB, gameObjectB, eventData) {
     const callbacks = map.get(objectA);
     if (callbacks) {
@@ -215,12 +305,18 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
     matter.world.off("collisionend", this.onCollisionEnd);
   }
 
+  start() {
+    // console.log("start"); // Verify this only runs once
+    this.scene.events.on("shutdown", this.shutdown, this);
+    this.scene.events.once("destroy", this.destroy, this);
+    this.subscribeMatterEvents();
+  }
+
   shutdown() {
     this.removeAllCollideListeners();
     this.unsubscribeMatterEvents();
   }
 
-  /** Phaser.Scene lifecycle event */
   destroy() {
     this.scene.events.off("start", this.start, this);
     this.scene.events.off("shutdown", this.shutdown, this);
@@ -229,3 +325,69 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
     this.scene = undefined;
   }
 }
+
+/**
+ * This event proxies the Matter collisionstart event, which is fired when any bodies have started
+ * colliding.
+ *
+ * @event CollisionStart
+ * @param {object} event - The Matter event data, with the "pairs" property modified so that each
+ * pair now has a gameObjectA and a gameObjectB property. Those properties will contain the game
+ * object associated with the native bodyA or bodyB (or undefined if no game object exists).
+ */
+
+/**
+ * This event proxies the Matter collisionend event, which is fired when any bodies have stopped
+ * colliding.
+ *
+ * @event CollisionEnd
+ * @param {object} event - The Matter event data, with the "pairs" property modified so that each
+ * pair now has a gameObjectA and a gameObjectB property. Those properties will contain the game
+ * object associated with the native bodyA or bodyB (or undefined if no game object exists).
+ */
+
+/**
+ * This event proxies the Matter collisionactive event, which is fired when any bodies are still
+ * colliding (after the tick of the engine where they started colliding).
+ *
+ * @event CollisionActive
+ * @param {object} event - The Matter event data, with the "pairs" property modified so that each
+ * pair now has a gameObjectA and a gameObjectB property. Those properties will contain the game
+ * object associated with the native bodyA or bodyB (or undefined if no game object exists).
+ */
+
+/**
+ * This event is fired for each pair of bodies that collide during Matter's collisionstart.
+ *
+ * @event PairCollisionStart
+ * @param {object} event
+ * @param {object} event.bodyA - The native Matter bodyA from the pair
+ * @param {object} event.bodyB - The native Matter bodyB from the pair
+ * @param {object|undefined} event.gameObjectA - The game object associated with bodyA, if it exists
+ * @param {object|undefined} event.gameObjectB - The game object associated with bodyB, if it exists
+ * @param {object} event.pair - The original pair data from Matter
+ */
+
+/**
+ * This event is fired for each pair of bodies that collide during Matter's collisionend.
+ *
+ * @event PairCollisionEnd
+ * @param {object} event
+ * @param {object} event.bodyA - The native Matter bodyA from the pair
+ * @param {object} event.bodyB - The native Matter bodyB from the pair
+ * @param {object|undefined} event.gameObjectA - The game object associated with bodyA, if it exists
+ * @param {object|undefined} event.gameObjectB - The game object associated with bodyB, if it exists
+ * @param {object} event.pair - The original pair data from Matter
+ */
+
+/**
+ * This event is fired for each pair of bodies that collide during Matter's collisionactive.
+ *
+ * @event PairCollisionActive
+ * @param {object} event
+ * @param {object} event.bodyA - The native Matter bodyA from the pair
+ * @param {object} event.bodyB - The native Matter bodyB from the pair
+ * @param {object|undefined} event.gameObjectA - The game object associated with bodyA, if it exists
+ * @param {object|undefined} event.gameObjectB - The game object associated with bodyB, if it exists
+ * @param {object} event.pair - The original pair data from Matter
+ */
