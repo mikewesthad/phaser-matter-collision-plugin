@@ -182,4 +182,52 @@ describe("scene started with matter", () => {
     expect(abCallback.mock.calls.length).toBe(1);
     expect(acCallback.mock.calls.length).toBe(0);
   });
+
+  test("addOnCollideStart with objectA vs array should listen for any collisions between objectA and array elements", () => {
+    const objectA = createBody();
+    const objectB = createBody();
+    const objectC = createBody();
+    const objectD = createBody();
+    const callback = jest.fn();
+    const abPair = createPair(objectA, objectB);
+    const acPair = createPair(objectA, objectC);
+    const adPair = createPair(objectA, objectD);
+    plugin.addOnCollideStart({ objectA, objectB: [objectB, objectC, objectD], callback });
+    emitMatterCollisionEvent(scene, "collisionstart", [abPair, acPair, adPair]);
+    expect(callback.mock.calls.length).toBe(3);
+  });
+
+  test("addOnCollideStart with array vs objectB should listen for any collisions between array elements and objectB", () => {
+    const objectA = createBody();
+    const objectB = createBody();
+    const objectC = createBody();
+    const objectD = createBody();
+    const callback = jest.fn();
+    const abPair = createPair(objectA, objectB);
+    const acPair = createPair(objectA, objectC);
+    const adPair = createPair(objectA, objectD);
+    plugin.addOnCollideStart({ objectA: [objectB, objectC, objectD], objectB: objectA, callback });
+    emitMatterCollisionEvent(scene, "collisionstart", [abPair, acPair, adPair]);
+    expect(callback.mock.calls.length).toBe(3);
+  });
+
+  test("addOnCollideStart with array vs array should listen for any collisions between array elements", () => {
+    const objectA = createBody();
+    const objectB = createBody();
+    const objectC = createBody();
+    const objectD = createBody();
+    const callback = jest.fn();
+    const acPair = createPair(objectA, objectC);
+    const dbPair = createPair(objectD, objectB);
+    const abPair = createPair(objectA, objectB);
+    plugin.addOnCollideStart({
+      objectA: [objectA, objectB],
+      objectB: [objectC, objectD],
+      callback
+    });
+    emitMatterCollisionEvent(scene, "collisionstart", [acPair, dbPair]);
+    expect(callback.mock.calls.length).toBe(2);
+    emitMatterCollisionEvent(scene, "collisionstart", [abPair]); // Should not trigger
+    expect(callback.mock.calls.length).toBe(2);
+  });
 });
