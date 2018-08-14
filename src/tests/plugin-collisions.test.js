@@ -136,6 +136,17 @@ describe("scene started with matter", () => {
     expect(callback.mock.calls.length).toBe(2);
   });
 
+  test("addOnCollideStart should respect order of objectA and objectB parameters when pair order is reversed in Matter", () => {
+    const objectA = createBody();
+    const objectB = createBody();
+    const callback = jest.fn();
+    plugin.addOnCollideStart({ objectA, callback });
+    emitMatterCollisionEvent(scene, "collisionstart", [createPair(objectB, objectA)]);
+    const callbackData = callback.mock.calls[0][0];
+    expect(callbackData.bodyA).toBe(objectA);
+    expect(callbackData.bodyB).toBe(objectB);
+  });
+
   test("addOnCollideStart without objectB should ONLY listen for all objectA collisions", () => {
     const objectA = createBody();
     const objectB = createBody();
