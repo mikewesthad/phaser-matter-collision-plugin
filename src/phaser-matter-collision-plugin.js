@@ -240,6 +240,8 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
   onCollisionEvent(listenerMap, eventName, event) {
     const pairs = event.pairs;
     const pairEventName = "pair" + eventName;
+    const eventData = {};
+    const eventDataReversed = { isReversed: true };
 
     pairs.map((pair, i) => {
       const { bodyA, bodyB } = pair;
@@ -255,17 +257,30 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
       pairs[i].gameObjectA = gameObjectA;
       pairs[i].gameObjectB = gameObjectB;
 
-      if (this.events.listenerCount(pairEventName) > 0) {
-        this.events.emit(pairEventName, { bodyA, bodyB, gameObjectA, gameObjectB, pair });
-      }
+      eventData.bodyA = bodyA;
+      eventData.bodyB = bodyB;
+      eventData.gameObjectA = gameObjectA;
+      eventData.gameObjectB = gameObjectB;
+      eventData.pair = pair;
+
+      this.events.emit(pairEventName, eventData);
 
       if (listenerMap.size) {
-        const eventData = { bodyA, gameObjectA, bodyB, gameObjectB, pair };
+        eventDataReversed.bodyB = bodyA;
+        eventDataReversed.bodyA = bodyB;
+        eventDataReversed.gameObjectB = gameObjectA;
+        eventDataReversed.gameObjectA = gameObjectB;
+        eventDataReversed.pair = pair;
 
         this.checkPairAndEmit(listenerMap, bodyA, bodyB, gameObjectB, eventData);
-        this.checkPairAndEmit(listenerMap, gameObjectA, bodyB, gameObjectB, eventData);
-        this.checkPairAndEmit(listenerMap, bodyB, bodyA, gameObjectA, eventData);
-        this.checkPairAndEmit(listenerMap, gameObjectB, bodyA, gameObjectA, eventData);
+        this.checkPairAndEmit(listenerMap, bodyB, bodyA, gameObjectA, eventDataReversed);
+
+        if (gameObjectA) {
+          this.checkPairAndEmit(listenerMap, gameObjectA, bodyB, gameObjectB, eventData);
+        }
+        if (gameObjectB) {
+          this.checkPairAndEmit(listenerMap, gameObjectB, bodyA, gameObjectA, eventDataReversed);
+        }
       }
     });
 
