@@ -1,25 +1,8 @@
-/**
- * A valid physics-enabled game object or a native Matter body
- * @typedef {object} ObjectWithBody
- * @property {Matter.Body} body - A native Matter body
- */
-
-/**
- * A valid physics-enabled game object or a native Matter body
- * @typedef {(Phaser.Physics.Matter.Sprite|Phaser.Physics.Matter.Image|Phaser.Physics.Matter.MatterGameObject|Phaser.Tilemaps.Tile)} PhysicsObject
- */
 
 import Phaser from "phaser";
-import { getRootBody, isMatterBody } from "./matter-utils";
+import { getRootBody, isPhysicsObject, warnInvalidObject } from "./utils";
 import logger from "./logger";
-
-const Tile = Phaser.Tilemaps.Tile;
-const isPhysicsObject = obj => isMatterBody(obj) || obj.body || obj instanceof Tile;
-
-const warnInvalidObject = obj =>
-  logger.warn(
-    `Expected a matter body or a GameObject with a body property, but instead, recieved: ${obj}`
-  );
+import CollidePairListener from "./collide-pair-listener";
 
 /**
  * @export
@@ -39,7 +22,7 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
     this.scene = scene;
     this.events = new Phaser.Events.EventEmitter();
 
-    // Map from physics object => {target?, callback, context?}
+    // Maps from objectA => {target?, callback, context?}
     this.collisionStartListeners = new Map();
     this.collisionEndListeners = new Map();
     this.collisionActiveListeners = new Map();
@@ -340,6 +323,17 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
     this.scene = undefined;
   }
 }
+
+/**
+ * A valid physics-enabled game object or a native Matter body
+ * @typedef {object} ObjectWithBody
+ * @property {Matter.Body} body - A native Matter body
+ */
+
+/**
+ * A valid physics-enabled game object or a native Matter body
+ * @typedef {(Phaser.Physics.Matter.Sprite|Phaser.Physics.Matter.Image|Phaser.Physics.Matter.MatterGameObject|Phaser.Tilemaps.Tile)} PhysicsObject
+ */
 
 /**
  * This event proxies the Matter collisionstart event, which is fired when any bodies have started
