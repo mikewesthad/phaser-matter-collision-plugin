@@ -1,0 +1,2052 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "src/collide-pair-listener.js",
+    "content": "// /**\r\n//  * A wrapper around an AB collision listener that makes it easy to destroy / pause / resume the\r\n//  * listener\r\n//  */\r\n// export default class CollidePairListener {\r\n//   constructor(plugin, map, objectA, objectB, callback, context) {\r\n//     this.plugin = plugin;\r\n//     this.map = map;\r\n//     this.objectA = objectA;\r\n//     this.objectB = objectB;\r\n//     this.callback = callback;\r\n//     this.context = context;\r\n//   }\r\n\r\n//   pause() {\r\n//     this.plugin.removeOnCollide(this.map, objectA, objectB, callback, context);\r\n//   }\r\n\r\n//   resume() {\r\n//     this.plugin.addOnCollide(this.map, objectA, objectB, callback, context);\r\n//   }\r\n\r\n//   emit(eventData) {\r\n//     this.callback.call(this.context, eventData);\r\n//   }\r\n\r\n//   destroy() {\r\n//     this.pause();\r\n//     this.map = undefined;\r\n//     this.plugin = undefined;\r\n//   }\r\n// }\r\n",
+    "static": true,
+    "longname": "C:/Users/mikewesthad/Documents/GitHub/phaser-matter-collision-plugin/src/collide-pair-listener.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "file",
+    "name": "src/index.js",
+    "content": "import PhaserMatterCollisionPlugin from \"./phaser-matter-collision-plugin\";\r\n\r\nexport default PhaserMatterCollisionPlugin;\r\n",
+    "static": true,
+    "longname": "C:/Users/mikewesthad/Documents/GitHub/phaser-matter-collision-plugin/src/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 50,
+    "kind": "file",
+    "name": "src/logger.js",
+    "content": "export default {\r\n  log: console.log,\r\n  warn: console.warn,\r\n  error: console.error\r\n};\r\n",
+    "static": true,
+    "longname": "C:/Users/mikewesthad/Documents/GitHub/phaser-matter-collision-plugin/src/logger.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 51,
+    "kind": "file",
+    "name": "src/phaser-matter-collision-plugin.js",
+    "content": "\r\nimport Phaser from \"phaser\";\r\nimport { getRootBody, isPhysicsObject, warnInvalidObject } from \"./utils\";\r\nimport logger from \"./logger\";\r\nimport CollidePairListener from \"./collide-pair-listener\";\r\n\r\n/**\r\n * @export\r\n * @class MatterCollisionPlugin\r\n * @extends {Phaser.Plugins.ScenePlugin}\r\n */\r\nexport default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {\r\n  /**\r\n   * Creates an instance of MatterCollisionPlugin.\r\n   * @param {Phaser.Scene} scene\r\n   * @param {Phaser.Plugins.PluginManager} pluginManager\r\n   * @memberof MatterCollisionPlugin\r\n   */\r\n  constructor(scene, pluginManager) {\r\n    super(scene, pluginManager);\r\n\r\n    this.scene = scene;\r\n\r\n    /**\r\n     * @type {Phaser.Events.EventEmitter}\r\n     * @emits {collisionstart}\r\n     * @emits {collisionactive}\r\n     * @emits {collisionend}\r\n     * @emits {paircollisionstart}\r\n     * @emits {paircollisionactive}\r\n     * @emits {paircollisionend}\r\n     */\r\n    this.events = new Phaser.Events.EventEmitter();\r\n\r\n    // Maps from objectA => {target?, callback, context?}\r\n    /** @private */\r\n    this.collisionStartListeners = new Map();\r\n    /** @private */\r\n    this.collisionEndListeners = new Map();\r\n    /** @private */\r\n    this.collisionActiveListeners = new Map();\r\n\r\n    /**\r\n     * @fires collisionstart\r\n     * @fires paircollisionstart\r\n     * @private\r\n     */\r\n    this.onCollisionStart = this.onCollisionEvent.bind(\r\n      this,\r\n      this.collisionStartListeners,\r\n      \"collisionstart\"\r\n    );\r\n\r\n    /**\r\n     * @fires collisionend\r\n     * @fires paircollisionend\r\n     * @private\r\n     */\r\n    this.onCollisionEnd = this.onCollisionEvent.bind(\r\n      this,\r\n      this.collisionEndListeners,\r\n      \"collisionend\"\r\n    );\r\n\r\n    /**\r\n     * @fires collisionactive\r\n     * @fires paircollisionactive\r\n     * @private\r\n     */\r\n    this.onCollisionActive = this.onCollisionEvent.bind(\r\n      this,\r\n      this.collisionActiveListeners,\r\n      \"collisionactive\"\r\n    );\r\n\r\n    this.scene.events.once(\"start\", this.start, this);\r\n  }\r\n\r\n  /**\r\n   * Add a listener for collidestart events between objectA and objectB. The collidestart event is\r\n   * fired by Matter when two bodies start colliding within a tick of the engine. If objectB is\r\n   * omitted, any collisions with objectA will be passed along to the listener. See\r\n   * {@link paircollisionstart} for information on callback parameters.\r\n   *\r\n   * @param {object} options\r\n   * @param {PhysicsObject|ObjectWithBody} options.objectA - The first object to watch for in\r\n   * colliding pairs.\r\n   * @param {PhysicsObject|ObjectWithBody} [options.objectB] - Optional, the second object to watch\r\n   * for in colliding pairs. If not defined, all collisions with objectA will trigger the callback\r\n   * @param {function} options.callback - The function to be invoked on collision\r\n   * @param {any} [options.context] - The context to apply when invoking the callback.\r\n   * @returns {function} A function that can be invoked to unsubscribe the listener that was just\r\n   * added.\r\n   * @memberof MatterCollisionPlugin\r\n   */\r\n  addOnCollideStart({ objectA, objectB, callback, context } = {}) {\r\n    this.addOnCollide(this.collisionStartListeners, objectA, objectB, callback, context);\r\n    return this.removeOnCollideStart.bind(this, { objectA, objectB, callback, context });\r\n  }\r\n\r\n  /**\r\n   * This method mirrors {@link MatterCollisionPlugin#addOnCollideStart}\r\n   * @memberof MatterCollisionPlugin\r\n   * @param {object} options\r\n   */\r\n  addOnCollideEnd({ objectA, objectB, callback, context } = {}) {\r\n    this.addOnCollide(this.collisionEndListeners, objectA, objectB, callback, context);\r\n    return this.removeOnCollideEnd.bind(this, { objectA, objectB, callback, context });\r\n  }\r\n\r\n  /**\r\n   * This method mirrors {@link MatterCollisionPlugin#addOnCollideStart}\r\n   * @memberof MatterCollisionPlugin\r\n   * @param {object} options\r\n   */\r\n  addOnCollideActive({ objectA, objectB, callback, context } = {}) {\r\n    this.addOnCollide(this.collisionActiveListeners, objectA, objectB, callback, context);\r\n    return this.removeOnCollideActive.bind(this, { objectA, objectB, callback, context });\r\n  }\r\n\r\n  /**\r\n   * Remove any listeners that were added with addOnCollideStart that match the given options object\r\n   * parameter exactly. I.e. this will only remove the listener if the listener was added via\r\n   * addOnCollideStart with the same parameters.\r\n   *\r\n   * @param {object} options\r\n   * @param {PhysicsObject|ObjectWithBody} options.objectA - The first object to watch for in\r\n   * colliding pairs.\r\n   * @param {PhysicsObject|ObjectWithBody} options.objectB - the second object to watch for in\r\n   * colliding pairs. If not defined, all collisions with objectA will trigger the callback\r\n   * @param {function} options.callback - The function to be invoked on collision\r\n   * @param {[any]} options.context - The context to apply when invoking the callback.\r\n   * @returns {function} A function that can be invoked to unsubscribe the listener that was just\r\n   * added.\r\n   * @memberof MatterCollisionPlugin\r\n   */\r\n  removeOnCollideStart({ objectA, objectB, callback, context } = {}) {\r\n    this.removeOnCollide(this.collisionStartListeners, objectA, objectB, callback, context);\r\n  }\r\n\r\n  /**\r\n   * This method mirrors {@link MatterCollisionPlugin#removeOnCollideStart}\r\n   * @memberof MatterCollisionPlugin\r\n   * @param {object} options\r\n   */\r\n  removeOnCollideEnd({ objectA, objectB, callback, context } = {}) {\r\n    this.removeOnCollide(this.collisionEndListeners, objectA, objectB, callback, context);\r\n  }\r\n\r\n  /**\r\n   * This method mirrors {@link MatterCollisionPlugin#removeOnCollideStart}\r\n   * @memberof MatterCollisionPlugin\r\n   * @param {object} options\r\n   */\r\n  removeOnCollideActive({ objectA, objectB, callback, context } = {}) {\r\n    this.removeOnCollide(this.collisionActiveListeners, objectA, objectB, callback, context);\r\n  }\r\n\r\n  /**\r\n   * Remove any listeners that were added with addOnCollideStart.\r\n   * @memberof MatterCollisionPlugin\r\n   */\r\n  removeAllCollideStartListeners() {\r\n    this.collisionStartListeners.clear();\r\n  }\r\n  /**\r\n   * Remove any listeners that were added with addOnCollideActive.\r\n   * @memberof MatterCollisionPlugin\r\n   */\r\n  removeAllCollideActiveListeners() {\r\n    this.collisionActiveListeners.clear();\r\n  }\r\n  /**\r\n   * Remove any listeners that were added with addOnCollideEnd.\r\n   * @memberof MatterCollisionPlugin\r\n   */\r\n  removeAllCollideEndListeners() {\r\n    this.collisionEndListeners.clear();\r\n  }\r\n  /**\r\n   * Remove any listeners that were added with addOnCollideStart, addOnCollideActive or\r\n   * addOnCollideEnd.\r\n   * @memberof MatterCollisionPlugin\r\n   */\r\n  removeAllCollideListeners() {\r\n    this.removeAllCollideStartListeners();\r\n    this.removeAllCollideActiveListeners();\r\n    this.removeAllCollideEndListeners();\r\n  }\r\n\r\n  /** @private */\r\n  addOnCollide(map, objectA, objectB, callback, context) {\r\n    if (!callback || typeof callback !== \"function\") {\r\n      warn(`No valid callback specified. Received: ${callback}`);\r\n      return;\r\n    }\r\n    const objectsA = Array.isArray(objectA) ? objectA : [objectA];\r\n    const objectsB = Array.isArray(objectB) ? objectB : [objectB];\r\n    objectsA.forEach(a => {\r\n      objectsB.forEach(b => {\r\n        this.addOnCollideObjectVsObject(map, a, b, callback, context);\r\n      });\r\n    });\r\n  }\r\n\r\n  /** @private */\r\n  removeOnCollide(map, objectA, objectB, callback, context) {\r\n    const objectsA = Array.isArray(objectsA) ? objectA : [objectA];\r\n    const objectsB = Array.isArray(objectsB) ? objectB : [objectB];\r\n    objectsA.forEach(a => {\r\n      const callbacks = map.get(a) || [];\r\n      const remainingCallbacks = callbacks.filter(\r\n        cb => !(objectsB.includes(cb.target) && cb.callback === callback && cb.context === context)\r\n      );\r\n      if (remainingCallbacks.length > 0) map.set(a, remainingCallbacks);\r\n      else map.delete(a);\r\n    });\r\n  }\r\n\r\n  /** @private */\r\n  addOnCollideObjectVsObject(map, objectA, objectB, callback, context) {\r\n    // Can't do anything if the first object is not defined or invalid\r\n    if (!objectA || !isPhysicsObject(objectA)) {\r\n      warnInvalidObject(objectA);\r\n      return;\r\n    }\r\n\r\n    // The second object can be undefined or a valid body\r\n    if (objectB && !isPhysicsObject(objectB)) {\r\n      warnInvalidObject(objectA);\r\n      return;\r\n    }\r\n\r\n    const callbacks = map.get(objectA) || [];\r\n    callbacks.push({ target: objectB, callback, context });\r\n    map.set(objectA, callbacks);\r\n  }\r\n\r\n  /**\r\n   * Reusable handler for collisionstart, collisionend, collisionactive.\r\n   * @private\r\n   * */\r\n  onCollisionEvent(listenerMap, eventName, event) {\r\n    const pairs = event.pairs;\r\n    const pairEventName = \"pair\" + eventName;\r\n    const eventData = {};\r\n    const eventDataReversed = { isReversed: true };\r\n\r\n    pairs.map((pair, i) => {\r\n      const { bodyA, bodyB } = pair;\r\n\r\n      let gameObjectA = getRootBody(bodyA).gameObject;\r\n      let gameObjectB = getRootBody(bodyB).gameObject;\r\n\r\n      // Special case for tiles, where it's more useful to have a reference to the Tile object not\r\n      // the TileBody. This is hot code, so use a property check instead of instanceof.\r\n      if (gameObjectA && gameObjectA.tile) gameObjectA = gameObjectA.tile;\r\n      if (gameObjectB && gameObjectB.tile) gameObjectB = gameObjectB.tile;\r\n\r\n      pairs[i].gameObjectA = gameObjectA;\r\n      pairs[i].gameObjectB = gameObjectB;\r\n\r\n      eventData.bodyA = bodyA;\r\n      eventData.bodyB = bodyB;\r\n      eventData.gameObjectA = gameObjectA;\r\n      eventData.gameObjectB = gameObjectB;\r\n      eventData.pair = pair;\r\n\r\n      this.events.emit(pairEventName, eventData);\r\n\r\n      if (listenerMap.size) {\r\n        eventDataReversed.bodyB = bodyA;\r\n        eventDataReversed.bodyA = bodyB;\r\n        eventDataReversed.gameObjectB = gameObjectA;\r\n        eventDataReversed.gameObjectA = gameObjectB;\r\n        eventDataReversed.pair = pair;\r\n\r\n        this.checkPairAndEmit(listenerMap, bodyA, bodyB, gameObjectB, eventData);\r\n        this.checkPairAndEmit(listenerMap, bodyB, bodyA, gameObjectA, eventDataReversed);\r\n\r\n        if (gameObjectA) {\r\n          this.checkPairAndEmit(listenerMap, gameObjectA, bodyB, gameObjectB, eventData);\r\n        }\r\n        if (gameObjectB) {\r\n          this.checkPairAndEmit(listenerMap, gameObjectB, bodyA, gameObjectA, eventDataReversed);\r\n        }\r\n      }\r\n    });\r\n\r\n    this.events.emit(eventName, event);\r\n  }\r\n\r\n  /** @private */\r\n  checkPairAndEmit(map, objectA, bodyB, gameObjectB, eventData) {\r\n    const callbacks = map.get(objectA);\r\n    if (callbacks) {\r\n      callbacks.forEach(({ target, callback, context }) => {\r\n        if (!target || target === bodyB || target === gameObjectB) {\r\n          callback.call(context, eventData);\r\n        }\r\n      });\r\n    }\r\n  }\r\n\r\n  subscribeMatterEvents() {\r\n    const matter = this.scene.matter;\r\n    if (!matter || !matter.world) {\r\n      logger.warn(\"Plugin requires matter!\");\r\n      return;\r\n    }\r\n    matter.world.on(\"collisionstart\", this.onCollisionStart);\r\n    matter.world.on(\"collisionactive\", this.onCollisionActive);\r\n    matter.world.on(\"collisionend\", this.onCollisionEnd);\r\n  }\r\n\r\n  unsubscribeMatterEvents() {\r\n    // Don't unsub if matter next existing or if the game is destroyed (since the matter world will\r\n    // be already gone)\r\n    const matter = this.scene.matter;\r\n    if (!matter || !matter.world) return;\r\n    matter.world.off(\"collisionstart\", this.onCollisionStart);\r\n    matter.world.off(\"collisionactive\", this.onCollisionActive);\r\n    matter.world.off(\"collisionend\", this.onCollisionEnd);\r\n  }\r\n\r\n  start() {\r\n    // console.log(\"start\"); // Verify this only runs once\r\n    this.scene.events.on(\"shutdown\", this.shutdown, this);\r\n    this.scene.events.once(\"destroy\", this.destroy, this);\r\n    this.subscribeMatterEvents();\r\n  }\r\n\r\n  shutdown() {\r\n    this.removeAllCollideListeners();\r\n    this.unsubscribeMatterEvents();\r\n  }\r\n\r\n  destroy() {\r\n    this.scene.events.off(\"start\", this.start, this);\r\n    this.scene.events.off(\"shutdown\", this.shutdown, this);\r\n    this.removeAllCollideListeners();\r\n    this.unsubscribeMatterEvents();\r\n    this.scene = undefined;\r\n  }\r\n}\r\n\r\n/**\r\n * A valid physics-enabled game object, or just an object that has \"body\" property\r\n * @typedef {object} ObjectWithBody\r\n * @property {Matter.Body} body - A native Matter body\r\n */\r\n\r\n/**\r\n * A valid physics-enabled game object, or a native Matter body\r\n * @typedef {(Matter.Body|Phaser.Physics.Matter.Sprite|Phaser.Physics.Matter.Image|Phaser.Physics.Matter.MatterGameObject|Phaser.Tilemaps.Tile)} PhysicsObject\r\n */\r\n\r\n/**\r\n * This event proxies the Matter collisionstart event, which is fired when any bodies have started\r\n * colliding.\r\n *\r\n * @typedef {event} collisionstart\r\n * @property {object} event - The Matter event data, with the \"pairs\" property modified so that each\r\n * pair now has a gameObjectA and a gameObjectB property. Those properties will contain the game\r\n * object associated with the native bodyA or bodyB (or undefined if no game object exists).\r\n */\r\n\r\n/**\r\n * This event proxies the Matter collisionend event, which is fired when any bodies have stopped\r\n * colliding.\r\n *\r\n * @typedef {event} collisionend\r\n * @property {object} event - The Matter event data, with the \"pairs\" property modified so that each\r\n * pair now has a gameObjectA and a gameObjectB property. Those properties will contain the game\r\n * object associated with the native bodyA or bodyB (or undefined if no game object exists).\r\n */\r\n\r\n/**\r\n * This event proxies the Matter collisionactive event, which is fired when any bodies are still\r\n * colliding (after the tick of the engine where they started colliding).\r\n *\r\n * @typedef {event} collisionactive\r\n * @property {object} event - The Matter event data, with the \"pairs\" property modified so that each\r\n * pair now has a gameObjectA and a gameObjectB property. Those properties will contain the game\r\n * object associated with the native bodyA or bodyB (or undefined if no game object exists).\r\n */\r\n\r\n/**\r\n * This event is fired for each pair of bodies that collide during Matter's collisionstart.\r\n *\r\n * @typedef {event} paircollisionstart\r\n * @property {object} event\r\n * @property {object} event.bodyA - The native Matter bodyA from the pair\r\n * @property {object} event.bodyB - The native Matter bodyB from the pair\r\n * @property {object|undefined} event.gameObjectA - The game object associated with bodyA, if it exists\r\n * @property {object|undefined} event.gameObjectB - The game object associated with bodyB, if it exists\r\n * @property {object} event.pair - The original pair data from Matter\r\n */\r\n\r\n/**\r\n * This event is fired for each pair of bodies that collide during Matter's collisionend.\r\n *\r\n * @typedef {event} paircollisionend\r\n * @param {object} event\r\n * @param {object} event.bodyA - The native Matter bodyA from the pair\r\n * @param {object} event.bodyB - The native Matter bodyB from the pair\r\n * @param {object|undefined} event.gameObjectA - The game object associated with bodyA, if it exists\r\n * @param {object|undefined} event.gameObjectB - The game object associated with bodyB, if it exists\r\n * @param {object} event.pair - The original pair data from Matter\r\n */\r\n\r\n/**\r\n * This event is fired for each pair of bodies that collide during Matter's collisionactive.\r\n *\r\n * @typedef {event} paircollisionactive\r\n * @param {object} event\r\n * @param {object} event.bodyA - The native Matter bodyA from the pair\r\n * @param {object} event.bodyB - The native Matter bodyB from the pair\r\n * @param {object|undefined} event.gameObjectA - The game object associated with bodyA, if it exists\r\n * @param {object|undefined} event.gameObjectB - The game object associated with bodyB, if it exists\r\n * @param {object} event.pair - The original pair data from Matter\r\n */\r\n",
+    "static": true,
+    "longname": "C:/Users/mikewesthad/Documents/GitHub/phaser-matter-collision-plugin/src/phaser-matter-collision-plugin.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 52,
+    "kind": "class",
+    "name": "MatterCollisionPlugin",
+    "memberof": "src/phaser-matter-collision-plugin.js",
+    "static": true,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "access": "public",
+    "export": true,
+    "importPath": "phaser-matter-collision-plugin/src/phaser-matter-collision-plugin.js",
+    "importStyle": "MatterCollisionPlugin",
+    "description": "",
+    "lineNumber": 12,
+    "unknown": [
+      {
+        "tagName": "@class",
+        "tagValue": "MatterCollisionPlugin"
+      }
+    ],
+    "interface": false,
+    "extends": [
+      "Phaser.Plugins.ScenePlugin"
+    ]
+  },
+  {
+    "__docId__": 53,
+    "kind": "typedef",
+    "name": "ObjectWithBody",
+    "memberof": "src/phaser-matter-collision-plugin.js",
+    "static": true,
+    "longname": "src/phaser-matter-collision-plugin.js~ObjectWithBody",
+    "access": "public",
+    "description": "A valid physics-enabled game object, or just an object that has \"body\" property",
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          "Matter.Body"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "body",
+        "description": "A native Matter body"
+      }
+    ],
+    "type": {
+      "types": [
+        "object"
+      ],
+      "optional": false,
+      "name": "ObjectWithBody"
+    }
+  },
+  {
+    "__docId__": 54,
+    "kind": "typedef",
+    "name": "PhysicsObject",
+    "memberof": "src/phaser-matter-collision-plugin.js",
+    "static": true,
+    "longname": "src/phaser-matter-collision-plugin.js~PhysicsObject",
+    "access": "public",
+    "description": "A valid physics-enabled game object, or a native Matter body",
+    "type": {
+      "types": [
+        "Matter.Body",
+        "Phaser.Physics.Matter.Sprite",
+        "Phaser.Physics.Matter.Image",
+        "Phaser.Physics.Matter.MatterGameObject",
+        "Phaser.Tilemaps.Tile"
+      ],
+      "optional": false,
+      "name": "PhysicsObject"
+    }
+  },
+  {
+    "__docId__": 55,
+    "kind": "typedef",
+    "name": "collisionstart",
+    "memberof": "src/phaser-matter-collision-plugin.js",
+    "static": true,
+    "longname": "src/phaser-matter-collision-plugin.js~collisionstart",
+    "access": "public",
+    "description": "This event proxies the Matter collisionstart event, which is fired when any bodies have started\ncolliding.",
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event",
+        "description": "The Matter event data, with the \"pairs\" property modified so that each\npair now has a gameObjectA and a gameObjectB property. Those properties will contain the game\nobject associated with the native bodyA or bodyB (or undefined if no game object exists)."
+      }
+    ],
+    "type": {
+      "types": [
+        "event"
+      ],
+      "optional": false,
+      "name": "collisionstart"
+    }
+  },
+  {
+    "__docId__": 56,
+    "kind": "typedef",
+    "name": "collisionend",
+    "memberof": "src/phaser-matter-collision-plugin.js",
+    "static": true,
+    "longname": "src/phaser-matter-collision-plugin.js~collisionend",
+    "access": "public",
+    "description": "This event proxies the Matter collisionend event, which is fired when any bodies have stopped\ncolliding.",
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event",
+        "description": "The Matter event data, with the \"pairs\" property modified so that each\npair now has a gameObjectA and a gameObjectB property. Those properties will contain the game\nobject associated with the native bodyA or bodyB (or undefined if no game object exists)."
+      }
+    ],
+    "type": {
+      "types": [
+        "event"
+      ],
+      "optional": false,
+      "name": "collisionend"
+    }
+  },
+  {
+    "__docId__": 57,
+    "kind": "typedef",
+    "name": "collisionactive",
+    "memberof": "src/phaser-matter-collision-plugin.js",
+    "static": true,
+    "longname": "src/phaser-matter-collision-plugin.js~collisionactive",
+    "access": "public",
+    "description": "This event proxies the Matter collisionactive event, which is fired when any bodies are still\ncolliding (after the tick of the engine where they started colliding).",
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event",
+        "description": "The Matter event data, with the \"pairs\" property modified so that each\npair now has a gameObjectA and a gameObjectB property. Those properties will contain the game\nobject associated with the native bodyA or bodyB (or undefined if no game object exists)."
+      }
+    ],
+    "type": {
+      "types": [
+        "event"
+      ],
+      "optional": false,
+      "name": "collisionactive"
+    }
+  },
+  {
+    "__docId__": 58,
+    "kind": "typedef",
+    "name": "paircollisionstart",
+    "memberof": "src/phaser-matter-collision-plugin.js",
+    "static": true,
+    "longname": "src/phaser-matter-collision-plugin.js~paircollisionstart",
+    "access": "public",
+    "description": "This event is fired for each pair of bodies that collide during Matter's collisionstart.",
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event.bodyA",
+        "description": "The native Matter bodyA from the pair"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event.bodyB",
+        "description": "The native Matter bodyB from the pair"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object",
+          "undefined"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event.gameObjectA",
+        "description": "The game object associated with bodyA, if it exists"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object",
+          "undefined"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event.gameObjectB",
+        "description": "The game object associated with bodyB, if it exists"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event.pair",
+        "description": "The original pair data from Matter"
+      }
+    ],
+    "type": {
+      "types": [
+        "event"
+      ],
+      "optional": false,
+      "name": "paircollisionstart"
+    }
+  },
+  {
+    "__docId__": 59,
+    "kind": "typedef",
+    "name": "paircollisionend",
+    "memberof": "src/phaser-matter-collision-plugin.js",
+    "static": true,
+    "longname": "src/phaser-matter-collision-plugin.js~paircollisionend",
+    "access": "public",
+    "description": "This event is fired for each pair of bodies that collide during Matter's collisionend.",
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event.bodyA",
+        "description": "The native Matter bodyA from the pair"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event.bodyB",
+        "description": "The native Matter bodyB from the pair"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object",
+          "undefined"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event.gameObjectA",
+        "description": "The game object associated with bodyA, if it exists"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object",
+          "undefined"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event.gameObjectB",
+        "description": "The game object associated with bodyB, if it exists"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event.pair",
+        "description": "The original pair data from Matter"
+      }
+    ],
+    "type": {
+      "types": [
+        "event"
+      ],
+      "optional": false,
+      "name": "paircollisionend"
+    }
+  },
+  {
+    "__docId__": 60,
+    "kind": "typedef",
+    "name": "paircollisionactive",
+    "memberof": "src/phaser-matter-collision-plugin.js",
+    "static": true,
+    "longname": "src/phaser-matter-collision-plugin.js~paircollisionactive",
+    "access": "public",
+    "description": "This event is fired for each pair of bodies that collide during Matter's collisionactive.",
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event.bodyA",
+        "description": "The native Matter bodyA from the pair"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event.bodyB",
+        "description": "The native Matter bodyB from the pair"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object",
+          "undefined"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event.gameObjectA",
+        "description": "The game object associated with bodyA, if it exists"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object",
+          "undefined"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event.gameObjectB",
+        "description": "The game object associated with bodyB, if it exists"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event.pair",
+        "description": "The original pair data from Matter"
+      }
+    ],
+    "type": {
+      "types": [
+        "event"
+      ],
+      "optional": false,
+      "name": "paircollisionactive"
+    }
+  },
+  {
+    "__docId__": 61,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#constructor",
+    "access": "public",
+    "description": "Creates an instance of MatterCollisionPlugin.",
+    "lineNumber": 19,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Phaser.Scene"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "scene",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Phaser.Plugins.PluginManager"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "pluginManager",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "__docId__": 62,
+    "kind": "member",
+    "name": "scene",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#scene",
+    "access": "public",
+    "description": null,
+    "lineNumber": 22,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 63,
+    "kind": "member",
+    "name": "events",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#events",
+    "access": "public",
+    "description": "",
+    "lineNumber": 33,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Phaser.Events.EventEmitter"
+      ],
+      "spread": false,
+      "description": null
+    },
+    "emits": [
+      {
+        "types": [
+          "collisionstart"
+        ],
+        "description": ""
+      },
+      {
+        "types": [
+          "collisionactive"
+        ],
+        "description": ""
+      },
+      {
+        "types": [
+          "collisionend"
+        ],
+        "description": ""
+      },
+      {
+        "types": [
+          "paircollisionstart"
+        ],
+        "description": ""
+      },
+      {
+        "types": [
+          "paircollisionactive"
+        ],
+        "description": ""
+      },
+      {
+        "types": [
+          "paircollisionend"
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "__docId__": 64,
+    "kind": "member",
+    "name": "collisionStartListeners",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#collisionStartListeners",
+    "access": "private",
+    "description": null,
+    "lineNumber": 37,
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 65,
+    "kind": "member",
+    "name": "collisionEndListeners",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#collisionEndListeners",
+    "access": "private",
+    "description": null,
+    "lineNumber": 39,
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 66,
+    "kind": "member",
+    "name": "collisionActiveListeners",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#collisionActiveListeners",
+    "access": "private",
+    "description": null,
+    "lineNumber": 41,
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 67,
+    "kind": "member",
+    "name": "onCollisionStart",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#onCollisionStart",
+    "access": "private",
+    "description": "",
+    "lineNumber": 48,
+    "unknown": [
+      {
+        "tagName": "@fires",
+        "tagValue": "collisionstart"
+      },
+      {
+        "tagName": "@fires",
+        "tagValue": "paircollisionstart"
+      }
+    ],
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 68,
+    "kind": "member",
+    "name": "onCollisionEnd",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#onCollisionEnd",
+    "access": "private",
+    "description": "",
+    "lineNumber": 59,
+    "unknown": [
+      {
+        "tagName": "@fires",
+        "tagValue": "collisionend"
+      },
+      {
+        "tagName": "@fires",
+        "tagValue": "paircollisionend"
+      }
+    ],
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 69,
+    "kind": "member",
+    "name": "onCollisionActive",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#onCollisionActive",
+    "access": "private",
+    "description": "",
+    "lineNumber": 70,
+    "unknown": [
+      {
+        "tagName": "@fires",
+        "tagValue": "collisionactive"
+      },
+      {
+        "tagName": "@fires",
+        "tagValue": "paircollisionactive"
+      }
+    ],
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 70,
+    "kind": "method",
+    "name": "addOnCollideStart",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#addOnCollideStart",
+    "access": "public",
+    "description": "Add a listener for collidestart events between objectA and objectB. The collidestart event is\nfired by Matter when two bodies start colliding within a tick of the engine. If objectB is\nomitted, any collisions with objectA will be passed along to the listener. See\n{@link paircollisionstart} for information on callback parameters.",
+    "lineNumber": 96,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{function} A function that can be invoked to unsubscribe the listener that was just\nadded."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "PhysicsObject",
+          "ObjectWithBody"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.objectA",
+        "description": "The first object to watch for in\ncolliding pairs."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "PhysicsObject",
+          "ObjectWithBody"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "options.objectB",
+        "description": "Optional, the second object to watch\nfor in colliding pairs. If not defined, all collisions with objectA will trigger the callback"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.callback",
+        "description": "The function to be invoked on collision"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "any"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "options.context",
+        "description": "The context to apply when invoking the callback."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "function"
+      ],
+      "spread": false,
+      "description": "A function that can be invoked to unsubscribe the listener that was just\nadded."
+    }
+  },
+  {
+    "__docId__": 71,
+    "kind": "method",
+    "name": "addOnCollideEnd",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#addOnCollideEnd",
+    "access": "public",
+    "description": "This method mirrors {@link MatterCollisionPlugin#addOnCollideStart}",
+    "lineNumber": 106,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 72,
+    "kind": "method",
+    "name": "addOnCollideActive",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#addOnCollideActive",
+    "access": "public",
+    "description": "This method mirrors {@link MatterCollisionPlugin#addOnCollideStart}",
+    "lineNumber": 116,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 73,
+    "kind": "method",
+    "name": "removeOnCollideStart",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#removeOnCollideStart",
+    "access": "public",
+    "description": "Remove any listeners that were added with addOnCollideStart that match the given options object\nparameter exactly. I.e. this will only remove the listener if the listener was added via\naddOnCollideStart with the same parameters.",
+    "lineNumber": 137,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{function} A function that can be invoked to unsubscribe the listener that was just\nadded."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "PhysicsObject",
+          "ObjectWithBody"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.objectA",
+        "description": "The first object to watch for in\ncolliding pairs."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "PhysicsObject",
+          "ObjectWithBody"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.objectB",
+        "description": "the second object to watch for in\ncolliding pairs. If not defined, all collisions with objectA will trigger the callback"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.callback",
+        "description": "The function to be invoked on collision"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "[any]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.context",
+        "description": "The context to apply when invoking the callback."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "function"
+      ],
+      "spread": false,
+      "description": "A function that can be invoked to unsubscribe the listener that was just\nadded."
+    }
+  },
+  {
+    "__docId__": 74,
+    "kind": "method",
+    "name": "removeOnCollideEnd",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#removeOnCollideEnd",
+    "access": "public",
+    "description": "This method mirrors {@link MatterCollisionPlugin#removeOnCollideStart}",
+    "lineNumber": 146,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 75,
+    "kind": "method",
+    "name": "removeOnCollideActive",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#removeOnCollideActive",
+    "access": "public",
+    "description": "This method mirrors {@link MatterCollisionPlugin#removeOnCollideStart}",
+    "lineNumber": 155,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 76,
+    "kind": "method",
+    "name": "removeAllCollideStartListeners",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#removeAllCollideStartListeners",
+    "access": "public",
+    "description": "Remove any listeners that were added with addOnCollideStart.",
+    "lineNumber": 163,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 77,
+    "kind": "method",
+    "name": "removeAllCollideActiveListeners",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#removeAllCollideActiveListeners",
+    "access": "public",
+    "description": "Remove any listeners that were added with addOnCollideActive.",
+    "lineNumber": 170,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 78,
+    "kind": "method",
+    "name": "removeAllCollideEndListeners",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#removeAllCollideEndListeners",
+    "access": "public",
+    "description": "Remove any listeners that were added with addOnCollideEnd.",
+    "lineNumber": 177,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 79,
+    "kind": "method",
+    "name": "removeAllCollideListeners",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#removeAllCollideListeners",
+    "access": "public",
+    "description": "Remove any listeners that were added with addOnCollideStart, addOnCollideActive or\naddOnCollideEnd.",
+    "lineNumber": 185,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 80,
+    "kind": "method",
+    "name": "addOnCollide",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#addOnCollide",
+    "access": "private",
+    "description": null,
+    "lineNumber": 192,
+    "ignore": true,
+    "params": [
+      {
+        "name": "map",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "objectA",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "objectB",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "callback",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "context",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 81,
+    "kind": "method",
+    "name": "removeOnCollide",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#removeOnCollide",
+    "access": "private",
+    "description": null,
+    "lineNumber": 207,
+    "ignore": true,
+    "params": [
+      {
+        "name": "map",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "objectA",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "objectB",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "callback",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "context",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 82,
+    "kind": "method",
+    "name": "addOnCollideObjectVsObject",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#addOnCollideObjectVsObject",
+    "access": "private",
+    "description": null,
+    "lineNumber": 221,
+    "ignore": true,
+    "params": [
+      {
+        "name": "map",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "objectA",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "objectB",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "callback",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "context",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 83,
+    "kind": "method",
+    "name": "onCollisionEvent",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#onCollisionEvent",
+    "access": "private",
+    "description": "Reusable handler for collisionstart, collisionend, collisionactive.",
+    "lineNumber": 243,
+    "ignore": true,
+    "params": [
+      {
+        "name": "listenerMap",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "eventName",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "event",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 84,
+    "kind": "method",
+    "name": "checkPairAndEmit",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#checkPairAndEmit",
+    "access": "private",
+    "description": null,
+    "lineNumber": 294,
+    "ignore": true,
+    "params": [
+      {
+        "name": "map",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "objectA",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "bodyB",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "gameObjectB",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "eventData",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 85,
+    "kind": "method",
+    "name": "subscribeMatterEvents",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#subscribeMatterEvents",
+    "access": "public",
+    "description": null,
+    "lineNumber": 305,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 86,
+    "kind": "method",
+    "name": "unsubscribeMatterEvents",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#unsubscribeMatterEvents",
+    "access": "public",
+    "description": null,
+    "lineNumber": 316,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 87,
+    "kind": "method",
+    "name": "start",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#start",
+    "access": "public",
+    "description": null,
+    "lineNumber": 326,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 88,
+    "kind": "method",
+    "name": "shutdown",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#shutdown",
+    "access": "public",
+    "description": null,
+    "lineNumber": 333,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 89,
+    "kind": "method",
+    "name": "destroy",
+    "memberof": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#destroy",
+    "access": "public",
+    "description": null,
+    "lineNumber": 338,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 91,
+    "kind": "file",
+    "name": "src/utils.js",
+    "content": "import Phaser from \"phaser\";\r\nimport logger from \"./logger\";\r\n\r\n/**\r\n * Get the root body of a compound Matter body\r\n * @private\r\n */\r\nexport function getRootBody(body) {\r\n  while (body.parent !== body) body = body.parent;\r\n  return body;\r\n}\r\n\r\n/**\r\n * Duck type to check if the given object is a Matter body (because there isn't a prototype)\r\n * @private\r\n */\r\nexport function isMatterBody(obj) {\r\n  return (\r\n    obj.hasOwnProperty(\"collisionFilter\") &&\r\n    obj.hasOwnProperty(\"parts\") &&\r\n    obj.hasOwnProperty(\"slop\")\r\n  );\r\n}\r\n\r\n/**\r\n * Check if object is an acceptable physical object for this plugin - a Matter Body, a tile, or an\r\n * object with a body property\r\n * @private\r\n */\r\nexport function isPhysicsObject(obj) {\r\n  return isMatterBody(obj) || obj.body || obj instanceof Phaser.Tilemaps.Tile;\r\n}\r\n\r\n/** @private */\r\nexport function warnInvalidObject(obj) {\r\n  logger.warn(\r\n    `Expected a Matter body, Tile or an object with a body property, but instead, recieved: ${obj}`\r\n  );\r\n}\r\n",
+    "static": true,
+    "longname": "C:/Users/mikewesthad/Documents/GitHub/phaser-matter-collision-plugin/src/utils.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 92,
+    "kind": "function",
+    "name": "getRootBody",
+    "memberof": "src/utils.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/utils.js~getRootBody",
+    "access": "private",
+    "export": true,
+    "importPath": "phaser-matter-collision-plugin/src/utils.js",
+    "importStyle": "{getRootBody}",
+    "description": "Get the root body of a compound Matter body",
+    "lineNumber": 8,
+    "ignore": true,
+    "params": [
+      {
+        "name": "body",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 93,
+    "kind": "function",
+    "name": "isMatterBody",
+    "memberof": "src/utils.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/utils.js~isMatterBody",
+    "access": "private",
+    "export": true,
+    "importPath": "phaser-matter-collision-plugin/src/utils.js",
+    "importStyle": "{isMatterBody}",
+    "description": "Duck type to check if the given object is a Matter body (because there isn't a prototype)",
+    "lineNumber": 17,
+    "ignore": true,
+    "params": [
+      {
+        "name": "obj",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 94,
+    "kind": "function",
+    "name": "isPhysicsObject",
+    "memberof": "src/utils.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/utils.js~isPhysicsObject",
+    "access": "private",
+    "export": true,
+    "importPath": "phaser-matter-collision-plugin/src/utils.js",
+    "importStyle": "{isPhysicsObject}",
+    "description": "Check if object is an acceptable physical object for this plugin - a Matter Body, a tile, or an\nobject with a body property",
+    "lineNumber": 30,
+    "ignore": true,
+    "params": [
+      {
+        "name": "obj",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 95,
+    "kind": "function",
+    "name": "warnInvalidObject",
+    "memberof": "src/utils.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/utils.js~warnInvalidObject",
+    "access": "private",
+    "export": true,
+    "importPath": "phaser-matter-collision-plugin/src/utils.js",
+    "importStyle": "{warnInvalidObject}",
+    "description": null,
+    "lineNumber": 35,
+    "ignore": true,
+    "params": [
+      {
+        "name": "obj",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "kind": "index",
+    "content": "# Phaser Matter Collision Plugin 💥\r\n\r\nA plugin for making it easier to manage collisions with the [Phaser](https://phaser.io/) game engine and the [Matter.js](http://brm.io/matter-js/) physics engine.\r\n\r\nMatter is one of the cool physics engine choices you have in Phaser 3. Phaser has a thin wrapper over Matter's API, so you need to dig into Matter's native collision event system if you want to detect and respond to collisions. That system just gives you a dump of all the pairs of bodies that collided in a tick of the engine. This plugin wraps up that collision logic in a friendlier, more modular way:\r\n\r\n```js\r\nconst player = this.matter.add.sprite(0, 0, \"player\");\r\nconst trapDoor = this.matter.add.sprite(200, 0, \"door\");\r\n\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  objectB: trapDoor,\r\n  callback: () => console.log(\"Player touched door!\")\r\n});\r\n```\r\n\r\nCheck out the HTML documentation [here](https://www.mikewesthad.com/phaser-matter-collision-plugin/docs/).\r\n\r\nNote: this readme is still in progress, but it should complete enough for you to get started.\r\n\r\n## Installation\r\n\r\nYou can install this plugin globally as a script, or locally as a module using your bundler of choice.\r\n\r\n### As a Script\r\n\r\nYou can drop in any of the transpiled code into your project as a standalone script. Download the version that you want:\r\n\r\n- [minified code](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js) & optional [source map](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js.map)\r\n- [unminified code](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js) & optional [source map](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js.map)\r\n\r\nE.g. if you wanted the minified code, you would add this to your HTML:\r\n\r\n```html\r\n<script src=\"phaser-matter-collision-plugin.min.js\"></script>\r\n```\r\n\r\nNow you can use the global `PhaserMatterCollisionPlugin`. See [usage](#usage) for how to use the plugin.\r\n\r\n### As a Module\r\n\r\nInstall via npm:\r\n\r\n```\r\nnpm install --save phaser-matter-collision-plugin\r\n```\r\n\r\nTo use the transpiled and minified distribution of the library:\r\n\r\n```js\r\nimport PhaserMatterCollisionPlugin from \"phaser-matter-collision-plugin\";\r\n```\r\n\r\nTo use the raw library (so you can transpile it to match your own project settings):\r\n\r\n```js\r\nimport PhaserMatterCollisionPlugin from \"phaser-matter-collision-plugin/src\";\r\n```\r\n\r\nSee [usage](#usage) for how to use the plugin.\r\n\r\n## Usage\r\n\r\n### Initial Setup\r\n\r\nWhen setting up your game config, add the plugin:\r\n\r\n```js\r\n// prettier-ignore\r\nconst config = {\r\n  // ...\r\n  physics: {\r\n    default: \"matter\"\r\n  },\r\n  // Install the scene plugin\r\n  plugins: {\r\n    scene: [\r\n      {\r\n        key: \"MatterCollisionPlugin\",         // Name to use in cache\r\n        plugin: PhaserMatterCollisionPlugin,  // The plugin class\r\n        mapping: \"matterCollision\",           // Make plugin accessible via scene.matterCollision\r\n        start: true                           // Start with scene\r\n      }\r\n    ]\r\n  }\r\n};\r\n\r\nconst game = new Phaser.Game(config);\r\n```\r\n\r\nNow, within a scene, you can use `this.matterCollision` to access the plugin instance.\r\n\r\n### Usage in Scene\r\n\r\n#### Tracking Collisions\r\n\r\nThe plugin has `addOnCollideStart`, `addOnCollideActive` and `addOnCollideEnd` methods which allow you to listen to collisions between \"objects\" in your scene. Those objects can be: a native Matter body, a tile, a Matter sprite, any object with a `body` property, or an array of any of those.\r\n\r\nFor example, game object vs game object collisions:\r\n\r\n```js\r\nconst player = this.matter.add.sprite(0, 0, \"player\");\r\nconst trapDoor = this.matter.add.image(200, 0, \"door\");\r\n\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  objectB: trapDoor,\r\n  callback: function(eventData) {\r\n    // This function will be invoked any time the player and trap door collide\r\n    const { bodyA, bodyB, gameObjectA, gameObjectB, pair } = eventData;\r\n    // bodyA & bodyB are the Matter bodies of the player and door respectively\r\n    // gameObjectA & gameObjectB are the player and door respectively\r\n    // pair is the raw Matter pair data\r\n  },\r\n  context: this // Context to apply to the callback function\r\n});\r\n```\r\n\r\nIf you omit the `objectB` property, you'll get all collisions involving `objectA`:\r\n\r\n```js\r\nconst player = this.matter.add.sprite(0, 0, \"player\");\r\n\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  callback: eventData => {\r\n    const { bodyB, gameObjectB } = eventData;\r\n    console.log(\"Player touched something.\");\r\n    // bodyB will be the matter body that the player touched\r\n    // gameObjectB will be the game object that owns bodyB, or undefined if there's no game object\r\n  }\r\n});\r\n```\r\n\r\nGame object vs Matter sensor:\r\n\r\n```js\r\nconst player = this.matter.add.sprite(0, 0, \"player\");\r\nconst sensor = this.matter.world.add.rectangle(100, 0, 50, 50, { isStatic: true, isSensor: true });\r\n\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  objectB: sensor,\r\n  callback: eventData => console.log(\"Player touched hidden sensor\")\r\n});\r\n```\r\n\r\nGame object vs array of objects:\r\n\r\n```js\r\nconst player = this.matter.add.sprite(0, 0, \"player\");\r\nconst enemy1 = this.matter.add.sprite(100, 0, \"enemy\");\r\nconst enemy2 = this.matter.add.sprite(200, 0, \"enemy\");\r\nconst enemy3 = this.matter.add.sprite(300, 0, \"enemy\");\r\n\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  objectB: [enemy1, enemy2, enemy3],\r\n  callback: eventData => {\r\n    console.log(\"Player hit an enemy\");\r\n    // eventData.gameObjectB will be the specific enemy that was hit!\r\n  }\r\n});\r\n```\r\n\r\nOr, array vs array:\r\n\r\n```js\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: [player1, player2],\r\n  objectB: [enemy1, enemy2, enemy3],\r\n  callback: eventData => {\r\n    console.log(\"A player hit an enemy\");\r\n    // eventData.gameObjectA will be the specific player involved in the collision\r\n    // eventData.gameObjectB will be the specific enemy involved in the collision\r\n  }\r\n});\r\n```\r\n\r\nYou can listen for collisions vs a single tile (or an array of tiles), but it's likely more useful to do something like:\r\n\r\n```js\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  callback: eventData => {\r\n    const { bodyB, gameObjectB } = eventData;\r\n\r\n    if (gameObjectB !== undefined && gameObjectB instanceof Phaser.Tilemaps.Tile) {\r\n      // Now you know that gameObjectB is a Tile, so you can check the index, properties, etc.\r\n      if (gameObjectB.properties.isDeadly) console.log(\"Stepped on deadly tile\");\r\n      else if (gameObjectB.index === 32) console.log(\"Stepped on the tile with index 32\");\r\n    }\r\n  }\r\n});\r\n```\r\n\r\nThe plugin also exposes two sets of events via the `this.matterCollision.events` event emitter:\r\n\r\n- \"collisionstart\", \"collisionactive\", \"collisionend\" - these match the Matter events. They emit a single parameter `event`. Aside from the normal Matter data in `event`, each pair in `event.pairs` has a `gameObjectA` and `gameObjectB` property that points to the game object that owns each body (if one exists).\r\n- \"paircollisionstart\", \"paircollisionactive\", \"paircollisionend\" - these are similar to the above, except they fire once for each pair. They have one parameter that looks like this: `{ bodyA, bodyB, gameObjectA, gameObjectB, pair }`\r\n\r\nYou can listen to them via `this.matterCollision.events.on(\"collisionstart\", ...)`.\r\n\r\n#### Stop Tracking Collisions\r\n\r\nYou can stop tracking a collision via `removeOnCollideStart`, `removeOnCollideActive` and `removeOnCollideEnd`. They take the same parameters as `addOnCollideStart`.\r\n\r\nIn addition, the addOnCollide methods will also return a function that automatically unsubscribes from the collision event (which can be useful if you use arrow functions):\r\n\r\n```js\r\nconst unsubscribe = this.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  objectB: trapDoor,\r\n  callback: eventData => {\r\n    // Do something, like dropping the door out underneath the player\r\n    // Then unsubscribe so this callback is never called again\r\n    unsubscribe();\r\n  }\r\n});\r\n```\r\n\r\nIf you want to remove all listeners that have been added - not just one colliding pair - there are also the following methods:\r\n\r\n- `removeAllCollideStartListeners`\r\n- `removeAllCollideActiveListeners`\r\n- `removeAllCollideEndListeners`\r\n- `removeAllCollideListeners` - removes start, active and end listeners\r\n\r\n## Live Examples\r\n\r\nFor now, you can check out the [\"tests\" folder](https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/tests) of this repository for usage examples.\r\n\r\nTODO: insert at least one codesandbox\r\nTODO: add a module example and a script example\r\n\r\n## Development\r\n\r\nThe project is controlled by npm scripts and uses cypress & jest for testing. Cypress is used for end-to-end verification that the plugin works as expected with Phaser. Jest is used for unit testing the plugin (via heavy mocking since Phaser headless mode is not complete).\r\n\r\n- The `watch` and `build` tasks will build the plugin source in library/ or the projects in tests/\r\n- The `serve` task opens the whole project (starting at the root) in a server\r\n- The `dev` task will build & watch the library, tests and open up the server. This is useful for creating tests and updating the library.\r\n- The `dev:cypress` task will build & watch the library & tests, as well as open up cypress in headed mode. This is useful for checking out individual tests and debugging them.\r\n- The `test:cypress` task will build the tests and run cypress in headless mode to check all end-to-end tests.\r\n- The `test:jest` will run the jest tests.\r\n\r\n## Tests\r\n\r\nThe cypress tests rely on a particular structure:\r\n\r\n- Each test game inside of \"tests/\" should have an \"index.html\" file as the entry point. \"src/js/index.js\" will be compiled to \"build/js/index.js\" by webpack. (Cypress doesn't support `type=\"module\"` on scripts, so this is necessary if we need modules.)\r\n- Each test has access to `test-utils.js` which provides `startTest`, `passTest` and `failTest` methods. Call `startTest` at the beginning and pass/fail when the test passes/fails. This manipulates in the DOM in a way that cypress is expecting.\r\n- Each test in \"cypress/integration/\" simply loads up the specified URL and waits for it to pass or timeout. (Technically, startTest and failTest are ignored, but they are useful for visual inspection of a test.)\r\n\r\nThe jest unit tests rely on a simple mocking of Phaser and Matter. They are stored inside \"src/\". Once Phaser headless is available, this testing structure could be re-evaluated.\r\n\r\n## (Moved Section) Why\r\n\r\nTODO: put this somewhere else\r\n\r\nThe Matter collision event system just dumps an event with all the pairs of Matter bodies that collided on the current tick of the physics engine. That leaves it up to the developer to:\r\n\r\n- Figure out which game object the bodies belong to\r\n- Search through the pairs of bodies to find the collisions that matter\r\n- Organize the single Matter event into modular pieces\r\n- Parameter ordering (ab vs ba)\r\n\r\nTake something like this:\r\n\r\n```js\r\n// Suppose we have a world of matter-enabled objects (and maybe even tiles)\r\nconst player = this.matter.add.sprite(0, 0, \"player\");\r\nconst enemy = this.matter.add.sprite(100, 0, \"enemy\");\r\nconst trapDoor = this.matter.add.sprite(200, 0, \"door\");\r\nconst crate = this.matter.add.sprite(300, 0, \"crate\");\r\n\r\n// Suppose we only want to watch for player touching the trap door\r\nthis.matter.world.on(\"collisionstart\", event => {\r\n  // Loop over all colliding pairs\r\n  event.pairs.map({ bodyA, bodyB } => {\r\n    // bodyA & bodyB are Matter bodies - which game object owns them?\r\n    // Is this player vs door?\r\n  });\r\n});\r\n```\r\n\r\nAnd turn it into this:\r\n\r\n```js\r\nconst player = this.matter.add.sprite(0, 0, \"player\");\r\nconst enemy = this.matter.add.sprite(100, 0, \"enemy\");\r\nconst trapDoor = this.matter.add.sprite(200, 0, \"door\");\r\nconst crate = this.matter.add.sprite(300, 0, \"crate\");\r\n\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  objectB: trapDoor,\r\n  callback: () => console.log(\"Player touched trapDoor!\")\r\n});\r\n```\r\n",
+    "longname": "C:\\Users\\mikewesthad\\Documents\\GitHub\\phaser-matter-collision-plugin\\README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\r\n  \"name\": \"phaser-matter-collision-plugin\",\r\n  \"version\": \"0.9.0\",\r\n  \"description\": \"A plugin for making it easier to manage collisions with Phaser + Matter.js\",\r\n  \"main\": \"dist/phaser-matter-collision-plugin.min.js\",\r\n  \"files\": [\r\n    \"src/!(mocks|tests)\",\r\n    \"dist\"\r\n  ],\r\n  \"scripts\": {\r\n    \"build:library\": \"webpack --mode production --config config/webpack.config.js\",\r\n    \"build:tests\": \"webpack --mode development --config config/webpack.test.config.js\",\r\n    \"watch:library\": \"webpack --mode development --config config/webpack.config.js --watch\",\r\n    \"watch:tests\": \"webpack --mode development --config config/webpack.test.config.js --watch\",\r\n    \"serve\": \"browser-sync start --server \\\".\\\" --directory --watch --startPath \\\"/tests\\\"\",\r\n    \"dev\": \"concurrently \\\"npm run watch:tests\\\" \\\"npm run watch:library\\\" \\\"npm run serve\\\"\",\r\n    \"dev:cypress\": \"concurrently \\\"npm run watch:tests\\\" \\\"npm run watch:library\\\" \\\"cypress open\\\"\",\r\n    \"test:jest\": \"jest --config=./config/jest.config.js\",\r\n    \"pretest:cypress\": \"npm run build:tests\",\r\n    \"test:cypress\": \"cypress run\",\r\n    \"doc\": \"esdoc -c ./config/esdoc.json\",\r\n    \"predeploy:doc\": \"npm run doc\",\r\n    \"deploy:doc\": \"gh-pages --branch gh-pages --dist ./docs/build --dest docs\",\r\n    \"prepublishOnly\": \"npm run build:library\",\r\n    \"pull-types\": \"curl https://raw.githubusercontent.com/photonstorm/phaser3-docs/master/typescript/phaser.d.ts --create-dirs --location --output ./types/phaser.d.ts\"\r\n  },\r\n  \"repository\": {\r\n    \"type\": \"git\",\r\n    \"url\": \"git+https://github.com/mikewesthad/phaser-matter-collision-plugin.git\"\r\n  },\r\n  \"keywords\": [\r\n    \"matter.js\",\r\n    \"phaser\",\r\n    \"collision detection\",\r\n    \"game engine\",\r\n    \"physics engine\"\r\n  ],\r\n  \"author\": \"Michael Hadley\",\r\n  \"license\": \"MIT\",\r\n  \"bugs\": {\r\n    \"url\": \"https://github.com/mikewesthad/phaser-matter-collision-plugin/issues\"\r\n  },\r\n  \"homepage\": \"https://github.com/mikewesthad/phaser-matter-collision-plugin#readme\",\r\n  \"peerDependencies\": {\r\n    \"phaser\": \"^3.11.0\"\r\n  },\r\n  \"dependencies\": {},\r\n  \"devDependencies\": {\r\n    \"babel-core\": \"^6.26.3\",\r\n    \"babel-jest\": \"^23.4.2\",\r\n    \"babel-loader\": \"^7.1.5\",\r\n    \"babel-preset-env\": \"^1.7.0\",\r\n    \"browser-sync\": \"^2.24.6\",\r\n    \"concurrently\": \"^3.6.1\",\r\n    \"cypress\": \"^3.0.3\",\r\n    \"esdoc\": \"^1.1.0\",\r\n    \"esdoc-inject-style-plugin\": \"^1.0.0\",\r\n    \"esdoc-standard-plugin\": \"^1.0.0\",\r\n    \"eslint\": \"^5.3.0\",\r\n    \"eslint-config-prettier\": \"^2.9.0\",\r\n    \"eslint-plugin-prettier\": \"^2.6.2\",\r\n    \"eventemitter3\": \"^3.1.0\",\r\n    \"gh-pages\": \"^1.2.0\",\r\n    \"jest\": \"^23.5.0\",\r\n    \"phaser\": \"^3.12.0-beta2\",\r\n    \"prettier\": \"^1.14.2\",\r\n    \"regenerator-runtime\": \"^0.12.1\",\r\n    \"uglifyjs-webpack-plugin\": \"^1.2.7\",\r\n    \"webpack\": \"^4.16.5\",\r\n    \"webpack-cli\": \"^3.1.0\"\r\n  },\r\n  \"prettier\": {\r\n    \"printWidth\": 100\r\n  }\r\n}\r\n",
+    "longname": "C:\\Users\\mikewesthad\\Documents\\GitHub\\phaser-matter-collision-plugin\\package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "manualIndex",
+    "globalIndex": true,
+    "content": "# Phaser Matter Collision Plugin 💥\r\n\r\nA plugin for making it easier to manage collisions with the [Phaser](https://phaser.io/) game engine and the [Matter.js](http://brm.io/matter-js/) physics engine.\r\n\r\nMatter is one of the cool physics engine choices you have in Phaser 3. Phaser has a thin wrapper over Matter's API, so you need to dig into Matter's native collision event system if you want to detect and respond to collisions. That system just gives you a dump of all the pairs of bodies that collided in a tick of the engine. This plugin wraps up that collision logic in a friendlier, more modular way:\r\n\r\n```js\r\nconst player = this.matter.add.sprite(0, 0, \"player\");\r\nconst trapDoor = this.matter.add.sprite(200, 0, \"door\");\r\n\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  objectB: trapDoor,\r\n  callback: () => console.log(\"Player touched door!\")\r\n});\r\n```\r\n\r\nCheck out the HTML documentation [here](https://www.mikewesthad.com/phaser-matter-collision-plugin/docs/).\r\n\r\nNote: this readme is still in progress, but it should complete enough for you to get started.\r\n\r\n## Installation\r\n\r\nYou can install this plugin globally as a script, or locally as a module using your bundler of choice.\r\n\r\n### As a Script\r\n\r\nYou can drop in any of the transpiled code into your project as a standalone script. Download the version that you want:\r\n\r\n- [minified code](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js) & optional [source map](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js.map)\r\n- [unminified code](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js) & optional [source map](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js.map)\r\n\r\nE.g. if you wanted the minified code, you would add this to your HTML:\r\n\r\n```html\r\n<script src=\"phaser-matter-collision-plugin.min.js\"></script>\r\n```\r\n\r\nNow you can use the global `PhaserMatterCollisionPlugin`. See [usage](#usage) for how to use the plugin.\r\n\r\n### As a Module\r\n\r\nInstall via npm:\r\n\r\n```\r\nnpm install --save phaser-matter-collision-plugin\r\n```\r\n\r\nTo use the transpiled and minified distribution of the library:\r\n\r\n```js\r\nimport PhaserMatterCollisionPlugin from \"phaser-matter-collision-plugin\";\r\n```\r\n\r\nTo use the raw library (so you can transpile it to match your own project settings):\r\n\r\n```js\r\nimport PhaserMatterCollisionPlugin from \"phaser-matter-collision-plugin/src\";\r\n```\r\n\r\nSee [usage](#usage) for how to use the plugin.\r\n\r\n## Usage\r\n\r\n### Initial Setup\r\n\r\nWhen setting up your game config, add the plugin:\r\n\r\n```js\r\n// prettier-ignore\r\nconst config = {\r\n  // ...\r\n  physics: {\r\n    default: \"matter\"\r\n  },\r\n  // Install the scene plugin\r\n  plugins: {\r\n    scene: [\r\n      {\r\n        key: \"MatterCollisionPlugin\",         // Name to use in cache\r\n        plugin: PhaserMatterCollisionPlugin,  // The plugin class\r\n        mapping: \"matterCollision\",           // Make plugin accessible via scene.matterCollision\r\n        start: true                           // Start with scene\r\n      }\r\n    ]\r\n  }\r\n};\r\n\r\nconst game = new Phaser.Game(config);\r\n```\r\n\r\nNow, within a scene, you can use `this.matterCollision` to access the plugin instance.\r\n\r\n### Usage in Scene\r\n\r\n#### Tracking Collisions\r\n\r\nThe plugin has `addOnCollideStart`, `addOnCollideActive` and `addOnCollideEnd` methods which allow you to listen to collisions between \"objects\" in your scene. Those objects can be: a native Matter body, a tile, a Matter sprite, any object with a `body` property, or an array of any of those.\r\n\r\nFor example, game object vs game object collisions:\r\n\r\n```js\r\nconst player = this.matter.add.sprite(0, 0, \"player\");\r\nconst trapDoor = this.matter.add.image(200, 0, \"door\");\r\n\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  objectB: trapDoor,\r\n  callback: function(eventData) {\r\n    // This function will be invoked any time the player and trap door collide\r\n    const { bodyA, bodyB, gameObjectA, gameObjectB, pair } = eventData;\r\n    // bodyA & bodyB are the Matter bodies of the player and door respectively\r\n    // gameObjectA & gameObjectB are the player and door respectively\r\n    // pair is the raw Matter pair data\r\n  },\r\n  context: this // Context to apply to the callback function\r\n});\r\n```\r\n\r\nIf you omit the `objectB` property, you'll get all collisions involving `objectA`:\r\n\r\n```js\r\nconst player = this.matter.add.sprite(0, 0, \"player\");\r\n\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  callback: eventData => {\r\n    const { bodyB, gameObjectB } = eventData;\r\n    console.log(\"Player touched something.\");\r\n    // bodyB will be the matter body that the player touched\r\n    // gameObjectB will be the game object that owns bodyB, or undefined if there's no game object\r\n  }\r\n});\r\n```\r\n\r\nGame object vs Matter sensor:\r\n\r\n```js\r\nconst player = this.matter.add.sprite(0, 0, \"player\");\r\nconst sensor = this.matter.world.add.rectangle(100, 0, 50, 50, { isStatic: true, isSensor: true });\r\n\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  objectB: sensor,\r\n  callback: eventData => console.log(\"Player touched hidden sensor\")\r\n});\r\n```\r\n\r\nGame object vs array of objects:\r\n\r\n```js\r\nconst player = this.matter.add.sprite(0, 0, \"player\");\r\nconst enemy1 = this.matter.add.sprite(100, 0, \"enemy\");\r\nconst enemy2 = this.matter.add.sprite(200, 0, \"enemy\");\r\nconst enemy3 = this.matter.add.sprite(300, 0, \"enemy\");\r\n\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  objectB: [enemy1, enemy2, enemy3],\r\n  callback: eventData => {\r\n    console.log(\"Player hit an enemy\");\r\n    // eventData.gameObjectB will be the specific enemy that was hit!\r\n  }\r\n});\r\n```\r\n\r\nOr, array vs array:\r\n\r\n```js\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: [player1, player2],\r\n  objectB: [enemy1, enemy2, enemy3],\r\n  callback: eventData => {\r\n    console.log(\"A player hit an enemy\");\r\n    // eventData.gameObjectA will be the specific player involved in the collision\r\n    // eventData.gameObjectB will be the specific enemy involved in the collision\r\n  }\r\n});\r\n```\r\n\r\nYou can listen for collisions vs a single tile (or an array of tiles), but it's likely more useful to do something like:\r\n\r\n```js\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  callback: eventData => {\r\n    const { bodyB, gameObjectB } = eventData;\r\n\r\n    if (gameObjectB !== undefined && gameObjectB instanceof Phaser.Tilemaps.Tile) {\r\n      // Now you know that gameObjectB is a Tile, so you can check the index, properties, etc.\r\n      if (gameObjectB.properties.isDeadly) console.log(\"Stepped on deadly tile\");\r\n      else if (gameObjectB.index === 32) console.log(\"Stepped on the tile with index 32\");\r\n    }\r\n  }\r\n});\r\n```\r\n\r\nThe plugin also exposes two sets of events via the `this.matterCollision.events` event emitter:\r\n\r\n- \"collisionstart\", \"collisionactive\", \"collisionend\" - these match the Matter events. They emit a single parameter `event`. Aside from the normal Matter data in `event`, each pair in `event.pairs` has a `gameObjectA` and `gameObjectB` property that points to the game object that owns each body (if one exists).\r\n- \"paircollisionstart\", \"paircollisionactive\", \"paircollisionend\" - these are similar to the above, except they fire once for each pair. They have one parameter that looks like this: `{ bodyA, bodyB, gameObjectA, gameObjectB, pair }`\r\n\r\nYou can listen to them via `this.matterCollision.events.on(\"collisionstart\", ...)`.\r\n\r\n#### Stop Tracking Collisions\r\n\r\nYou can stop tracking a collision via `removeOnCollideStart`, `removeOnCollideActive` and `removeOnCollideEnd`. They take the same parameters as `addOnCollideStart`.\r\n\r\nIn addition, the addOnCollide methods will also return a function that automatically unsubscribes from the collision event (which can be useful if you use arrow functions):\r\n\r\n```js\r\nconst unsubscribe = this.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  objectB: trapDoor,\r\n  callback: eventData => {\r\n    // Do something, like dropping the door out underneath the player\r\n    // Then unsubscribe so this callback is never called again\r\n    unsubscribe();\r\n  }\r\n});\r\n```\r\n\r\nIf you want to remove all listeners that have been added - not just one colliding pair - there are also the following methods:\r\n\r\n- `removeAllCollideStartListeners`\r\n- `removeAllCollideActiveListeners`\r\n- `removeAllCollideEndListeners`\r\n- `removeAllCollideListeners` - removes start, active and end listeners\r\n\r\n## Live Examples\r\n\r\nFor now, you can check out the [\"tests\" folder](https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/tests) of this repository for usage examples.\r\n\r\nTODO: insert at least one codesandbox\r\nTODO: add a module example and a script example\r\n\r\n## Development\r\n\r\nThe project is controlled by npm scripts and uses cypress & jest for testing. Cypress is used for end-to-end verification that the plugin works as expected with Phaser. Jest is used for unit testing the plugin (via heavy mocking since Phaser headless mode is not complete).\r\n\r\n- The `watch` and `build` tasks will build the plugin source in library/ or the projects in tests/\r\n- The `serve` task opens the whole project (starting at the root) in a server\r\n- The `dev` task will build & watch the library, tests and open up the server. This is useful for creating tests and updating the library.\r\n- The `dev:cypress` task will build & watch the library & tests, as well as open up cypress in headed mode. This is useful for checking out individual tests and debugging them.\r\n- The `test:cypress` task will build the tests and run cypress in headless mode to check all end-to-end tests.\r\n- The `test:jest` will run the jest tests.\r\n\r\n## Tests\r\n\r\nThe cypress tests rely on a particular structure:\r\n\r\n- Each test game inside of \"tests/\" should have an \"index.html\" file as the entry point. \"src/js/index.js\" will be compiled to \"build/js/index.js\" by webpack. (Cypress doesn't support `type=\"module\"` on scripts, so this is necessary if we need modules.)\r\n- Each test has access to `test-utils.js` which provides `startTest`, `passTest` and `failTest` methods. Call `startTest` at the beginning and pass/fail when the test passes/fails. This manipulates in the DOM in a way that cypress is expecting.\r\n- Each test in \"cypress/integration/\" simply loads up the specified URL and waits for it to pass or timeout. (Technically, startTest and failTest are ignored, but they are useful for visual inspection of a test.)\r\n\r\nThe jest unit tests rely on a simple mocking of Phaser and Matter. They are stored inside \"src/\". Once Phaser headless is available, this testing structure could be re-evaluated.\r\n\r\n## (Moved Section) Why\r\n\r\nTODO: put this somewhere else\r\n\r\nThe Matter collision event system just dumps an event with all the pairs of Matter bodies that collided on the current tick of the physics engine. That leaves it up to the developer to:\r\n\r\n- Figure out which game object the bodies belong to\r\n- Search through the pairs of bodies to find the collisions that matter\r\n- Organize the single Matter event into modular pieces\r\n- Parameter ordering (ab vs ba)\r\n\r\nTake something like this:\r\n\r\n```js\r\n// Suppose we have a world of matter-enabled objects (and maybe even tiles)\r\nconst player = this.matter.add.sprite(0, 0, \"player\");\r\nconst enemy = this.matter.add.sprite(100, 0, \"enemy\");\r\nconst trapDoor = this.matter.add.sprite(200, 0, \"door\");\r\nconst crate = this.matter.add.sprite(300, 0, \"crate\");\r\n\r\n// Suppose we only want to watch for player touching the trap door\r\nthis.matter.world.on(\"collisionstart\", event => {\r\n  // Loop over all colliding pairs\r\n  event.pairs.map({ bodyA, bodyB } => {\r\n    // bodyA & bodyB are Matter bodies - which game object owns them?\r\n    // Is this player vs door?\r\n  });\r\n});\r\n```\r\n\r\nAnd turn it into this:\r\n\r\n```js\r\nconst player = this.matter.add.sprite(0, 0, \"player\");\r\nconst enemy = this.matter.add.sprite(100, 0, \"enemy\");\r\nconst trapDoor = this.matter.add.sprite(200, 0, \"door\");\r\nconst crate = this.matter.add.sprite(300, 0, \"crate\");\r\n\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  objectB: trapDoor,\r\n  callback: () => console.log(\"Player touched trapDoor!\")\r\n});\r\n```\r\n",
+    "longname": "C:\\Users\\mikewesthad\\Documents\\GitHub\\phaser-matter-collision-plugin\\README.md",
+    "name": "README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "manual",
+    "longname": "C:\\Users\\mikewesthad\\Documents\\GitHub\\phaser-matter-collision-plugin\\README.md",
+    "name": "README.md",
+    "content": "# Phaser Matter Collision Plugin 💥\r\n\r\nA plugin for making it easier to manage collisions with the [Phaser](https://phaser.io/) game engine and the [Matter.js](http://brm.io/matter-js/) physics engine.\r\n\r\nMatter is one of the cool physics engine choices you have in Phaser 3. Phaser has a thin wrapper over Matter's API, so you need to dig into Matter's native collision event system if you want to detect and respond to collisions. That system just gives you a dump of all the pairs of bodies that collided in a tick of the engine. This plugin wraps up that collision logic in a friendlier, more modular way:\r\n\r\n```js\r\nconst player = this.matter.add.sprite(0, 0, \"player\");\r\nconst trapDoor = this.matter.add.sprite(200, 0, \"door\");\r\n\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  objectB: trapDoor,\r\n  callback: () => console.log(\"Player touched door!\")\r\n});\r\n```\r\n\r\nCheck out the HTML documentation [here](https://www.mikewesthad.com/phaser-matter-collision-plugin/docs/).\r\n\r\nNote: this readme is still in progress, but it should complete enough for you to get started.\r\n\r\n## Installation\r\n\r\nYou can install this plugin globally as a script, or locally as a module using your bundler of choice.\r\n\r\n### As a Script\r\n\r\nYou can drop in any of the transpiled code into your project as a standalone script. Download the version that you want:\r\n\r\n- [minified code](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js) & optional [source map](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js.map)\r\n- [unminified code](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js) & optional [source map](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js.map)\r\n\r\nE.g. if you wanted the minified code, you would add this to your HTML:\r\n\r\n```html\r\n<script src=\"phaser-matter-collision-plugin.min.js\"></script>\r\n```\r\n\r\nNow you can use the global `PhaserMatterCollisionPlugin`. See [usage](#usage) for how to use the plugin.\r\n\r\n### As a Module\r\n\r\nInstall via npm:\r\n\r\n```\r\nnpm install --save phaser-matter-collision-plugin\r\n```\r\n\r\nTo use the transpiled and minified distribution of the library:\r\n\r\n```js\r\nimport PhaserMatterCollisionPlugin from \"phaser-matter-collision-plugin\";\r\n```\r\n\r\nTo use the raw library (so you can transpile it to match your own project settings):\r\n\r\n```js\r\nimport PhaserMatterCollisionPlugin from \"phaser-matter-collision-plugin/src\";\r\n```\r\n\r\nSee [usage](#usage) for how to use the plugin.\r\n\r\n## Usage\r\n\r\n### Initial Setup\r\n\r\nWhen setting up your game config, add the plugin:\r\n\r\n```js\r\n// prettier-ignore\r\nconst config = {\r\n  // ...\r\n  physics: {\r\n    default: \"matter\"\r\n  },\r\n  // Install the scene plugin\r\n  plugins: {\r\n    scene: [\r\n      {\r\n        key: \"MatterCollisionPlugin\",         // Name to use in cache\r\n        plugin: PhaserMatterCollisionPlugin,  // The plugin class\r\n        mapping: \"matterCollision\",           // Make plugin accessible via scene.matterCollision\r\n        start: true                           // Start with scene\r\n      }\r\n    ]\r\n  }\r\n};\r\n\r\nconst game = new Phaser.Game(config);\r\n```\r\n\r\nNow, within a scene, you can use `this.matterCollision` to access the plugin instance.\r\n\r\n### Usage in Scene\r\n\r\n#### Tracking Collisions\r\n\r\nThe plugin has `addOnCollideStart`, `addOnCollideActive` and `addOnCollideEnd` methods which allow you to listen to collisions between \"objects\" in your scene. Those objects can be: a native Matter body, a tile, a Matter sprite, any object with a `body` property, or an array of any of those.\r\n\r\nFor example, game object vs game object collisions:\r\n\r\n```js\r\nconst player = this.matter.add.sprite(0, 0, \"player\");\r\nconst trapDoor = this.matter.add.image(200, 0, \"door\");\r\n\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  objectB: trapDoor,\r\n  callback: function(eventData) {\r\n    // This function will be invoked any time the player and trap door collide\r\n    const { bodyA, bodyB, gameObjectA, gameObjectB, pair } = eventData;\r\n    // bodyA & bodyB are the Matter bodies of the player and door respectively\r\n    // gameObjectA & gameObjectB are the player and door respectively\r\n    // pair is the raw Matter pair data\r\n  },\r\n  context: this // Context to apply to the callback function\r\n});\r\n```\r\n\r\nIf you omit the `objectB` property, you'll get all collisions involving `objectA`:\r\n\r\n```js\r\nconst player = this.matter.add.sprite(0, 0, \"player\");\r\n\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  callback: eventData => {\r\n    const { bodyB, gameObjectB } = eventData;\r\n    console.log(\"Player touched something.\");\r\n    // bodyB will be the matter body that the player touched\r\n    // gameObjectB will be the game object that owns bodyB, or undefined if there's no game object\r\n  }\r\n});\r\n```\r\n\r\nGame object vs Matter sensor:\r\n\r\n```js\r\nconst player = this.matter.add.sprite(0, 0, \"player\");\r\nconst sensor = this.matter.world.add.rectangle(100, 0, 50, 50, { isStatic: true, isSensor: true });\r\n\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  objectB: sensor,\r\n  callback: eventData => console.log(\"Player touched hidden sensor\")\r\n});\r\n```\r\n\r\nGame object vs array of objects:\r\n\r\n```js\r\nconst player = this.matter.add.sprite(0, 0, \"player\");\r\nconst enemy1 = this.matter.add.sprite(100, 0, \"enemy\");\r\nconst enemy2 = this.matter.add.sprite(200, 0, \"enemy\");\r\nconst enemy3 = this.matter.add.sprite(300, 0, \"enemy\");\r\n\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  objectB: [enemy1, enemy2, enemy3],\r\n  callback: eventData => {\r\n    console.log(\"Player hit an enemy\");\r\n    // eventData.gameObjectB will be the specific enemy that was hit!\r\n  }\r\n});\r\n```\r\n\r\nOr, array vs array:\r\n\r\n```js\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: [player1, player2],\r\n  objectB: [enemy1, enemy2, enemy3],\r\n  callback: eventData => {\r\n    console.log(\"A player hit an enemy\");\r\n    // eventData.gameObjectA will be the specific player involved in the collision\r\n    // eventData.gameObjectB will be the specific enemy involved in the collision\r\n  }\r\n});\r\n```\r\n\r\nYou can listen for collisions vs a single tile (or an array of tiles), but it's likely more useful to do something like:\r\n\r\n```js\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  callback: eventData => {\r\n    const { bodyB, gameObjectB } = eventData;\r\n\r\n    if (gameObjectB !== undefined && gameObjectB instanceof Phaser.Tilemaps.Tile) {\r\n      // Now you know that gameObjectB is a Tile, so you can check the index, properties, etc.\r\n      if (gameObjectB.properties.isDeadly) console.log(\"Stepped on deadly tile\");\r\n      else if (gameObjectB.index === 32) console.log(\"Stepped on the tile with index 32\");\r\n    }\r\n  }\r\n});\r\n```\r\n\r\nThe plugin also exposes two sets of events via the `this.matterCollision.events` event emitter:\r\n\r\n- \"collisionstart\", \"collisionactive\", \"collisionend\" - these match the Matter events. They emit a single parameter `event`. Aside from the normal Matter data in `event`, each pair in `event.pairs` has a `gameObjectA` and `gameObjectB` property that points to the game object that owns each body (if one exists).\r\n- \"paircollisionstart\", \"paircollisionactive\", \"paircollisionend\" - these are similar to the above, except they fire once for each pair. They have one parameter that looks like this: `{ bodyA, bodyB, gameObjectA, gameObjectB, pair }`\r\n\r\nYou can listen to them via `this.matterCollision.events.on(\"collisionstart\", ...)`.\r\n\r\n#### Stop Tracking Collisions\r\n\r\nYou can stop tracking a collision via `removeOnCollideStart`, `removeOnCollideActive` and `removeOnCollideEnd`. They take the same parameters as `addOnCollideStart`.\r\n\r\nIn addition, the addOnCollide methods will also return a function that automatically unsubscribes from the collision event (which can be useful if you use arrow functions):\r\n\r\n```js\r\nconst unsubscribe = this.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  objectB: trapDoor,\r\n  callback: eventData => {\r\n    // Do something, like dropping the door out underneath the player\r\n    // Then unsubscribe so this callback is never called again\r\n    unsubscribe();\r\n  }\r\n});\r\n```\r\n\r\nIf you want to remove all listeners that have been added - not just one colliding pair - there are also the following methods:\r\n\r\n- `removeAllCollideStartListeners`\r\n- `removeAllCollideActiveListeners`\r\n- `removeAllCollideEndListeners`\r\n- `removeAllCollideListeners` - removes start, active and end listeners\r\n\r\n## Live Examples\r\n\r\nFor now, you can check out the [\"tests\" folder](https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/tests) of this repository for usage examples.\r\n\r\nTODO: insert at least one codesandbox\r\nTODO: add a module example and a script example\r\n\r\n## Development\r\n\r\nThe project is controlled by npm scripts and uses cypress & jest for testing. Cypress is used for end-to-end verification that the plugin works as expected with Phaser. Jest is used for unit testing the plugin (via heavy mocking since Phaser headless mode is not complete).\r\n\r\n- The `watch` and `build` tasks will build the plugin source in library/ or the projects in tests/\r\n- The `serve` task opens the whole project (starting at the root) in a server\r\n- The `dev` task will build & watch the library, tests and open up the server. This is useful for creating tests and updating the library.\r\n- The `dev:cypress` task will build & watch the library & tests, as well as open up cypress in headed mode. This is useful for checking out individual tests and debugging them.\r\n- The `test:cypress` task will build the tests and run cypress in headless mode to check all end-to-end tests.\r\n- The `test:jest` will run the jest tests.\r\n\r\n## Tests\r\n\r\nThe cypress tests rely on a particular structure:\r\n\r\n- Each test game inside of \"tests/\" should have an \"index.html\" file as the entry point. \"src/js/index.js\" will be compiled to \"build/js/index.js\" by webpack. (Cypress doesn't support `type=\"module\"` on scripts, so this is necessary if we need modules.)\r\n- Each test has access to `test-utils.js` which provides `startTest`, `passTest` and `failTest` methods. Call `startTest` at the beginning and pass/fail when the test passes/fails. This manipulates in the DOM in a way that cypress is expecting.\r\n- Each test in \"cypress/integration/\" simply loads up the specified URL and waits for it to pass or timeout. (Technically, startTest and failTest are ignored, but they are useful for visual inspection of a test.)\r\n\r\nThe jest unit tests rely on a simple mocking of Phaser and Matter. They are stored inside \"src/\". Once Phaser headless is available, this testing structure could be re-evaluated.\r\n\r\n## (Moved Section) Why\r\n\r\nTODO: put this somewhere else\r\n\r\nThe Matter collision event system just dumps an event with all the pairs of Matter bodies that collided on the current tick of the physics engine. That leaves it up to the developer to:\r\n\r\n- Figure out which game object the bodies belong to\r\n- Search through the pairs of bodies to find the collisions that matter\r\n- Organize the single Matter event into modular pieces\r\n- Parameter ordering (ab vs ba)\r\n\r\nTake something like this:\r\n\r\n```js\r\n// Suppose we have a world of matter-enabled objects (and maybe even tiles)\r\nconst player = this.matter.add.sprite(0, 0, \"player\");\r\nconst enemy = this.matter.add.sprite(100, 0, \"enemy\");\r\nconst trapDoor = this.matter.add.sprite(200, 0, \"door\");\r\nconst crate = this.matter.add.sprite(300, 0, \"crate\");\r\n\r\n// Suppose we only want to watch for player touching the trap door\r\nthis.matter.world.on(\"collisionstart\", event => {\r\n  // Loop over all colliding pairs\r\n  event.pairs.map({ bodyA, bodyB } => {\r\n    // bodyA & bodyB are Matter bodies - which game object owns them?\r\n    // Is this player vs door?\r\n  });\r\n});\r\n```\r\n\r\nAnd turn it into this:\r\n\r\n```js\r\nconst player = this.matter.add.sprite(0, 0, \"player\");\r\nconst enemy = this.matter.add.sprite(100, 0, \"enemy\");\r\nconst trapDoor = this.matter.add.sprite(200, 0, \"door\");\r\nconst crate = this.matter.add.sprite(300, 0, \"crate\");\r\n\r\nthis.matterCollision.addOnCollideStart({\r\n  objectA: player,\r\n  objectB: trapDoor,\r\n  callback: () => console.log(\"Player touched trapDoor!\")\r\n});\r\n```\r\n",
+    "static": true,
+    "access": "public"
+  }
+]
