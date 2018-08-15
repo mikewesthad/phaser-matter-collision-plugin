@@ -29,12 +29,16 @@ You can drop in any of the transpiled code into your project as a standalone scr
 
 - [minified code](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js) & optional [source map](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js.map)
 - [unminified code](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js) & optional [source map](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js.map)
-- Or use the jsdelivr CDN: https://cdn.jsdelivr.net/npm/phaser-matter-collision-plugin
-
-E.g. if you wanted the minified code, you would add this to your HTML:
+  E.g. if you wanted the minified code, you would add this to your HTML:
 
 ```html
 <script src="phaser-matter-collision-plugin.min.js"></script>
+```
+
+Or use the jsdelivr CDN:
+
+```html
+<script src="//cdn.jsdelivr.net/npm/phaser-matter-collision-plugin@0.9.0"></script>
 ```
 
 Now you can use the global `PhaserMatterCollisionPlugin`. See [usage](#usage) for how to use the plugin.
