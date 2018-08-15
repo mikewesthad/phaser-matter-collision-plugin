@@ -20,16 +20,30 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
     super(scene, pluginManager);
 
     this.scene = scene;
+
+    /**
+     * @type {Phaser.Events.EventEmitter}
+     * @emits {collisionstart}
+     * @emits {collisionactive}
+     * @emits {collisionend}
+     * @emits {paircollisionstart}
+     * @emits {paircollisionactive}
+     * @emits {paircollisionend}
+     */
     this.events = new Phaser.Events.EventEmitter();
 
     // Maps from objectA => {target?, callback, context?}
+    /** @private */
     this.collisionStartListeners = new Map();
+    /** @private */
     this.collisionEndListeners = new Map();
+    /** @private */
     this.collisionActiveListeners = new Map();
 
     /**
-     * @fires CollisionStart
-     * @fires PairCollisionStart
+     * @fires collisionstart
+     * @fires paircollisionstart
+     * @private
      */
     this.onCollisionStart = this.onCollisionEvent.bind(
       this,
@@ -38,8 +52,9 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
     );
 
     /**
-     * @fires CollisionEnd
-     * @fires PairCollisionEnd
+     * @fires collisionend
+     * @fires paircollisionend
+     * @private
      */
     this.onCollisionEnd = this.onCollisionEvent.bind(
       this,
@@ -48,8 +63,9 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
     );
 
     /**
-     * @fires CollisionActive
-     * @fires PairCollisionActive
+     * @fires collisionactive
+     * @fires paircollisionactive
+     * @private
      */
     this.onCollisionActive = this.onCollisionEvent.bind(
       this,
@@ -63,8 +79,8 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
   /**
    * Add a listener for collidestart events between objectA and objectB. The collidestart event is
    * fired by Matter when two bodies start colliding within a tick of the engine. If objectB is
-   * omitted, any collisions with objectA will be passed along to the listener. @see
-   * {@link PairCollisionStart} for information on callback parameters.
+   * omitted, any collisions with objectA will be passed along to the listener. See
+   * {@link paircollisionstart} for information on callback parameters.
    *
    * @param {object} options
    * @param {PhysicsObject|ObjectWithBody} options.objectA - The first object to watch for in
@@ -83,8 +99,9 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   /**
-   * @see MatterCollisionPlugin#addOnCollideStart
+   * This method mirrors {@link MatterCollisionPlugin#addOnCollideStart}
    * @memberof MatterCollisionPlugin
+   * @param {object} options
    */
   addOnCollideEnd({ objectA, objectB, callback, context } = {}) {
     this.addOnCollide(this.collisionEndListeners, objectA, objectB, callback, context);
@@ -92,8 +109,9 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   /**
-   * @see MatterCollisionPlugin#addOnCollideStart
+   * This method mirrors {@link MatterCollisionPlugin#addOnCollideStart}
    * @memberof MatterCollisionPlugin
+   * @param {object} options
    */
   addOnCollideActive({ objectA, objectB, callback, context } = {}) {
     this.addOnCollide(this.collisionActiveListeners, objectA, objectB, callback, context);
@@ -121,16 +139,18 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   /**
-   * @see MatterCollisionPlugin#removeOnCollideStart
+   * This method mirrors {@link MatterCollisionPlugin#removeOnCollideStart}
    * @memberof MatterCollisionPlugin
+   * @param {object} options
    */
   removeOnCollideEnd({ objectA, objectB, callback, context } = {}) {
     this.removeOnCollide(this.collisionEndListeners, objectA, objectB, callback, context);
   }
 
   /**
-   * @see MatterCollisionPlugin#removeOnCollideStart
+   * This method mirrors {@link MatterCollisionPlugin#removeOnCollideStart}
    * @memberof MatterCollisionPlugin
+   * @param {object} options
    */
   removeOnCollideActive({ objectA, objectB, callback, context } = {}) {
     this.removeOnCollide(this.collisionActiveListeners, objectA, objectB, callback, context);
@@ -325,22 +345,22 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
 }
 
 /**
- * A valid physics-enabled game object or a native Matter body
+ * A valid physics-enabled game object, or just an object that has "body" property
  * @typedef {object} ObjectWithBody
  * @property {Matter.Body} body - A native Matter body
  */
 
 /**
- * A valid physics-enabled game object or a native Matter body
- * @typedef {(Phaser.Physics.Matter.Sprite|Phaser.Physics.Matter.Image|Phaser.Physics.Matter.MatterGameObject|Phaser.Tilemaps.Tile)} PhysicsObject
+ * A valid physics-enabled game object, or a native Matter body
+ * @typedef {(Matter.Body|Phaser.Physics.Matter.Sprite|Phaser.Physics.Matter.Image|Phaser.Physics.Matter.MatterGameObject|Phaser.Tilemaps.Tile)} PhysicsObject
  */
 
 /**
  * This event proxies the Matter collisionstart event, which is fired when any bodies have started
  * colliding.
  *
- * @event CollisionStart
- * @param {object} event - The Matter event data, with the "pairs" property modified so that each
+ * @typedef {event} collisionstart
+ * @property {object} event - The Matter event data, with the "pairs" property modified so that each
  * pair now has a gameObjectA and a gameObjectB property. Those properties will contain the game
  * object associated with the native bodyA or bodyB (or undefined if no game object exists).
  */
@@ -349,8 +369,8 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
  * This event proxies the Matter collisionend event, which is fired when any bodies have stopped
  * colliding.
  *
- * @event CollisionEnd
- * @param {object} event - The Matter event data, with the "pairs" property modified so that each
+ * @typedef {event} collisionend
+ * @property {object} event - The Matter event data, with the "pairs" property modified so that each
  * pair now has a gameObjectA and a gameObjectB property. Those properties will contain the game
  * object associated with the native bodyA or bodyB (or undefined if no game object exists).
  */
@@ -359,8 +379,8 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
  * This event proxies the Matter collisionactive event, which is fired when any bodies are still
  * colliding (after the tick of the engine where they started colliding).
  *
- * @event CollisionActive
- * @param {object} event - The Matter event data, with the "pairs" property modified so that each
+ * @typedef {event} collisionactive
+ * @property {object} event - The Matter event data, with the "pairs" property modified so that each
  * pair now has a gameObjectA and a gameObjectB property. Those properties will contain the game
  * object associated with the native bodyA or bodyB (or undefined if no game object exists).
  */
@@ -368,19 +388,19 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
 /**
  * This event is fired for each pair of bodies that collide during Matter's collisionstart.
  *
- * @event PairCollisionStart
- * @param {object} event
- * @param {object} event.bodyA - The native Matter bodyA from the pair
- * @param {object} event.bodyB - The native Matter bodyB from the pair
- * @param {object|undefined} event.gameObjectA - The game object associated with bodyA, if it exists
- * @param {object|undefined} event.gameObjectB - The game object associated with bodyB, if it exists
- * @param {object} event.pair - The original pair data from Matter
+ * @typedef {event} paircollisionstart
+ * @property {object} event
+ * @property {object} event.bodyA - The native Matter bodyA from the pair
+ * @property {object} event.bodyB - The native Matter bodyB from the pair
+ * @property {object|undefined} event.gameObjectA - The game object associated with bodyA, if it exists
+ * @property {object|undefined} event.gameObjectB - The game object associated with bodyB, if it exists
+ * @property {object} event.pair - The original pair data from Matter
  */
 
 /**
  * This event is fired for each pair of bodies that collide during Matter's collisionend.
  *
- * @event PairCollisionEnd
+ * @typedef {event} paircollisionend
  * @param {object} event
  * @param {object} event.bodyA - The native Matter bodyA from the pair
  * @param {object} event.bodyB - The native Matter bodyB from the pair
@@ -392,7 +412,7 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
 /**
  * This event is fired for each pair of bodies that collide during Matter's collisionactive.
  *
- * @event PairCollisionActive
+ * @typedef {event} paircollisionactive
  * @param {object} event
  * @param {object} event.bodyA - The native Matter bodyA from the pair
  * @param {object} event.bodyB - The native Matter bodyB from the pair
