@@ -4,12 +4,8 @@
   "description": "A plugin for making it easier to manage collisions with Phaser + Matter.js",
   "main": "dist/phaser-matter-collision-plugin.min.js",
   "files": [
-    "src",
+    "src/!(mocks|tests)",
     "dist"
-  ],
-  "exclude": [
-    "src/mocks",
-    "src/tests"
   ],
   "scripts": {
     "build:library": "webpack --mode production --config config/webpack.config.js",
