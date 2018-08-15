@@ -15,7 +15,7 @@ this.matterCollision.addOnCollideStart({
 });
 ```
 
-Check out the HTML documentation [here](https://www.mikewesthad.com/phaser-matter-collision-plugin/docs/).
+Check out the HTML documentation [here](https://www.mikewesthad.com/phaser-matter-collision-plugin/docs/manual/README.html).
 
 Note: this readme is still in progress, but it should complete enough for you to get started.
 
@@ -25,10 +25,11 @@ You can install this plugin globally as a script, or locally as a module using y
 
 ### As a Script
 
-You can drop in any of the transpiled code into your project as a standalone script. Download the version that you want:
+You can drop in any of the transpiled code into your project as a standalone script. Choose the version that you want:
 
 - [minified code](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js) & optional [source map](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js.map)
 - [unminified code](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js) & optional [source map](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js.map)
+- Or use the jsdelivr CDN: https://cdn.jsdelivr.net/npm/phaser-matter-collision-plugin
 
 E.g. if you wanted the minified code, you would add this to your HTML:
 
