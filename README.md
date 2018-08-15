@@ -29,7 +29,8 @@ You can drop in any of the transpiled code into your project as a standalone scr
 
 - [minified code](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js) & optional [source map](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js.map)
 - [unminified code](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js) & optional [source map](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js.map)
-  E.g. if you wanted the minified code, you would add this to your HTML:
+
+E.g. if you wanted the minified code, you would add this to your HTML:
 
 ```html
 <script src="phaser-matter-collision-plugin.min.js"></script>
