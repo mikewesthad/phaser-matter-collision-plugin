@@ -19,8 +19,9 @@
     "pretest:cypress": "npm run build:tests",
     "test:cypress": "cypress run",
     "doc": "esdoc -c ./config/esdoc.json",
-    "deploy:doc": "gh-pages --branch gh-pages --dist docs/build --dest docs",
-    "prepublishOnly": "npm run build",
+    "predeploy:doc": "npm run doc",
+    "deploy:doc": "gh-pages --branch gh-pages --dist ./docs/build --dest docs",
+    "prepublishOnly": "npm run build:library",
     "pull-types": "curl https://raw.githubusercontent.com/photonstorm/phaser3-docs/master/typescript/phaser.d.ts --create-dirs --location --output ./types/phaser.d.ts"
   },
   "repository": {
