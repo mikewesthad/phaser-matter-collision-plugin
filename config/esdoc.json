@@ -1,0 +1,22 @@
+{
+  "source": "./src",
+  "excludes": ["^mocks", "^tests"],
+  "destination": "./docs/build",
+  "plugins": [
+    {
+      "name": "esdoc-standard-plugin",
+      "option": {
+        "accessor": { "access": ["public", "protected"], "autoPrivate": true },
+        "manual": {
+          "index": "README.md",
+          "globalIndex": true,
+          "files": ["README.md"]
+        }
+      }
+    },
+    {
+      "name": "esdoc-inject-style-plugin",
+      "option": { "enable": true, "styles": ["./docs/source-assets/injected-style.css"] }
+    }
+  ]
+}
