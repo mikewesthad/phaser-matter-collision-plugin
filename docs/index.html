@@ -61,16 +61,19 @@ this.matterCollision.addOnCollideStart({
   callback: () =&gt; console.log(&quot;Player touched door!&quot;)
 });</code>
 </code></pre>
-<p>Check out the HTML documentation <a href="https://www.mikewesthad.com/phaser-matter-collision-plugin/docs/">here</a>.</p>
+<p>Check out the HTML documentation <a href="https://www.mikewesthad.com/phaser-matter-collision-plugin/docs/manual/README.html">here</a>.</p>
 <p>Note: this readme is still in progress, but it should complete enough for you to get started.</p>
 <h2 id="installation">Installation</h2><p>You can install this plugin globally as a script, or locally as a module using your bundler of choice.</p>
-<h3 id="as-a-script">As a Script</h3><p>You can drop in any of the transpiled code into your project as a standalone script. Download the version that you want:</p>
+<h3 id="as-a-script">As a Script</h3><p>You can drop in any of the transpiled code into your project as a standalone script. Choose the version that you want:</p>
 <ul>
 <li><a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js">minified code</a> &amp; optional <a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js.map">source map</a></li>
 <li><a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js">unminified code</a> &amp; optional <a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js.map">source map</a></li>
 </ul>
 <p>E.g. if you wanted the minified code, you would add this to your HTML:</p>
 <pre><code class="lang-html"><code class="source-code prettyprint">&lt;script src=&quot;phaser-matter-collision-plugin.min.js&quot;&gt;&lt;/script&gt;</code>
+</code></pre>
+<p>Or use the jsdelivr CDN:</p>
+<pre><code class="lang-html"><code class="source-code prettyprint">&lt;script src=&quot;//cdn.jsdelivr.net/npm/phaser-matter-collision-plugin@0.9.0&quot;&gt;&lt;/script&gt;</code>
 </code></pre>
 <p>Now you can use the global <code>PhaserMatterCollisionPlugin</code>. See <a href="#usage">usage</a> for how to use the plugin.</p>
 <h3 id="as-a-module">As a Module</h3><p>Install via npm:</p>
@@ -282,10 +285,11 @@ this.matterCollision.addOnCollideStart({
   objectB: trapDoor,
   callback: () =&gt; console.log(&quot;Player touched door!&quot;)
 });</code>
-</code></pre><p>Check out the HTML documentation <a href="https://www.mikewesthad.com/phaser-matter-collision-plugin/docs/">here</a>.</p><p>Note: this readme is still in progress, but it should complete enough for you to get started.</p><h2>Installation</h2><p>You can install this plugin globally as a script, or locally as a module using your bundler of choice.</p><h3>As a Script</h3><p>You can drop in any of the transpiled code into your project as a standalone script. Download the version that you want:</p><ul>
+</code></pre><p>Check out the HTML documentation <a href="https://www.mikewesthad.com/phaser-matter-collision-plugin/docs/manual/README.html">here</a>.</p><p>Note: this readme is still in progress, but it should complete enough for you to get started.</p><h2>Installation</h2><p>You can install this plugin globally as a script, or locally as a module using your bundler of choice.</p><h3>As a Script</h3><p>You can drop in any of the transpiled code into your project as a standalone script. Choose the version that you want:</p><ul>
 <li><a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js">minified code</a> &amp; optional <a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js.map">source map</a></li>
 <li><a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js">unminified code</a> &amp; optional <a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js.map">source map</a></li>
 </ul><p>E.g. if you wanted the minified code, you would add this to your HTML:</p><pre><code class="lang-html"><code class="source-code prettyprint">&lt;script src=&quot;phaser-matter-collision-plugin.min.js&quot;&gt;&lt;/script&gt;</code>
+</code></pre><p>Or use the jsdelivr CDN:</p><pre><code class="lang-html"><code class="source-code prettyprint">&lt;script src=&quot;//cdn.jsdelivr.net/npm/phaser-matter-collision-plugin@0.9.0&quot;&gt;&lt;/script&gt;</code>
 </code></pre><p>Now you can use the global <code>PhaserMatterCollisionPlugin</code>. See <a href="#usage">usage</a> for how to use the plugin.</p><h3>As a Module</h3><p>Install via npm:</p><pre><code><code class="source-code prettyprint">npm install --save phaser-matter-collision-plugin</code>
 </code></pre><p>To use the transpiled and minified distribution of the library:</p><pre><code class="lang-js"><code class="source-code prettyprint">import PhaserMatterCollisionPlugin from &quot;phaser-matter-collision-plugin&quot;;</code>
 </code></pre><p>To use the raw library (so you can transpile it to match your own project settings):</p><pre><code class="lang-js"><code class="source-code prettyprint">import PhaserMatterCollisionPlugin from &quot;phaser-matter-collision-plugin/src&quot;;</code>
