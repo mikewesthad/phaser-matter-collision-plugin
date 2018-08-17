@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -102,43 +102,6 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__0__;
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
-
-// /**
-//  * A wrapper around an AB collision listener that makes it easy to destroy / pause / resume the
-//  * listener
-//  */
-// export default class CollidePairListener {
-//   constructor(plugin, map, objectA, objectB, callback, context) {
-//     this.plugin = plugin;
-//     this.map = map;
-//     this.objectA = objectA;
-//     this.objectB = objectB;
-//     this.callback = callback;
-//     this.context = context;
-//   }
-
-//   pause() {
-//     this.plugin.removeOnCollide(this.map, objectA, objectB, callback, context);
-//   }
-
-//   resume() {
-//     this.plugin.addOnCollide(this.map, objectA, objectB, callback, context);
-//   }
-
-//   emit(eventData) {
-//     this.callback.call(this.context, eventData);
-//   }
-
-//   destroy() {
-//     this.pause();
-//     this.map = undefined;
-//     this.plugin = undefined;
-//   }
-// }
-
-/***/ }),
-/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -158,30 +121,37 @@ var external_root_Phaser_commonjs_phaser_commonjs2_phaser_amd_phaser_default = /
 
 
 
-// Get the root body of a compound Matter body
+/**
+ * Get the root body of a compound Matter body
+ * @private
+ */
 function getRootBody(body) {
   while (body.parent !== body) {
     body = body.parent;
   }return body;
 }
 
-// Duck type to check if the given object is a Matter body (because there isn't a prototype)
+/**
+ * Duck type to check if the given object is a Matter body (because there isn't a prototype)
+ * @private
+ */
 function isMatterBody(obj) {
   return obj.hasOwnProperty("collisionFilter") && obj.hasOwnProperty("parts") && obj.hasOwnProperty("slop");
 }
 
-// Check if object is an acceptable physical object for this plugin - a Matter Body, a tile, or an
-// object with a body property
+/**
+ * Check if object is an acceptable physical object for this plugin - a Matter Body, a tile, or an
+ * object with a body property
+ * @private
+ */
 function isPhysicsObject(obj) {
   return isMatterBody(obj) || obj.body || obj instanceof external_root_Phaser_commonjs_phaser_commonjs2_phaser_amd_phaser_default.a.Tilemaps.Tile;
 }
 
+/** @private */
 function warnInvalidObject(obj) {
   logger.warn("Expected a Matter body, Tile or an object with a body property, but instead, recieved: " + obj);
 }
-// EXTERNAL MODULE: ./collide-pair-listener.js
-var collide_pair_listener = __webpack_require__(1);
-
 // CONCATENATED MODULE: ./phaser-matter-collision-plugin.js
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -191,25 +161,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-/*
-  this.addOnCollisionStart({})
-    .setObjectA(a)
-    .setObjectB(b)
-    .setCallback(callback, context)
-    .destroy();
-  // Without a or b, does it listen to everything?
-  
-  OnCollision {
-    constructor(plugin)
-    setObjectA => update plugin
-    setObjectB/callback => auto updated because ref
-  }
-*/
 
 
 
 
-
+// TODO: add oncollide({event: "..."})
 
 /**
  * @export
@@ -224,7 +180,6 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
    * Creates an instance of MatterCollisionPlugin.
    * @param {Phaser.Scene} scene
    * @param {Phaser.Plugins.PluginManager} pluginManager
-   * @memberof MatterCollisionPlugin
    */
   function MatterCollisionPlugin(scene, pluginManager) {
     _classCallCheck(this, MatterCollisionPlugin);
@@ -232,40 +187,57 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
     var _this = _possibleConstructorReturn(this, (MatterCollisionPlugin.__proto__ || Object.getPrototypeOf(MatterCollisionPlugin)).call(this, scene, pluginManager));
 
     _this.scene = scene;
+
+    /**
+     * @type {Phaser.Events.EventEmitter}
+     * @emits {collisionstart}
+     * @emits {collisionactive}
+     * @emits {collisionend}
+     * @emits {paircollisionstart}
+     * @emits {paircollisionactive}
+     * @emits {paircollisionend}
+     */
     _this.events = new external_root_Phaser_commonjs_phaser_commonjs2_phaser_amd_phaser_default.a.Events.EventEmitter();
 
     // Maps from objectA => {target?, callback, context?}
+    /** @private */
     _this.collisionStartListeners = new Map();
+    /** @private */
     _this.collisionEndListeners = new Map();
+    /** @private */
     _this.collisionActiveListeners = new Map();
 
     /**
-     * @fires CollisionStart
-     * @fires PairCollisionStart
+     * @fires collisionstart
+     * @fires paircollisionstart
+     * @private
      */
     _this.onCollisionStart = _this.onCollisionEvent.bind(_this, _this.collisionStartListeners, "collisionstart");
 
     /**
-     * @fires CollisionEnd
-     * @fires PairCollisionEnd
+     * @fires collisionend
+     * @fires paircollisionend
+     * @private
      */
     _this.onCollisionEnd = _this.onCollisionEvent.bind(_this, _this.collisionEndListeners, "collisionend");
 
     /**
-     * @fires CollisionActive
-     * @fires PairCollisionActive
+     * @fires collisionactive
+     * @fires paircollisionactive
+     * @private
      */
     _this.onCollisionActive = _this.onCollisionEvent.bind(_this, _this.collisionActiveListeners, "collisionactive");
 
-    _this.scene.events.once("start", _this.start, _this);
+    _this.scene.events.on("start", _this.start, _this);
+    _this.scene.events.once("destroy", _this.destroy, _this);
     return _this;
   }
 
   /**
    * Add a listener for collidestart events between objectA and objectB. The collidestart event is
    * fired by Matter when two bodies start colliding within a tick of the engine. If objectB is
-   * omitted, any collisions with objectA will be passed along to the listener. @see
-   * {@link PairCollisionStart} for information on callback parameters.
+   * omitted, any collisions with objectA will be passed along to the listener. See
+   * {@link paircollisionstart} for information on callback parameters.
    *
    * @param {object} options
    * @param {PhysicsObject|ObjectWithBody} options.objectA - The first object to watch for in
@@ -276,7 +248,6 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
    * @param {any} [options.context] - The context to apply when invoking the callback.
    * @returns {function} A function that can be invoked to unsubscribe the listener that was just
    * added.
-   * @memberof MatterCollisionPlugin
    */
 
 
@@ -294,8 +265,8 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
     }
 
     /**
-     * @see MatterCollisionPlugin#addOnCollideStart
-     * @memberof MatterCollisionPlugin
+     * This method mirrors {@link MatterCollisionPlugin#addOnCollideStart}
+     * @param {object} options
      */
 
   }, {
@@ -312,8 +283,8 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
     }
 
     /**
-     * @see MatterCollisionPlugin#addOnCollideStart
-     * @memberof MatterCollisionPlugin
+     * This method mirrors {@link MatterCollisionPlugin#addOnCollideStart}
+     * @param {object} options
      */
 
   }, {
@@ -343,7 +314,6 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
      * @param {[any]} options.context - The context to apply when invoking the callback.
      * @returns {function} A function that can be invoked to unsubscribe the listener that was just
      * added.
-     * @memberof MatterCollisionPlugin
      */
 
   }, {
@@ -359,8 +329,8 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
     }
 
     /**
-     * @see MatterCollisionPlugin#removeOnCollideStart
-     * @memberof MatterCollisionPlugin
+     * This method mirrors {@link MatterCollisionPlugin#removeOnCollideStart}
+     * @param {object} options
      */
 
   }, {
@@ -376,8 +346,8 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
     }
 
     /**
-     * @see MatterCollisionPlugin#removeOnCollideStart
-     * @memberof MatterCollisionPlugin
+     * This method mirrors {@link MatterCollisionPlugin#removeOnCollideStart}
+     * @param {object} options
      */
 
   }, {
@@ -394,7 +364,6 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
 
     /**
      * Remove any listeners that were added with addOnCollideStart.
-     * @memberof MatterCollisionPlugin
      */
 
   }, {
@@ -404,7 +373,6 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
     }
     /**
      * Remove any listeners that were added with addOnCollideActive.
-     * @memberof MatterCollisionPlugin
      */
 
   }, {
@@ -414,7 +382,6 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
     }
     /**
      * Remove any listeners that were added with addOnCollideEnd.
-     * @memberof MatterCollisionPlugin
      */
 
   }, {
@@ -425,7 +392,6 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
     /**
      * Remove any listeners that were added with addOnCollideStart, addOnCollideActive or
      * addOnCollideEnd.
-     * @memberof MatterCollisionPlugin
      */
 
   }, {
@@ -434,6 +400,72 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
       this.removeAllCollideStartListeners();
       this.removeAllCollideActiveListeners();
       this.removeAllCollideEndListeners();
+    }
+
+    /**
+     * Remove addOnCollideStart listeners where the given object(s) was involved.
+     * @param {object[]|object} object - An object or array of objects
+     */
+
+  }, {
+    key: "removeCollideStartListenersOf",
+    value: function removeCollideStartListenersOf(object) {
+      this.removeCollideListenersOf(this.collisionStartListeners, object);
+    }
+
+    /**
+     * Remove addOnCollideActive listeners where the given object(s) was involved.
+     * @param {object[]|object} object - An object or array of objects
+     */
+
+  }, {
+    key: "removeCollideActiveListenersOf",
+    value: function removeCollideActiveListenersOf(object) {
+      this.removeCollideListenersOf(this.collisionActiveListeners, object);
+    }
+
+    /**
+     * Remove addOnCollideEnd listeners where the given object(s) was involved.
+     * @param {object[]|object} object - An object or array of objects
+     */
+
+  }, {
+    key: "removeCollideEndListenersOf",
+    value: function removeCollideEndListenersOf(object) {
+      this.removeCollideListenersOf(this.collisionEndListeners, object);
+    }
+
+    /**
+     * Remove addOnCollideStart, addOnCollideActive & addOnCollideEnd listeners where the given
+     * object(s) was involved.
+     * @param {object[]|object} object - An object or array of objects
+     */
+
+  }, {
+    key: "removeAllCollideListenersOf",
+    value: function removeAllCollideListenersOf(object) {
+      this.removeCollideStartListenersOf(object);
+      this.removeCollideActiveListenersOf(object);
+      this.removeCollideEndListenersOf(object);
+    }
+
+    /** @private */
+
+  }, {
+    key: "removeCollideListenersOf",
+    value: function removeCollideListenersOf(map, object) {
+      var objects = Array.isArray(object) ? object : [object];
+      // Remove all places where the object is ObjectA in the collision pair
+      objects.forEach(function (obj) {
+        return map.delete(obj);
+      });
+      // Remove all places where the object is ObjectB in the collision pair
+      map.forEach(function (callbacks, objectA) {
+        var remainingCallbacks = callbacks.filter(function (cb) {
+          return !objects.includes(cb.target);
+        });
+        if (remainingCallbacks.length > 0) map.set(objectA, remainingCallbacks);else map.delete(objectA);
+      });
     }
 
     /** @private */
@@ -599,9 +631,9 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
   }, {
     key: "start",
     value: function start() {
-      // console.log("start"); // Verify this only runs once
+      // If restarting, unsubscribe before resubscribing to ensure only one listener is added
+      this.scene.events.off("shutdown", this.shutdown, this);
       this.scene.events.on("shutdown", this.shutdown, this);
-      this.scene.events.once("destroy", this.destroy, this);
       this.subscribeMatterEvents();
     }
   }, {
@@ -625,22 +657,22 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
 }(external_root_Phaser_commonjs_phaser_commonjs2_phaser_amd_phaser_default.a.Plugins.ScenePlugin);
 
 /**
- * A valid physics-enabled game object or a native Matter body
+ * A valid physics-enabled game object, or just an object that has "body" property
  * @typedef {object} ObjectWithBody
  * @property {Matter.Body} body - A native Matter body
  */
 
 /**
- * A valid physics-enabled game object or a native Matter body
- * @typedef {(Phaser.Physics.Matter.Sprite|Phaser.Physics.Matter.Image|Phaser.Physics.Matter.MatterGameObject|Phaser.Tilemaps.Tile)} PhysicsObject
+ * A valid physics-enabled game object, or a native Matter body
+ * @typedef {(Matter.Body|Phaser.Physics.Matter.Sprite|Phaser.Physics.Matter.Image|Phaser.Physics.Matter.MatterGameObject|Phaser.Tilemaps.Tile)} PhysicsObject
  */
 
 /**
  * This event proxies the Matter collisionstart event, which is fired when any bodies have started
  * colliding.
  *
- * @event CollisionStart
- * @param {object} event - The Matter event data, with the "pairs" property modified so that each
+ * @typedef {event} collisionstart
+ * @property {object} event - The Matter event data, with the "pairs" property modified so that each
  * pair now has a gameObjectA and a gameObjectB property. Those properties will contain the game
  * object associated with the native bodyA or bodyB (or undefined if no game object exists).
  */
@@ -649,8 +681,8 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
  * This event proxies the Matter collisionend event, which is fired when any bodies have stopped
  * colliding.
  *
- * @event CollisionEnd
- * @param {object} event - The Matter event data, with the "pairs" property modified so that each
+ * @typedef {event} collisionend
+ * @property {object} event - The Matter event data, with the "pairs" property modified so that each
  * pair now has a gameObjectA and a gameObjectB property. Those properties will contain the game
  * object associated with the native bodyA or bodyB (or undefined if no game object exists).
  */
@@ -659,8 +691,8 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
  * This event proxies the Matter collisionactive event, which is fired when any bodies are still
  * colliding (after the tick of the engine where they started colliding).
  *
- * @event CollisionActive
- * @param {object} event - The Matter event data, with the "pairs" property modified so that each
+ * @typedef {event} collisionactive
+ * @property {object} event - The Matter event data, with the "pairs" property modified so that each
  * pair now has a gameObjectA and a gameObjectB property. Those properties will contain the game
  * object associated with the native bodyA or bodyB (or undefined if no game object exists).
  */
@@ -668,19 +700,19 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
 /**
  * This event is fired for each pair of bodies that collide during Matter's collisionstart.
  *
- * @event PairCollisionStart
- * @param {object} event
- * @param {object} event.bodyA - The native Matter bodyA from the pair
- * @param {object} event.bodyB - The native Matter bodyB from the pair
- * @param {object|undefined} event.gameObjectA - The game object associated with bodyA, if it exists
- * @param {object|undefined} event.gameObjectB - The game object associated with bodyB, if it exists
- * @param {object} event.pair - The original pair data from Matter
+ * @typedef {event} paircollisionstart
+ * @property {object} event
+ * @property {object} event.bodyA - The native Matter bodyA from the pair
+ * @property {object} event.bodyB - The native Matter bodyB from the pair
+ * @property {object|undefined} event.gameObjectA - The game object associated with bodyA, if it exists
+ * @property {object|undefined} event.gameObjectB - The game object associated with bodyB, if it exists
+ * @property {object} event.pair - The original pair data from Matter
  */
 
 /**
  * This event is fired for each pair of bodies that collide during Matter's collisionend.
  *
- * @event PairCollisionEnd
+ * @typedef {event} paircollisionend
  * @param {object} event
  * @param {object} event.bodyA - The native Matter bodyA from the pair
  * @param {object} event.bodyB - The native Matter bodyB from the pair
@@ -692,7 +724,7 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
 /**
  * This event is fired for each pair of bodies that collide during Matter's collisionactive.
  *
- * @event PairCollisionActive
+ * @typedef {event} paircollisionactive
  * @param {object} event
  * @param {object} event.bodyA - The native Matter bodyA from the pair
  * @param {object} event.bodyB - The native Matter bodyB from the pair
