@@ -54,4 +54,12 @@ describe("scene started with matter", () => {
       expect(scene.matter.world.listenerCount(name)).toBe(0);
     });
   });
+
+  test("after restarting a scene, the plugin should be subscribed to matter events", () => {
+    scene.events.emit("shutdown");
+    scene.events.emit("start");
+    expect(scene.matter.world.listenerCount("collisionstart")).not.toBe(0);
+    expect(scene.matter.world.listenerCount("collisionend")).not.toBe(0);
+    expect(scene.matter.world.listenerCount("collisionactive")).not.toBe(0);
+  });
 });

@@ -71,7 +71,8 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
       "collisionactive"
     );
 
-    this.scene.events.once("start", this.start, this);
+    this.scene.events.on("start", this.start, this);
+    this.scene.events.once("destroy", this.destroy, this);
   }
 
   /**
@@ -322,9 +323,9 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   start() {
-    // console.log("start"); // Verify this only runs once
+    // If restarting, unsubscribe before resubscribing to ensure only one listener is added
+    this.scene.events.off("shutdown", this.shutdown, this);
     this.scene.events.on("shutdown", this.shutdown, this);
-    this.scene.events.once("destroy", this.destroy, this);
     this.subscribeMatterEvents();
   }
 
