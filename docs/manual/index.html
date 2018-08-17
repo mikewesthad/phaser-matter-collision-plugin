@@ -96,10 +96,9 @@ const config = {
   plugins: {
     scene: [
       {
-        key: &quot;MatterCollisionPlugin&quot;,         // Name to use in cache
-        plugin: PhaserMatterCollisionPlugin,  // The plugin class
-        mapping: &quot;matterCollision&quot;,           // Make plugin accessible via scene.matterCollision
-        start: true                           // Start with scene
+        plugin: PhaserMatterCollisionPlugin, // The plugin class
+        key: &quot;matterCollision&quot;, // Where to store in Scene.Systems, e.g. scene.sys.matterCollision
+        mapping: &quot;matterCollision&quot; // Where to store in the Scene, e.g. scene.matterCollision
       }
     ]
   }
@@ -303,10 +302,9 @@ const config = {
   plugins: {
     scene: [
       {
-        key: &quot;MatterCollisionPlugin&quot;,         // Name to use in cache
-        plugin: PhaserMatterCollisionPlugin,  // The plugin class
-        mapping: &quot;matterCollision&quot;,           // Make plugin accessible via scene.matterCollision
-        start: true                           // Start with scene
+        plugin: PhaserMatterCollisionPlugin, // The plugin class
+        key: &quot;matterCollision&quot;, // Where to store in Scene.Systems, e.g. scene.sys.matterCollision
+        mapping: &quot;matterCollision&quot; // Where to store in the Scene, e.g. scene.matterCollision
       }
     ]
   }

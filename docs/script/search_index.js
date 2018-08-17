@@ -366,9 +366,33 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/phaser-matter-collision-plugin.js~mattercollisionplugin#removeallcollidelistenersof",
+    "class/src/phaser-matter-collision-plugin.js~MatterCollisionPlugin.html#instance-method-removeAllCollideListenersOf",
+    "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#removeAllCollideListenersOf",
+    "method"
+  ],
+  [
     "src/phaser-matter-collision-plugin.js~mattercollisionplugin#removeallcollidestartlisteners",
     "class/src/phaser-matter-collision-plugin.js~MatterCollisionPlugin.html#instance-method-removeAllCollideStartListeners",
     "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#removeAllCollideStartListeners",
+    "method"
+  ],
+  [
+    "src/phaser-matter-collision-plugin.js~mattercollisionplugin#removecollideactivelistenersof",
+    "class/src/phaser-matter-collision-plugin.js~MatterCollisionPlugin.html#instance-method-removeCollideActiveListenersOf",
+    "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#removeCollideActiveListenersOf",
+    "method"
+  ],
+  [
+    "src/phaser-matter-collision-plugin.js~mattercollisionplugin#removecollideendlistenersof",
+    "class/src/phaser-matter-collision-plugin.js~MatterCollisionPlugin.html#instance-method-removeCollideEndListenersOf",
+    "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#removeCollideEndListenersOf",
+    "method"
+  ],
+  [
+    "src/phaser-matter-collision-plugin.js~mattercollisionplugin#removecollidestartlistenersof",
+    "class/src/phaser-matter-collision-plugin.js~MatterCollisionPlugin.html#instance-method-removeCollideStartListenersOf",
+    "src/phaser-matter-collision-plugin.js~MatterCollisionPlugin#removeCollideStartListenersOf",
     "method"
   ],
   [

@@ -1,18 +1,18 @@
 {
-  "coverage": "82.35%",
-  "expectCount": 34,
-  "actualCount": 28,
+  "coverage": "84.61%",
+  "expectCount": 39,
+  "actualCount": 33,
   "files": {
     "src/phaser-matter-collision-plugin.js": {
-      "expectCount": 30,
-      "actualCount": 24,
+      "expectCount": 35,
+      "actualCount": 29,
       "undocumentLines": [
-        22,
-        305,
-        316,
-        326,
-        333,
-        338
+        21,
+        343,
+        354,
+        364,
+        371,
+        376
       ]
     },
     "src/utils.js": {

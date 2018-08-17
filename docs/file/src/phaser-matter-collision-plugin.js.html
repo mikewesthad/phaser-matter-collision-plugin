@@ -43,11 +43,11 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/phaser-matter-collision-plugin.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
-import Phaser from &quot;phaser&quot;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Phaser from &quot;phaser&quot;;
 import { getRootBody, isPhysicsObject, warnInvalidObject } from &quot;./utils&quot;;
 import logger from &quot;./logger&quot;;
-import CollidePairListener from &quot;./collide-pair-listener&quot;;
+
+// TODO: add oncollide({event: &quot;...&quot;})
 
 /**
  * @export
@@ -59,7 +59,6 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
    * Creates an instance of MatterCollisionPlugin.
    * @param {Phaser.Scene} scene
    * @param {Phaser.Plugins.PluginManager} pluginManager
-   * @memberof MatterCollisionPlugin
    */
   constructor(scene, pluginManager) {
     super(scene, pluginManager);
@@ -118,7 +117,8 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
       &quot;collisionactive&quot;
     );
 
-    this.scene.events.once(&quot;start&quot;, this.start, this);
+    this.scene.events.on(&quot;start&quot;, this.start, this);
+    this.scene.events.once(&quot;destroy&quot;, this.destroy, this);
   }
 
   /**
@@ -136,7 +136,6 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
    * @param {any} [options.context] - The context to apply when invoking the callback.
    * @returns {function} A function that can be invoked to unsubscribe the listener that was just
    * added.
-   * @memberof MatterCollisionPlugin
    */
   addOnCollideStart({ objectA, objectB, callback, context } = {}) {
     this.addOnCollide(this.collisionStartListeners, objectA, objectB, callback, context);
@@ -145,7 +144,6 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
 
   /**
    * This method mirrors {@link MatterCollisionPlugin#addOnCollideStart}
-   * @memberof MatterCollisionPlugin
    * @param {object} options
    */
   addOnCollideEnd({ objectA, objectB, callback, context } = {}) {
@@ -155,7 +153,6 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
 
   /**
    * This method mirrors {@link MatterCollisionPlugin#addOnCollideStart}
-   * @memberof MatterCollisionPlugin
    * @param {object} options
    */
   addOnCollideActive({ objectA, objectB, callback, context } = {}) {
@@ -177,7 +174,6 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
    * @param {[any]} options.context - The context to apply when invoking the callback.
    * @returns {function} A function that can be invoked to unsubscribe the listener that was just
    * added.
-   * @memberof MatterCollisionPlugin
    */
   removeOnCollideStart({ objectA, objectB, callback, context } = {}) {
     this.removeOnCollide(this.collisionStartListeners, objectA, objectB, callback, context);
@@ -185,7 +181,6 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
 
   /**
    * This method mirrors {@link MatterCollisionPlugin#removeOnCollideStart}
-   * @memberof MatterCollisionPlugin
    * @param {object} options
    */
   removeOnCollideEnd({ objectA, objectB, callback, context } = {}) {
@@ -194,7 +189,6 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
 
   /**
    * This method mirrors {@link MatterCollisionPlugin#removeOnCollideStart}
-   * @memberof MatterCollisionPlugin
    * @param {object} options
    */
   removeOnCollideActive({ objectA, objectB, callback, context } = {}) {
@@ -203,21 +197,18 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
 
   /**
    * Remove any listeners that were added with addOnCollideStart.
-   * @memberof MatterCollisionPlugin
    */
   removeAllCollideStartListeners() {
     this.collisionStartListeners.clear();
   }
   /**
    * Remove any listeners that were added with addOnCollideActive.
-   * @memberof MatterCollisionPlugin
    */
   removeAllCollideActiveListeners() {
     this.collisionActiveListeners.clear();
   }
   /**
    * Remove any listeners that were added with addOnCollideEnd.
-   * @memberof MatterCollisionPlugin
    */
   removeAllCollideEndListeners() {
     this.collisionEndListeners.clear();
@@ -225,12 +216,59 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
   /**
    * Remove any listeners that were added with addOnCollideStart, addOnCollideActive or
    * addOnCollideEnd.
-   * @memberof MatterCollisionPlugin
    */
   removeAllCollideListeners() {
     this.removeAllCollideStartListeners();
     this.removeAllCollideActiveListeners();
     this.removeAllCollideEndListeners();
+  }
+
+  /**
+   * Remove addOnCollideStart listeners where the given object(s) was involved.
+   * @param {object[]|object} object - An object or array of objects
+   */
+  removeCollideStartListenersOf(object) {
+    this.removeCollideListenersOf(this.collisionStartListeners, object);
+  }
+
+  /**
+   * Remove addOnCollideActive listeners where the given object(s) was involved.
+   * @param {object[]|object} object - An object or array of objects
+   */
+  removeCollideActiveListenersOf(object) {
+    this.removeCollideListenersOf(this.collisionActiveListeners, object);
+  }
+
+  /**
+   * Remove addOnCollideEnd listeners where the given object(s) was involved.
+   * @param {object[]|object} object - An object or array of objects
+   */
+  removeCollideEndListenersOf(object) {
+    this.removeCollideListenersOf(this.collisionEndListeners, object);
+  }
+
+  /**
+   * Remove addOnCollideStart, addOnCollideActive &amp; addOnCollideEnd listeners where the given
+   * object(s) was involved.
+   * @param {object[]|object} object - An object or array of objects
+   */
+  removeAllCollideListenersOf(object) {
+    this.removeCollideStartListenersOf(object);
+    this.removeCollideActiveListenersOf(object);
+    this.removeCollideEndListenersOf(object);
+  }
+
+  /** @private */
+  removeCollideListenersOf(map, object) {
+    const objects = Array.isArray(object) ? object : [object];
+    // Remove all places where the object is ObjectA in the collision pair
+    objects.forEach(obj =&gt; map.delete(obj));
+    // Remove all places where the object is ObjectB in the collision pair
+    map.forEach((callbacks, objectA) =&gt; {
+      const remainingCallbacks = callbacks.filter(cb =&gt; !objects.includes(cb.target));
+      if (remainingCallbacks.length &gt; 0) map.set(objectA, remainingCallbacks);
+      else map.delete(objectA);
+    });
   }
 
   /** @private */
@@ -369,9 +407,9 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   start() {
-    // console.log(&quot;start&quot;); // Verify this only runs once
+    // If restarting, unsubscribe before resubscribing to ensure only one listener is added
+    this.scene.events.off(&quot;shutdown&quot;, this.shutdown, this);
     this.scene.events.on(&quot;shutdown&quot;, this.shutdown, this);
-    this.scene.events.once(&quot;destroy&quot;, this.destroy, this);
     this.subscribeMatterEvents();
   }
 
