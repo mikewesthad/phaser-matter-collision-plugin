@@ -165,8 +165,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-// TODO: add oncollide({event: "..."})
-
 /**
  * @export
  * @class MatterCollisionPlugin
@@ -228,7 +226,7 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
      */
     _this.onCollisionActive = _this.onCollisionEvent.bind(_this, _this.collisionActiveListeners, "collisionactive");
 
-    _this.scene.events.on("start", _this.start, _this);
+    _this.scene.events.once("start", _this.start, _this);
     _this.scene.events.once("destroy", _this.destroy, _this);
     return _this;
   }
@@ -641,6 +639,8 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
     value: function shutdown() {
       this.removeAllCollideListeners();
       this.unsubscribeMatterEvents();
+      // Resubscribe to start so that the plugin is started again after Matter
+      this.scene.events.once("start", this.start, this);
     }
   }, {
     key: "destroy",
