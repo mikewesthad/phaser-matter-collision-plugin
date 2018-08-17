@@ -1,8 +1,6 @@
-
 import Phaser from "phaser";
 import { getRootBody, isPhysicsObject, warnInvalidObject } from "./utils";
 import logger from "./logger";
-import CollidePairListener from "./collide-pair-listener";
 
 /**
  * @export
