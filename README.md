@@ -39,7 +39,7 @@ E.g. if you wanted the minified code, you would add this to your HTML:
 Or use the jsdelivr CDN:
 
 ```html
-<script src="//cdn.jsdelivr.net/npm/phaser-matter-collision-plugin@0.9.0"></script>
+<script src="//cdn.jsdelivr.net/npm/phaser-matter-collision-plugin@0.9.1"></script>
 ```
 
 Now you can use the global `PhaserMatterCollisionPlugin`. See [usage](#usage) for how to use the plugin.
