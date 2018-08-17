@@ -176,6 +176,54 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
     this.removeAllCollideEndListeners();
   }
 
+  /**
+   * Remove addOnCollideStart listeners where the given object(s) was involved.
+   * @param {object[]|object} object - An object or array of objects
+   */
+  removeCollideStartListenersOf(object) {
+    this.removeCollideListenersOf(this.collisionStartListeners, object);
+  }
+
+  /**
+   * Remove addOnCollideActive listeners where the given object(s) was involved.
+   * @param {object[]|object} object - An object or array of objects
+   */
+  removeCollideActiveListenersOf(object) {
+    this.removeCollideListenersOf(this.collisionActiveListeners, object);
+  }
+
+  /**
+   * Remove addOnCollideEnd listeners where the given object(s) was involved.
+   * @param {object[]|object} object - An object or array of objects
+   */
+  removeCollideEndListenersOf(object) {
+    this.removeCollideListenersOf(this.collisionEndListeners, object);
+  }
+
+  /**
+   * Remove addOnCollideStart, addOnCollideActive & addOnCollideEnd listeners where the given
+   * object(s) was involved.
+   * @param {object[]|object} object - An object or array of objects
+   */
+  removeAllCollideListenersOf(object) {
+    this.removeCollideStartListenersOf(object);
+    this.removeCollideActiveListenersOf(object);
+    this.removeCollideEndListenersOf(object);
+  }
+
+  /** @private */
+  removeCollideListenersOf(map, object) {
+    const objects = Array.isArray(object) ? object : [object];
+    // Remove all places where the object is ObjectA in the collision pair
+    objects.forEach(obj => map.delete(obj));
+    // Remove all places where the object is ObjectB in the collision pair
+    map.forEach((callbacks, objectA) => {
+      const remainingCallbacks = callbacks.filter(cb => !objects.includes(cb.target));
+      if (remainingCallbacks.length > 0) map.set(objectA, remainingCallbacks);
+      else map.delete(objectA);
+    });
+  }
+
   /** @private */
   addOnCollide(map, objectA, objectB, callback, context) {
     if (!callback || typeof callback !== "function") {
