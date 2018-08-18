@@ -2,6 +2,10 @@ import Phaser from "phaser";
 import { getRootBody, isPhysicsObject, warnInvalidObject } from "./utils";
 import logger from "./logger";
 
+// Possible todos:
+// - add oncollide({event: "..."}) style methods
+// - add addOnCollideStartOnce style methods
+
 /**
  * @export
  * @class MatterCollisionPlugin
