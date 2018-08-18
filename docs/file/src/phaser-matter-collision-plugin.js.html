@@ -47,7 +47,9 @@
 import { getRootBody, isPhysicsObject, warnInvalidObject } from &quot;./utils&quot;;
 import logger from &quot;./logger&quot;;
 
-// TODO: add oncollide({event: &quot;...&quot;})
+// Possible todos:
+// - add oncollide({event: &quot;...&quot;}) style methods
+// - add addOnCollideStartOnce style methods
 
 /**
  * @export
@@ -117,7 +119,7 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
       &quot;collisionactive&quot;
     );
 
-    this.scene.events.on(&quot;start&quot;, this.start, this);
+    this.scene.events.once(&quot;start&quot;, this.start, this);
     this.scene.events.once(&quot;destroy&quot;, this.destroy, this);
   }
 
@@ -161,19 +163,18 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   /**
-   * Remove any listeners that were added with addOnCollideStart that match the given options object
-   * parameter exactly. I.e. this will only remove the listener if the listener was added via
-   * addOnCollideStart with the same parameters.
+   * Remove any listeners that were added with addOnCollideStart. If objectB, callback or context
+   * parameters are omitted, any listener matching the remaining parameters will be removed. E.g. if
+   * you only specify objectA and objectB, all listeners with objectA &amp; objectB will be removed
+   * regardless of the callback or context.
    *
    * @param {object} options
    * @param {PhysicsObject|ObjectWithBody} options.objectA - The first object to watch for in
    * colliding pairs.
-   * @param {PhysicsObject|ObjectWithBody} options.objectB - the second object to watch for in
-   * colliding pairs. If not defined, all collisions with objectA will trigger the callback
-   * @param {function} options.callback - The function to be invoked on collision
-   * @param {[any]} options.context - The context to apply when invoking the callback.
-   * @returns {function} A function that can be invoked to unsubscribe the listener that was just
-   * added.
+   * @param {PhysicsObject|ObjectWithBody} [options.objectB] - the second object to watch for in
+   * colliding pairs.
+   * @param {function} [options.callback] - The function to be invoked on collision
+   * @param {any} [options.context] - The context to apply when invoking the callback.
    */
   removeOnCollideStart({ objectA, objectB, callback, context } = {}) {
     this.removeOnCollide(this.collisionStartListeners, objectA, objectB, callback, context);
@@ -223,54 +224,6 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
     this.removeAllCollideEndListeners();
   }
 
-  /**
-   * Remove addOnCollideStart listeners where the given object(s) was involved.
-   * @param {object[]|object} object - An object or array of objects
-   */
-  removeCollideStartListenersOf(object) {
-    this.removeCollideListenersOf(this.collisionStartListeners, object);
-  }
-
-  /**
-   * Remove addOnCollideActive listeners where the given object(s) was involved.
-   * @param {object[]|object} object - An object or array of objects
-   */
-  removeCollideActiveListenersOf(object) {
-    this.removeCollideListenersOf(this.collisionActiveListeners, object);
-  }
-
-  /**
-   * Remove addOnCollideEnd listeners where the given object(s) was involved.
-   * @param {object[]|object} object - An object or array of objects
-   */
-  removeCollideEndListenersOf(object) {
-    this.removeCollideListenersOf(this.collisionEndListeners, object);
-  }
-
-  /**
-   * Remove addOnCollideStart, addOnCollideActive &amp; addOnCollideEnd listeners where the given
-   * object(s) was involved.
-   * @param {object[]|object} object - An object or array of objects
-   */
-  removeAllCollideListenersOf(object) {
-    this.removeCollideStartListenersOf(object);
-    this.removeCollideActiveListenersOf(object);
-    this.removeCollideEndListenersOf(object);
-  }
-
-  /** @private */
-  removeCollideListenersOf(map, object) {
-    const objects = Array.isArray(object) ? object : [object];
-    // Remove all places where the object is ObjectA in the collision pair
-    objects.forEach(obj =&gt; map.delete(obj));
-    // Remove all places where the object is ObjectB in the collision pair
-    map.forEach((callbacks, objectA) =&gt; {
-      const remainingCallbacks = callbacks.filter(cb =&gt; !objects.includes(cb.target));
-      if (remainingCallbacks.length &gt; 0) map.set(objectA, remainingCallbacks);
-      else map.delete(objectA);
-    });
-  }
-
   /** @private */
   addOnCollide(map, objectA, objectB, callback, context) {
     if (!callback || typeof callback !== &quot;function&quot;) {
@@ -291,12 +244,21 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
     const objectsA = Array.isArray(objectsA) ? objectA : [objectA];
     const objectsB = Array.isArray(objectsB) ? objectB : [objectB];
     objectsA.forEach(a =&gt; {
-      const callbacks = map.get(a) || [];
-      const remainingCallbacks = callbacks.filter(
-        cb =&gt; !(objectsB.includes(cb.target) &amp;&amp; cb.callback === callback &amp;&amp; cb.context === context)
-      );
-      if (remainingCallbacks.length &gt; 0) map.set(a, remainingCallbacks);
-      else map.delete(a);
+      if (!objectB) {
+        map.delete(a);
+      } else {
+        const callbacks = map.get(a) || [];
+        const remainingCallbacks = callbacks.filter(
+          cb =&gt;
+            !(
+              objectsB.includes(cb.target) &amp;&amp;
+              (!callback || cb.callback === callback) &amp;&amp;
+              (!context || cb.context === context)
+            )
+        );
+        if (remainingCallbacks.length &gt; 0) map.set(a, remainingCallbacks);
+        else map.delete(a);
+      }
     });
   }
 
@@ -416,6 +378,8 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
   shutdown() {
     this.removeAllCollideListeners();
     this.unsubscribeMatterEvents();
+    // Resubscribe to start so that the plugin is started again after Matter
+    this.scene.events.once(&quot;start&quot;, this.start, this);
   }
 
   destroy() {
