@@ -188,9 +188,38 @@ describe("scene started with matter", () => {
     plugin.addOnCollideStart({ objectA, objectB, callback: abCallback });
     plugin.addOnCollideStart({ objectA, objectB: objectC, callback: acCallback });
     plugin.removeOnCollideStart({ objectA, objectB: objectC, callback: acCallback });
-    emitMatterCollisionEvent(scene, "collisionstart", [abPair]);
-    emitMatterCollisionEvent(scene, "collisionstart", [acPair]);
+    emitMatterCollisionEvent(scene, "collisionstart", [abPair, acPair]);
     expect(abCallback.mock.calls.length).toBe(1);
+    expect(acCallback.mock.calls.length).toBe(0);
+  });
+
+  test("removeOnCollideStart with objectB omitted should remove all callbacks involving objectA", () => {
+    const objectA = createBody();
+    const objectB = createBody();
+    const objectC = createBody();
+    const callback = jest.fn();
+    const abPair = createPair(objectA, objectB);
+    const acPair = createPair(objectA, objectC);
+    plugin.addOnCollideStart({ objectA, objectB, callback });
+    plugin.addOnCollideStart({ objectA, objectB: objectC, callback });
+    plugin.removeOnCollideStart({ objectA, callback });
+    emitMatterCollisionEvent(scene, "collisionstart", [abPair, acPair]);
+    expect(callback.mock.calls.length).toBe(0);
+  });
+
+  test("removeOnCollideStart with objectB and callback omitted should remove all callbacks involving objectA", () => {
+    const objectA = createBody();
+    const objectB = createBody();
+    const objectC = createBody();
+    const abCallback = jest.fn();
+    const acCallback = jest.fn();
+    const abPair = createPair(objectA, objectB);
+    const acPair = createPair(objectA, objectC);
+    plugin.addOnCollideStart({ objectA, objectB, callback: abCallback });
+    plugin.addOnCollideStart({ objectA, objectB: objectC, callback: acCallback });
+    plugin.removeOnCollideStart({ objectA });
+    emitMatterCollisionEvent(scene, "collisionstart", [abPair, acPair]);
+    expect(abCallback.mock.calls.length).toBe(0);
     expect(acCallback.mock.calls.length).toBe(0);
   });
 
@@ -240,83 +269,5 @@ describe("scene started with matter", () => {
     expect(callback.mock.calls.length).toBe(2);
     emitMatterCollisionEvent(scene, "collisionstart", [abPair]); // Should not trigger
     expect(callback.mock.calls.length).toBe(2);
-  });
-
-  test("removeCollideStartListenersOf should remove all start callbacks involving specified body", () => {
-    const objectA = createBody();
-    const objectB = createBody();
-    const objectC = createBody();
-    const objectD = createBody();
-    const objectE = createBody();
-    const callback = jest.fn();
-    const acPair = createPair(objectA, objectC);
-    const adPair = createPair(objectA, objectD);
-    const aePair = createPair(objectA, objectE);
-    plugin.addOnCollideStart({
-      objectA: [objectA, objectB],
-      objectB: [objectC, objectD],
-      callback
-    });
-    plugin.addOnCollideStart({
-      objectA: objectE,
-      objectB: objectA,
-      callback
-    });
-    plugin.removeCollideStartListenersOf(objectA);
-    emitMatterCollisionEvent(scene, "collisionstart", [acPair, adPair, aePair]);
-    expect(callback.mock.calls.length).toBe(0);
-  });
-
-  test("removeCollideStartListenersOf should not remove any start callbacks involving other bodies", () => {
-    const objectA = createBody();
-    const objectB = createBody();
-    const objectC = createBody();
-    const objectD = createBody();
-    const callback = jest.fn();
-    const bdPair = createPair(objectB, objectD);
-    const bcPair = createPair(objectB, objectC);
-    plugin.addOnCollideStart({
-      objectA: [objectA, objectB],
-      objectB: [objectC, objectD],
-      callback
-    });
-    plugin.removeCollideStartListenersOf(objectA);
-    emitMatterCollisionEvent(scene, "collisionstart", [bdPair, bcPair]);
-    expect(callback.mock.calls.length).toBe(2);
-  });
-
-  test("removeCollideStartListenersOf should remove all start callbacks involving the array of bodies given", () => {
-    const objectA = createBody();
-    const objectB = createBody();
-    const objectC = createBody();
-    const objectD = createBody();
-    const callback = jest.fn();
-    const acPair = createPair(objectA, objectC);
-    const adPair = createPair(objectA, objectD);
-    const bcPair = createPair(objectB, objectC);
-    const bdPair = createPair(objectB, objectD);
-    plugin.addOnCollideStart({
-      objectA: [objectA, objectB],
-      objectB: [objectC, objectD],
-      callback
-    });
-    plugin.removeCollideStartListenersOf([objectA, objectB]);
-    emitMatterCollisionEvent(scene, "collisionstart", [acPair, adPair, bcPair, bdPair]);
-    expect(callback.mock.calls.length).toBe(0);
-  });
-
-  test("removeAllCollideListenersOf should remove all callbacks involving specified body", () => {
-    const objectA = createBody();
-    const objectB = createBody();
-    const callback = jest.fn();
-    const abPair = createPair(objectA, objectB);
-    plugin.addOnCollideStart({ objectA: objectA, callback });
-    plugin.addOnCollideActive({ objectA: objectA, callback });
-    plugin.addOnCollideEnd({ objectA: objectA, callback });
-    plugin.removeAllCollideListenersOf(objectA);
-    emitMatterCollisionEvent(scene, "collisionstart", [abPair]);
-    emitMatterCollisionEvent(scene, "collisionactive", [abPair]);
-    emitMatterCollisionEvent(scene, "collisionend", [abPair]);
-    expect(callback.mock.calls.length).toBe(0);
   });
 });
