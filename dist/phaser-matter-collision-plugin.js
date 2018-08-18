@@ -165,6 +165,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+// Possible todos:
+// - add oncollide({event: "..."}) style methods
+// - add addOnCollideStartOnce style methods
+
 /**
  * @export
  * @class MatterCollisionPlugin
@@ -299,19 +303,18 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
     }
 
     /**
-     * Remove any listeners that were added with addOnCollideStart that match the given options object
-     * parameter exactly. I.e. this will only remove the listener if the listener was added via
-     * addOnCollideStart with the same parameters.
+     * Remove any listeners that were added with addOnCollideStart. If objectB, callback or context
+     * parameters are omitted, any listener matching the remaining parameters will be removed. E.g. if
+     * you only specify objectA and objectB, all listeners with objectA & objectB will be removed
+     * regardless of the callback or context.
      *
      * @param {object} options
      * @param {PhysicsObject|ObjectWithBody} options.objectA - The first object to watch for in
      * colliding pairs.
-     * @param {PhysicsObject|ObjectWithBody} options.objectB - the second object to watch for in
-     * colliding pairs. If not defined, all collisions with objectA will trigger the callback
-     * @param {function} options.callback - The function to be invoked on collision
-     * @param {[any]} options.context - The context to apply when invoking the callback.
-     * @returns {function} A function that can be invoked to unsubscribe the listener that was just
-     * added.
+     * @param {PhysicsObject|ObjectWithBody} [options.objectB] - the second object to watch for in
+     * colliding pairs.
+     * @param {function} [options.callback] - The function to be invoked on collision
+     * @param {any} [options.context] - The context to apply when invoking the callback.
      */
 
   }, {
@@ -400,72 +403,6 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
       this.removeAllCollideEndListeners();
     }
 
-    /**
-     * Remove addOnCollideStart listeners where the given object(s) was involved.
-     * @param {object[]|object} object - An object or array of objects
-     */
-
-  }, {
-    key: "removeCollideStartListenersOf",
-    value: function removeCollideStartListenersOf(object) {
-      this.removeCollideListenersOf(this.collisionStartListeners, object);
-    }
-
-    /**
-     * Remove addOnCollideActive listeners where the given object(s) was involved.
-     * @param {object[]|object} object - An object or array of objects
-     */
-
-  }, {
-    key: "removeCollideActiveListenersOf",
-    value: function removeCollideActiveListenersOf(object) {
-      this.removeCollideListenersOf(this.collisionActiveListeners, object);
-    }
-
-    /**
-     * Remove addOnCollideEnd listeners where the given object(s) was involved.
-     * @param {object[]|object} object - An object or array of objects
-     */
-
-  }, {
-    key: "removeCollideEndListenersOf",
-    value: function removeCollideEndListenersOf(object) {
-      this.removeCollideListenersOf(this.collisionEndListeners, object);
-    }
-
-    /**
-     * Remove addOnCollideStart, addOnCollideActive & addOnCollideEnd listeners where the given
-     * object(s) was involved.
-     * @param {object[]|object} object - An object or array of objects
-     */
-
-  }, {
-    key: "removeAllCollideListenersOf",
-    value: function removeAllCollideListenersOf(object) {
-      this.removeCollideStartListenersOf(object);
-      this.removeCollideActiveListenersOf(object);
-      this.removeCollideEndListenersOf(object);
-    }
-
-    /** @private */
-
-  }, {
-    key: "removeCollideListenersOf",
-    value: function removeCollideListenersOf(map, object) {
-      var objects = Array.isArray(object) ? object : [object];
-      // Remove all places where the object is ObjectA in the collision pair
-      objects.forEach(function (obj) {
-        return map.delete(obj);
-      });
-      // Remove all places where the object is ObjectB in the collision pair
-      map.forEach(function (callbacks, objectA) {
-        var remainingCallbacks = callbacks.filter(function (cb) {
-          return !objects.includes(cb.target);
-        });
-        if (remainingCallbacks.length > 0) map.set(objectA, remainingCallbacks);else map.delete(objectA);
-      });
-    }
-
     /** @private */
 
   }, {
@@ -494,11 +431,15 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
       var objectsA = Array.isArray(objectsA) ? objectA : [objectA];
       var objectsB = Array.isArray(objectsB) ? objectB : [objectB];
       objectsA.forEach(function (a) {
-        var callbacks = map.get(a) || [];
-        var remainingCallbacks = callbacks.filter(function (cb) {
-          return !(objectsB.includes(cb.target) && cb.callback === callback && cb.context === context);
-        });
-        if (remainingCallbacks.length > 0) map.set(a, remainingCallbacks);else map.delete(a);
+        if (!objectB) {
+          map.delete(a);
+        } else {
+          var callbacks = map.get(a) || [];
+          var remainingCallbacks = callbacks.filter(function (cb) {
+            return !(objectsB.includes(cb.target) && (!callback || cb.callback === callback) && (!context || cb.context === context));
+          });
+          if (remainingCallbacks.length > 0) map.set(a, remainingCallbacks);else map.delete(a);
+        }
       });
     }
 
