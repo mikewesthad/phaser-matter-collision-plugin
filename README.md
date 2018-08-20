@@ -209,7 +209,21 @@ You can listen to them via `this.matterCollision.events.on("collisionstart", ...
 
 #### Stop Tracking Collisions
 
-You can stop tracking a collision via `removeOnCollideStart`, `removeOnCollideActive` and `removeOnCollideEnd`. They take the same parameters as `addOnCollideStart`.
+You can stop tracking a collision via `removeOnCollideStart`, `removeOnCollideActive` and `removeOnCollideEnd`. They take the same parameters as `addOnCollideStart`. E.g.:
+
+```js
+function onCollide() {
+  console.log("A player hit an enemy");
+}
+
+// ... after addOnCollideStart has been used
+
+this.matterCollision.removeOnCollideStart({
+  objectA: [player1, player2],
+  objectB: [enemy1, enemy2, enemy3],
+  callback: onCollide
+});
+```
 
 In addition, the addOnCollide methods will also return a function that automatically unsubscribes from the collision event (which can be useful if you use arrow functions):
 
