@@ -245,9 +245,16 @@ If you want to remove all listeners that have been added - not just one collidin
 
 ## Live Examples
 
-For now, you can check out the ["tests" folder](https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/tests) of this repository for usage examples.
+There's one example at the moment. You can check it out on CodeSandbox (which uses the plugin imported from npm):
 
-TODO: insert at least one codesandbox
+[![](./doc-source-assets/collision-plugin-demo.gif)](https://codesandbox.io/s/0o0917m23l?module=%2Fjs%2Findex.js)
+
+[![Edit Phaser Matter Collision Plugin Demo 1](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/0o0917m23l?module=%2Fjs%2Findex.js)
+
+Or you can check out the same example, but with the plugin loaded via a CDN in the [examples folder](https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/examples).
+
+You can also poke around the ["tests" folder](https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/tests) of this repository for usage examples.
+
 TODO: add a module example and a script example
 
 ## Development
