@@ -1,4 +1,4 @@
-# Phaser Matter Collision Plugin 💥
+# Phaser Matter Collision Plugin 💥 <!-- omit in toc -->
 
 A plugin for making it easier to manage collisions with the [Phaser](https://phaser.io/) game engine and the [Matter.js](http://brm.io/matter-js/) physics engine.
 
@@ -16,6 +16,19 @@ this.matterCollision.addOnCollideStart({
 ```
 
 Check out the HTML documentation [here](https://www.mikewesthad.com/phaser-matter-collision-plugin/docs/manual/README.html).
+
+- [Installation](#installation)
+  - [As a Script](#as-a-script)
+  - [As a Module](#as-a-module)
+- [Usage](#usage)
+  - [Initial Setup](#initial-setup)
+  - [Usage in Scene](#usage-in-scene)
+    - [Tracking Collisions](#tracking-collisions)
+    - [Stop Tracking Collisions](#stop-tracking-collisions)
+- [Examples](#examples)
+- [Development](#development)
+  - [Scripts](#scripts)
+  - [Tests](#tests)
 
 ## Installation
 
@@ -243,7 +256,7 @@ If you want to remove all listeners that have been added - not just one collidin
 - `removeAllCollideEndListeners`
 - `removeAllCollideListeners` - removes start, active and end listeners
 
-## Live Examples
+## Examples
 
 There's one example at the moment. You can check it out on CodeSandbox (which uses the plugin imported from npm):
 
@@ -259,6 +272,10 @@ TODO: add a module example and a script example
 
 ## Development
 
+To set up the project for local development make sure you have node and npm installed. You can grab them bundled together [here](https://nodejs.org/en/). Clone/download the repository and run `npm i` from a terminal within the folder.
+
+### Scripts
+
 The project is controlled by npm scripts and uses cypress & jest for testing. Cypress is used for end-to-end verification that the plugin works as expected with Phaser. Jest is used for unit testing the plugin (via heavy mocking since Phaser headless mode is not complete).
 
 - The `watch` and `build` tasks will build the plugin source in library/ or the projects in tests/
@@ -268,7 +285,7 @@ The project is controlled by npm scripts and uses cypress & jest for testing. Cy
 - The `test:cypress` task will build the tests and run cypress in headless mode to check all end-to-end tests.
 - The `test:jest` will run the jest tests.
 
-## Tests
+### Tests
 
 The cypress tests rely on a particular structure:
 
