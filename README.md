@@ -17,8 +17,6 @@ this.matterCollision.addOnCollideStart({
 
 Check out the HTML documentation [here](https://www.mikewesthad.com/phaser-matter-collision-plugin/docs/manual/README.html).
 
-Note: this readme is still in progress, but it should complete enough for you to get started.
-
 ## Installation
 
 You can install this plugin globally as a script, or locally as a module using your bundler of choice.
@@ -73,7 +71,6 @@ See [usage](#usage) for how to use the plugin.
 When setting up your game config, add the plugin:
 
 ```js
-// prettier-ignore
 const config = {
   // ...
   physics: {
@@ -273,48 +270,3 @@ The cypress tests rely on a particular structure:
 - Each test in "cypress/integration/" simply loads up the specified URL and waits for it to pass or timeout. (Technically, startTest and failTest are ignored, but they are useful for visual inspection of a test.)
 
 The jest unit tests rely on a simple mocking of Phaser and Matter. They are stored inside "src/". Once Phaser headless is available, this testing structure could be re-evaluated.
-
-## (Moved Section) Why
-
-TODO: put this somewhere else
-
-The Matter collision event system just dumps an event with all the pairs of Matter bodies that collided on the current tick of the physics engine. That leaves it up to the developer to:
-
-- Figure out which game object the bodies belong to
-- Search through the pairs of bodies to find the collisions that matter
-- Organize the single Matter event into modular pieces
-- Parameter ordering (ab vs ba)
-
-Take something like this:
-
-```js
-// Suppose we have a world of matter-enabled objects (and maybe even tiles)
-const player = this.matter.add.sprite(0, 0, "player");
-const enemy = this.matter.add.sprite(100, 0, "enemy");
-const trapDoor = this.matter.add.sprite(200, 0, "door");
-const crate = this.matter.add.sprite(300, 0, "crate");
-
-// Suppose we only want to watch for player touching the trap door
-this.matter.world.on("collisionstart", event => {
-  // Loop over all colliding pairs
-  event.pairs.map({ bodyA, bodyB } => {
-    // bodyA & bodyB are Matter bodies - which game object owns them?
-    // Is this player vs door?
-  });
-});
-```
-
-And turn it into this:
-
-```js
-const player = this.matter.add.sprite(0, 0, "player");
-const enemy = this.matter.add.sprite(100, 0, "enemy");
-const trapDoor = this.matter.add.sprite(200, 0, "door");
-const crate = this.matter.add.sprite(300, 0, "crate");
-
-this.matterCollision.addOnCollideStart({
-  objectA: player,
-  objectB: trapDoor,
-  callback: () => console.log("Player touched trapDoor!")
-});
-```
