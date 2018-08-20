@@ -43,7 +43,6 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#live-examples" data-ice="link">Live Examples</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#development" data-ice="link">Development</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#tests" data-ice="link">Tests</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#-moved-section--why" data-ice="link">(Moved Section) Why</a></li>
 </ul>
   </div>
 </div>
@@ -61,7 +60,6 @@ this.matterCollision.addOnCollideStart({
 });</code>
 </code></pre>
 <p>Check out the HTML documentation <a href="https://www.mikewesthad.com/phaser-matter-collision-plugin/docs/manual/README.html">here</a>.</p>
-<p>Note: this readme is still in progress, but it should complete enough for you to get started.</p>
 <h2 id="installation">Installation</h2><p>You can install this plugin globally as a script, or locally as a module using your bundler of choice.</p>
 <h3 id="as-a-script">As a Script</h3><p>You can drop in any of the transpiled code into your project as a standalone script. Choose the version that you want:</p>
 <ul>
@@ -85,8 +83,7 @@ this.matterCollision.addOnCollideStart({
 </code></pre>
 <p>See <a href="#usage">usage</a> for how to use the plugin.</p>
 <h2 id="usage">Usage</h2><h3 id="initial-setup">Initial Setup</h3><p>When setting up your game config, add the plugin:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">// prettier-ignore
-const config = {
+<pre><code class="lang-js"><code class="source-code prettyprint">const config = {
   // ...
   physics: {
     default: &quot;matter&quot;
@@ -193,7 +190,19 @@ this.matterCollision.addOnCollideStart({
 <li>&quot;paircollisionstart&quot;, &quot;paircollisionactive&quot;, &quot;paircollisionend&quot; - these are similar to the above, except they fire once for each pair. They have one parameter that looks like this: <code>{ bodyA, bodyB, gameObjectA, gameObjectB, pair }</code></li>
 </ul>
 <p>You can listen to them via <code>this.matterCollision.events.on(&quot;collisionstart&quot;, ...)</code>.</p>
-<h4 id="stop-tracking-collisions">Stop Tracking Collisions</h4><p>You can stop tracking a collision via <code>removeOnCollideStart</code>, <code>removeOnCollideActive</code> and <code>removeOnCollideEnd</code>. They take the same parameters as <code>addOnCollideStart</code>.</p>
+<h4 id="stop-tracking-collisions">Stop Tracking Collisions</h4><p>You can stop tracking a collision via <code>removeOnCollideStart</code>, <code>removeOnCollideActive</code> and <code>removeOnCollideEnd</code>. They take the same parameters as <code>addOnCollideStart</code>. E.g.:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">function onCollide() {
+  console.log(&quot;A player hit an enemy&quot;);
+}
+
+// ... after addOnCollideStart has been used
+
+this.matterCollision.removeOnCollideStart({
+  objectA: [player1, player2],
+  objectB: [enemy1, enemy2, enemy3],
+  callback: onCollide
+});</code>
+</code></pre>
 <p>In addition, the addOnCollide methods will also return a function that automatically unsubscribes from the collision event (which can be useful if you use arrow functions):</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const unsubscribe = this.matterCollision.addOnCollideStart({
   objectA: player,
@@ -231,42 +240,6 @@ TODO: add a module example and a script example</p>
 <li>Each test in &quot;cypress/integration/&quot; simply loads up the specified URL and waits for it to pass or timeout. (Technically, startTest and failTest are ignored, but they are useful for visual inspection of a test.)</li>
 </ul>
 <p>The jest unit tests rely on a simple mocking of Phaser and Matter. They are stored inside &quot;src/&quot;. Once Phaser headless is available, this testing structure could be re-evaluated.</p>
-<h2 id="-moved-section--why">(Moved Section) Why</h2><p>TODO: put this somewhere else</p>
-<p>The Matter collision event system just dumps an event with all the pairs of Matter bodies that collided on the current tick of the physics engine. That leaves it up to the developer to:</p>
-<ul>
-<li>Figure out which game object the bodies belong to</li>
-<li>Search through the pairs of bodies to find the collisions that matter</li>
-<li>Organize the single Matter event into modular pieces</li>
-<li>Parameter ordering (ab vs ba)</li>
-</ul>
-<p>Take something like this:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">// Suppose we have a world of matter-enabled objects (and maybe even tiles)
-const player = this.matter.add.sprite(0, 0, &quot;player&quot;);
-const enemy = this.matter.add.sprite(100, 0, &quot;enemy&quot;);
-const trapDoor = this.matter.add.sprite(200, 0, &quot;door&quot;);
-const crate = this.matter.add.sprite(300, 0, &quot;crate&quot;);
-
-// Suppose we only want to watch for player touching the trap door
-this.matter.world.on(&quot;collisionstart&quot;, event =&gt; {
-  // Loop over all colliding pairs
-  event.pairs.map({ bodyA, bodyB } =&gt; {
-    // bodyA &amp; bodyB are Matter bodies - which game object owns them?
-    // Is this player vs door?
-  });
-});</code>
-</code></pre>
-<p>And turn it into this:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const player = this.matter.add.sprite(0, 0, &quot;player&quot;);
-const enemy = this.matter.add.sprite(100, 0, &quot;enemy&quot;);
-const trapDoor = this.matter.add.sprite(200, 0, &quot;door&quot;);
-const crate = this.matter.add.sprite(300, 0, &quot;crate&quot;);
-
-this.matterCollision.addOnCollideStart({
-  objectA: player,
-  objectB: trapDoor,
-  callback: () =&gt; console.log(&quot;Player touched trapDoor!&quot;)
-});</code>
-</code></pre>
 </div>
 </div>
 
