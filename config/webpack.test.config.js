@@ -36,10 +36,8 @@ module.exports = function(env, argv) {
         }
       ]
     },
-    resolve: {
-      alias: {
-        phaser: "phaser/dist/phaser.js" // Minfying phaser is super slow
-      }
+    optimization: {
+      minimize: false
     },
     devtool: isDev ? "eval-source-map" : "source-map"
   };
