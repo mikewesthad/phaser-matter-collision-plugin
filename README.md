@@ -15,7 +15,12 @@ this.matterCollision.addOnCollideStart({
 });
 ```
 
-Check out the HTML documentation [here](https://www.mikewesthad.com/phaser-matter-collision-plugin/docs/manual/README.html).
+Or in a slightly more complicated example:
+
+![](./doc-source-assets/collision-simple-demo.gif)
+_See the interactive version of that example on [codesandbox](https://codesandbox.io/s/0o0917m23l?module=%2Fjs%2Findex.js)._
+
+If you are reading this on Github or NPM, check out the HTML documentation [here](https://www.mikewesthad.com/phaser-matter-collision-plugin/docs/manual/README.html).
 
 - [Installation](#installation)
   - [As a Script](#as-a-script)
