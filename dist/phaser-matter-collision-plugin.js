@@ -428,8 +428,8 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
   }, {
     key: "removeOnCollide",
     value: function removeOnCollide(map, objectA, objectB, callback, context) {
-      var objectsA = Array.isArray(objectsA) ? objectA : [objectA];
-      var objectsB = Array.isArray(objectsB) ? objectB : [objectB];
+      var objectsA = Array.isArray(objectA) ? objectA : [objectA];
+      var objectsB = Array.isArray(objectB) ? objectB : [objectB];
       objectsA.forEach(function (a) {
         if (!objectB) {
           map.delete(a);
