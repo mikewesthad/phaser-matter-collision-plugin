@@ -309,8 +309,10 @@ The jest unit tests rely on a simple mocking of Phaser and Matter. They are stor
 
 ### New Releases
 
-Verify the tests with `npm run test:jest` and `npm run test:cypress`, and then:
+To prepare a new release, verify that all tests pass with `npm run test:jest` and `npm run test:cypress`, and then:
 
 ```
+npm login
 npm version [<newversion> | major | minor | patch | ...]
+npm publish
 ```
