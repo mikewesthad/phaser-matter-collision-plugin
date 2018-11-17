@@ -223,6 +223,31 @@ describe("scene started with matter", () => {
     expect(acCallback.mock.calls.length).toBe(0);
   });
 
+  test("removeOnCollideStart with array of objects vs array of objects should remove all matching collision listeners", () => {
+    const objectA1 = createBody();
+    const objectA2 = createBody();
+    const objectB1 = createBody();
+    const objectB2 = createBody();
+    const callback = jest.fn();
+    plugin.addOnCollideStart({
+      objectA: [objectA1, objectA2],
+      objectB: [objectB1, objectB2],
+      callback: callback
+    });
+    plugin.removeOnCollideStart({
+      objectA: [objectA1, objectA2],
+      objectB: [objectB1, objectB2],
+      callback: callback
+    });
+    emitMatterCollisionEvent(scene, "collisionstart", [
+      createPair(objectA1, objectB1),
+      createPair(objectA1, objectB2),
+      createPair(objectA2, objectB1),
+      createPair(objectA2, objectB2)
+    ]);
+    expect(callback.mock.calls.length).toBe(0);
+  });
+
   test("addOnCollideStart with objectA vs array should listen for any collisions between objectA and array elements", () => {
     const objectA = createBody();
     const objectB = createBody();
