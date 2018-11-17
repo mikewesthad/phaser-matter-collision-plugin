@@ -278,7 +278,7 @@ TODO: add a module example and a script example
 
 ## Changelog
 
-Version 0.11.0 - 2018-11-17
+Version 0.10.1 - 2018-11-17
 
 - Bug: fixed a bug in the removeOnCollideXXXX methods of the plugin, from [@Fantasix](https://github.com/Fantasix)
 
@@ -306,3 +306,11 @@ The cypress tests rely on a particular structure:
 - Each test in "cypress/integration/" simply loads up the specified URL and waits for it to pass or timeout. (Technically, startTest and failTest are ignored, but they are useful for visual inspection of a test.)
 
 The jest unit tests rely on a simple mocking of Phaser and Matter. They are stored inside "src/". Once Phaser headless is available, this testing structure could be re-evaluated.
+
+### New Releases
+
+Verify the tests with `npm run test:jest` and `npm run test:cypress`, and then:
+
+```
+npm version [<newversion> | major | minor | patch | ...]
+```
