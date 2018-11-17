@@ -31,6 +31,7 @@ If you are reading this on Github or NPM, check out the HTML documentation [here
     - [Tracking Collisions](#tracking-collisions)
     - [Stop Tracking Collisions](#stop-tracking-collisions)
 - [Examples](#examples)
+- [Changelog](#changelog)
 - [Development](#development)
   - [Scripts](#scripts)
   - [Tests](#tests)
@@ -274,6 +275,12 @@ Or you can check out the same example, but with the plugin loaded via a CDN in t
 You can also poke around the ["tests" folder](https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/tests) of this repository for usage examples.
 
 TODO: add a module example and a script example
+
+## Changelog
+
+Version 0.11.0 - 2018-11-17
+
+- Bug: fixed a bug in the removeOnCollideXXXX methods of the plugin, from [@Fantasix](https://github.com/Fantasix)
 
 ## Development
 
