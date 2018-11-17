@@ -196,8 +196,8 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
 
   /** @private */
   removeOnCollide(map, objectA, objectB, callback, context) {
-    const objectsA = Array.isArray(objectsA) ? objectA : [objectA];
-    const objectsB = Array.isArray(objectsB) ? objectB : [objectB];
+    const objectsA = Array.isArray(objectA) ? objectA : [objectA];
+    const objectsB = Array.isArray(objectB) ? objectB : [objectB];
     objectsA.forEach(a => {
       if (!objectB) {
         map.delete(a);
