@@ -182,7 +182,7 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
   /** @private */
   addOnCollide(map, objectA, objectB, callback, context) {
     if (!callback || typeof callback !== "function") {
-      warn(`No valid callback specified. Received: ${callback}`);
+      logger.warn(`No valid callback specified. Received: ${callback}`);
       return;
     }
     const objectsA = Array.isArray(objectA) ? objectA : [objectA];
