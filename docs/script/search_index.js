@@ -288,12 +288,6 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
-    "src/collide-pair-listener.js",
-    "file/src/collide-pair-listener.js.html",
-    "src/collide-pair-listener.js",
-    "file"
-  ],
-  [
     "src/index.js",
     "file/src/index.js.html",
     "src/index.js",

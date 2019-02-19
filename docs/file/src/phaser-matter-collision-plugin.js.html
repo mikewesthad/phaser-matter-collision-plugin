@@ -227,7 +227,7 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
   /** @private */
   addOnCollide(map, objectA, objectB, callback, context) {
     if (!callback || typeof callback !== &quot;function&quot;) {
-      warn(`No valid callback specified. Received: ${callback}`);
+      logger.warn(`No valid callback specified. Received: ${callback}`);
       return;
     }
     const objectsA = Array.isArray(objectA) ? objectA : [objectA];
@@ -241,8 +241,8 @@ export default class MatterCollisionPlugin extends Phaser.Plugins.ScenePlugin {
 
   /** @private */
   removeOnCollide(map, objectA, objectB, callback, context) {
-    const objectsA = Array.isArray(objectsA) ? objectA : [objectA];
-    const objectsB = Array.isArray(objectsB) ? objectB : [objectB];
+    const objectsA = Array.isArray(objectA) ? objectA : [objectA];
+    const objectsB = Array.isArray(objectB) ? objectB : [objectB];
     objectsA.forEach(a =&gt; {
       if (!objectB) {
         map.delete(a);

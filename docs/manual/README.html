@@ -41,9 +41,11 @@
 <li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#tracking-collisions" data-ice="link">Tracking Collisions</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#stop-tracking-collisions" data-ice="link">Stop Tracking Collisions</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#examples" data-ice="link">Examples</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#changelog" data-ice="link">Changelog</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#development" data-ice="link">Development</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#scripts" data-ice="link">Scripts</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#tests" data-ice="link">Tests</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#new-releases" data-ice="link">New Releases</a></li>
 </ul>
   </div>
 </div>
@@ -80,6 +82,7 @@ this.matterCollision.addOnCollideStart({
 </ul>
 </li>
 <li><a href="#examples">Examples</a></li>
+<li><a href="#changelog">Changelog</a></li>
 <li><a href="#development">Development</a><ul>
 <li><a href="#scripts">Scripts</a></li>
 <li><a href="#tests">Tests</a></li>
@@ -253,6 +256,14 @@ this.matterCollision.removeOnCollideStart({
 <p>Or you can check out the same example, but with the plugin loaded via a CDN in the <a href="https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/examples">examples folder</a>.</p>
 <p>You can also poke around the <a href="https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/tests">&quot;tests&quot; folder</a> of this repository for usage examples.</p>
 <p>TODO: add a module example and a script example</p>
+<h2 id="changelog">Changelog</h2><p>Version 0.10.2 - 2019-02-19</p>
+<ul>
+<li>Bug: fixed a bug in <code>addOnCollide()</code> that threw an error when the user didn&apos;t supply a callback, from <a href="https://github.com/jvanroose">@jvanroose</a></li>
+</ul>
+<p>Version 0.10.1 - 2018-11-17</p>
+<ul>
+<li>Bug: fixed a bug in the removeOnCollideXXXX methods of the plugin, from <a href="https://github.com/Fantasix">@Fantasix</a></li>
+</ul>
 <h2 id="development">Development</h2><p>To set up the project for local development make sure you have node and npm installed. You can grab them bundled together <a href="https://nodejs.org/en/">here</a>. Clone/download the repository and run <code>npm i</code> from a terminal within the folder.</p>
 <h3 id="scripts">Scripts</h3><p>The project is controlled by npm scripts and uses cypress &amp; jest for testing. Cypress is used for end-to-end verification that the plugin works as expected with Phaser. Jest is used for unit testing the plugin (via heavy mocking since Phaser headless mode is not complete).</p>
 <ul>
@@ -270,7 +281,11 @@ this.matterCollision.removeOnCollideStart({
 <li>Each test in &quot;cypress/integration/&quot; simply loads up the specified URL and waits for it to pass or timeout. (Technically, startTest and failTest are ignored, but they are useful for visual inspection of a test.)</li>
 </ul>
 <p>The jest unit tests rely on a simple mocking of Phaser and Matter. They are stored inside &quot;src/&quot;. Once Phaser headless is available, this testing structure could be re-evaluated.</p>
-</div>
+<h3 id="new-releases">New Releases</h3><p>To prepare a new release, verify that all tests pass with <code>npm run test:jest</code> and <code>npm run test:cypress</code>, and then:</p>
+<pre><code><code class="source-code prettyprint">npm login
+npm version [&lt;newversion&gt; | major | minor | patch | ...]
+npm publish</code>
+</code></pre></div>
 </div>
 
 <footer class="footer">
