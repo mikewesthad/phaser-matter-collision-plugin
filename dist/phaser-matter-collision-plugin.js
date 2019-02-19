@@ -411,7 +411,7 @@ var phaser_matter_collision_plugin_MatterCollisionPlugin = function (_Phaser$Plu
       var _this2 = this;
 
       if (!callback || typeof callback !== "function") {
-        warn("No valid callback specified. Received: " + callback);
+        logger.warn("No valid callback specified. Received: " + callback);
         return;
       }
       var objectsA = Array.isArray(objectA) ? objectA : [objectA];
