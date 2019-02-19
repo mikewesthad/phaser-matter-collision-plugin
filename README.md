@@ -278,6 +278,10 @@ TODO: add a module example and a script example
 
 ## Changelog
 
+Version 0.10.2 - 2019-02-19
+
+- Bug: fixed a bug in `addOnCollide()` that threw an error when the user didn't supply a callback, from [@jvanroose](https://github.com/jvanroose)
+
 Version 0.10.1 - 2018-11-17
 
 - Bug: fixed a bug in the removeOnCollideXXXX methods of the plugin, from [@Fantasix](https://github.com/Fantasix)
