@@ -1,6 +1,6 @@
 {
   "name": "phaser-matter-collision-plugin",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "description": "A plugin for making it easier to manage collisions with Phaser + Matter.js",
   "main": "dist/phaser-matter-collision-plugin.min.js",
   "files": [
