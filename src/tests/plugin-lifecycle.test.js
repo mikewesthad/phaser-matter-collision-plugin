@@ -1,7 +1,7 @@
 import Plugin from "../phaser-matter-collision-plugin";
 import Scene from "../mocks/scene";
 
-jest.mock("../logger.js");
+jest.mock("../logger");
 import logger from "../logger";
 
 describe("scene started without matter", () => {
