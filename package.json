@@ -63,7 +63,7 @@
     "eventemitter3": "^4.0.4",
     "gh-pages": "^3.0.0",
     "jest": "^26.0.1",
-    "phaser": "^3.13.0",
+    "phaser": "^3.23.0",
     "phaser-slopes": "^0.1.1",
     "prettier": "^2.0.5",
     "regenerator-runtime": "^0.13.5",
