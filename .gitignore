@@ -1,4 +1,5 @@
 docs
+dist
 types
 node_modules
 cypress/screenshots
