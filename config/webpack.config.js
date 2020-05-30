@@ -10,8 +10,8 @@ module.exports = function(env, argv) {
   return {
     context: path.join(root, "src"),
     entry: {
-      "phaser-matter-collision-plugin": "./index.js",
-      "phaser-matter-collision-plugin.min": "./index.js"
+      "phaser-matter-collision-plugin": "./index.ts",
+      "phaser-matter-collision-plugin.min": "./index.ts"
     },
     output: {
       filename: "[name].js",
@@ -33,12 +33,16 @@ module.exports = function(env, argv) {
     },
     module: {
       rules: [
+        { test: /\.(ts|tsx)$/, use: "ts-loader", exclude: /node_modules/ },
         {
           test: /\.js$/,
           exclude: /node_modules/,
           use: ["babel-loader"]
         }
       ]
+    },
+    resolve: {
+      extensions: [".tsx", ".ts", ".js"]
     },
     devtool: isDev ? "eval-source-map" : "source-map"
   };

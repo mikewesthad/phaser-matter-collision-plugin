@@ -29,12 +29,16 @@ module.exports = function(env, argv) {
     },
     module: {
       rules: [
+        { test: /\.(ts|tsx)$/, use: "ts-loader", exclude: /node_modules/ },
         {
           test: /\.js$/,
           exclude: /node_modules/,
           use: ["babel-loader"]
         }
       ]
+    },
+    resolve: {
+      extensions: [".tsx", ".ts", ".js"]
     },
     optimization: {
       minimize: false
