@@ -1,7 +1,7 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
         "targets": {
           "browsers": ["last 2 versions"]
@@ -12,7 +12,7 @@
   ],
   "env": {
     "test": {
-      "presets": [["env"]]
+      "presets": [["@babel/preset-env"]]
     }
   }
 }
