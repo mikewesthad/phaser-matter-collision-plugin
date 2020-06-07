@@ -17,6 +17,7 @@ export type EventData<T extends CollidingObject, K extends CollidingObject> = {
   bodyB: MatterJS.Body;
   gameObjectA?: T;
   gameObjectB?: K;
+  isReversed: boolean;
   pair: ExtendedMatterCollisionData;
 };
 
@@ -37,14 +38,10 @@ export type CollideABConfig<T extends CollidingObject, K extends CollidingObject
   context?: CollideContext;
 };
 
-export type CollideConfigUnion =
-  | CollideABConfig<CollidingObject, CollidingObject>
-  | CollideAConfig<CollidingObject>;
-
-export type InternalCollideConfig<T extends CollidingObject, K extends CollidingObject> = {
-  objectA: T | T[];
-  objectB?: K | K[];
-  callback: CollideCallback<T, K>;
+export type InternalCollideConfig = {
+  objectA: CollidingObject | CollidingObject[];
+  objectB?: CollidingObject | CollidingObject[];
+  callback: CollideCallback<CollidingObject, CollidingObject>;
   context?: CollideContext;
 };
 
