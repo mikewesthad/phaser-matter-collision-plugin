@@ -31,6 +31,7 @@ If you are reading this on Github or NPM, check out the HTML documentation [here
     - [Tracking Collisions](#tracking-collisions)
     - [Stop Tracking Collisions](#stop-tracking-collisions)
 - [Examples](#examples)
+- [Tips](#tips)
 - [Changelog](#changelog)
 - [Development](#development)
   - [Scripts](#scripts)
@@ -275,6 +276,10 @@ Or you can check out the same example, but with the plugin loaded via a CDN in t
 You can also poke around the ["tests" folder](https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/tests) of this repository for usage examples.
 
 TODO: add a module example and a script example
+
+## Tips
+
+- Trying to apply a force during collision? See [@alrdebugne's](https://github.com/alrdebugne) note in this [issue](https://github.com/mikewesthad/phaser-matter-collision-plugin/issues/5#issuecomment-752780477) on how to do that.
 
 ## Changelog
 
