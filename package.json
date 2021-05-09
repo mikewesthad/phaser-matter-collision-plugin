@@ -22,7 +22,7 @@
     "postdoc": "cp -r doc-source-assets/ docs/ && cp -r doc-source-assets/ docs/manual/",
     "predeploy:doc": "npm run doc",
     "deploy:doc": "gh-pages --branch gh-pages --dist ./docs --dest docs",
-    "prepublishOnly": "npm run build:library",
+    "prepublishOnly": "npm run build:library"
   },
   "repository": {
     "type": "git",
