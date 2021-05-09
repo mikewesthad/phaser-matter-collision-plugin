@@ -23,7 +23,6 @@
     "predeploy:doc": "npm run doc",
     "deploy:doc": "gh-pages --branch gh-pages --dist ./docs --dest docs",
     "prepublishOnly": "npm run build:library",
-    "pull-types": "curl https://raw.githubusercontent.com/photonstorm/phaser3-docs/master/typescript/phaser.d.ts --create-dirs --location --output ./types/phaser.d.ts"
   },
   "repository": {
     "type": "git",
