@@ -288,9 +288,9 @@ export default class MatterCollisionPlugin extends Plugins.ScenePlugin {
       logger.warn("Plugin requires matter!");
       return;
     }
-    matter.world.on(COLLISION_START, this.onCollisionStart);
-    matter.world.on(COLLISION_ACTIVE, this.onCollisionActive);
-    matter.world.on(COLLISION_END, this.onCollisionEnd);
+    matter.world.on(COLLISION_START, this.onCollisionStart, this);
+    matter.world.on(COLLISION_ACTIVE, this.onCollisionActive, this);
+    matter.world.on(COLLISION_END, this.onCollisionEnd, this);
   }
 
   unsubscribeMatterEvents() {
@@ -298,9 +298,9 @@ export default class MatterCollisionPlugin extends Plugins.ScenePlugin {
     // be already gone)
     const matter = this.scene.matter;
     if (!matter || !matter.world) return;
-    matter.world.off(COLLISION_START, this.onCollisionStart);
-    matter.world.off(COLLISION_ACTIVE, this.onCollisionActive);
-    matter.world.off(COLLISION_END, this.onCollisionEnd);
+    matter.world.off(COLLISION_START, this.onCollisionStart, this);
+    matter.world.off(COLLISION_ACTIVE, this.onCollisionActive, this);
+    matter.world.off(COLLISION_END, this.onCollisionEnd, this);
   }
 
   start() {
