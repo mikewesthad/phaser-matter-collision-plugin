@@ -34,8 +34,12 @@ export default class MatterCollisionPlugin extends Plugins.ScenePlugin {
   private collisionEndListeners: ListenerMap = new Map();
   private collisionActiveListeners: ListenerMap = new Map();
 
-  constructor(protected scene: Scene, protected pluginManager: Plugins.PluginManager) {
-    super(scene, pluginManager);
+  constructor(
+    protected scene: Scene,
+    protected pluginManager: Plugins.PluginManager,
+    pluginKey: string
+  ) {
+    super(scene, pluginManager, pluginKey);
     this.scene = scene;
     this.scene.events.once(START, this.start, this);
     this.scene.events.once(DESTROY, this.destroy, this);
