@@ -45,18 +45,6 @@ export default class MatterCollisionPlugin extends Plugins.ScenePlugin {
     this.scene.events.once(DESTROY, this.destroy, this);
   }
 
-  private onCollisionStart(event: MatterEvents.CollisionActiveEvent) {
-    this.onCollisionEvent(this.collisionStartListeners, "collisionstart", event);
-  }
-
-  private onCollisionEnd(event: MatterEvents.CollisionEndEvent) {
-    this.onCollisionEvent(this.collisionEndListeners, "collisionend", event);
-  }
-
-  private onCollisionActive(event: MatterEvents.CollisionActiveEvent) {
-    this.onCollisionEvent(this.collisionActiveListeners, "collisionactive", event);
-  }
-
   /**
    * Add a listener for collidestart events between objectA and objectB. The collidestart event is
    * fired by Matter when two bodies start colliding within a tick of the engine. If objectB is
@@ -197,6 +185,18 @@ export default class MatterCollisionPlugin extends Plugins.ScenePlugin {
     const callbacks = map.get(objectA) || [];
     callbacks.push({ target: objectB, callback, context });
     map.set(objectA, callbacks);
+  }
+
+  private onCollisionStart(event: MatterEvents.CollisionActiveEvent) {
+    this.onCollisionEvent(this.collisionStartListeners, COLLISION_START, event);
+  }
+
+  private onCollisionEnd(event: MatterEvents.CollisionEndEvent) {
+    this.onCollisionEvent(this.collisionEndListeners, COLLISION_END, event);
+  }
+
+  private onCollisionActive(event: MatterEvents.CollisionActiveEvent) {
+    this.onCollisionEvent(this.collisionActiveListeners, COLLISION_ACTIVE, event);
   }
 
   /**
