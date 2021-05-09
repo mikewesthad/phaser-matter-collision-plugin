@@ -14,10 +14,10 @@ import {
   InternalCollideConfig,
 } from "./collision-types";
 
-import Matter = Phaser.Physics.Matter;
-import MatterEvents = Physics.Matter.Events;
+import Matter = Physics.Matter;
+import MatterEvents = Matter.Events;
 const { START, DESTROY, SHUTDOWN } = Scenes.Events;
-const { COLLISION_START, COLLISION_ACTIVE, COLLISION_END } = Physics.Matter.Events;
+const { COLLISION_START, COLLISION_ACTIVE, COLLISION_END } = Matter.Events;
 
 type MatterCollisionEvent =
   | MatterEvents.CollisionActiveEvent
