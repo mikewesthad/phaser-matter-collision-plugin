@@ -46,8 +46,10 @@
     "@babel/preset-env": "^7.14.1",
     "@babel/preset-typescript": "^7.13.0",
     "@types/jest": "^26.0.23",
+    "@types/node": "^15.0.2",
     "babel-loader": "^8.2.2",
     "browser-sync": "^2.26.14",
+    "clean-webpack-plugin": "*",
     "concurrently": "^6.1.0",
     "cypress": "^7.2.0",
     "esdoc": "^1.1.0",
@@ -65,7 +67,6 @@
     "ts-jest": "^26.5.6",
     "ts-loader": "^9.1.2",
     "typescript": "^4.2.4",
-    "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^5.36.2",
     "webpack-cli": "^4.7.0"
   },
