@@ -1,35 +1,31 @@
 /* eslint-env node */
 
 const path = require("path");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const root = path.resolve(__dirname, "..");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-module.exports = function(env, argv) {
+module.exports = function (env, argv) {
   const isDev = argv.mode === "development";
 
   return {
     context: path.join(root, "src"),
-    entry: {
-      "phaser-matter-collision-plugin": "./index.ts",
-      "phaser-matter-collision-plugin.min": "./index.ts"
-    },
+    entry: "./index.ts",
     output: {
       filename: "[name].js",
       path: path.resolve(root, "dist"),
       library: "PhaserMatterCollisionPlugin",
       libraryTarget: "umd",
-      libraryExport: "default"
+      libraryExport: "default",
+      globalObject: '(typeof self !== "undefined" ? self : this)',
     },
-    optimization: {
-      minimizer: [new UglifyJsPlugin({ include: /\.min\.js$/, sourceMap: true })]
-    },
+    plugins: [new CleanWebpackPlugin()],
     externals: {
       phaser: {
         root: "Phaser",
         commonjs: "phaser",
         commonjs2: "phaser",
-        amd: "phaser"
-      }
+        amd: "phaser",
+      },
     },
     module: {
       rules: [
@@ -37,13 +33,13 @@ module.exports = function(env, argv) {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          use: ["babel-loader"]
-        }
-      ]
+          use: ["babel-loader"],
+        },
+      ],
     },
     resolve: {
-      extensions: [".tsx", ".ts", ".js"]
+      extensions: [".tsx", ".ts", ".js"],
     },
-    devtool: isDev ? "eval-source-map" : "source-map"
+    devtool: isDev ? "eval-source-map" : "source-map",
   };
 };
