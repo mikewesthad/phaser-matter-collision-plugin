@@ -1,8 +1,10 @@
 import { Physics, Types } from "phaser";
 import { CollidingObject } from "./valid-collision-object";
 
+/** Alias to Matter type. */
 export type MatterCollisionData = Types.Physics.Matter.MatterCollisionData;
-export type ExtendedMatterCollisionData = MatterCollisionData & {
+
+/** Extended matter collision event data with game objects. */
   gameObjectA?: CollidingObject;
   gameObjectB?: CollidingObject;
 };
@@ -25,13 +27,13 @@ export type CollideCallback<T extends CollidingObject, K extends CollidingObject
   event: EventData<T, K>
 ) => void;
 
-export type CollideAConfig<T extends CollidingObject> = {
+/** Config for specified A object(s) vs anything else collision listeners. */
   objectA: T | T[];
   callback: CollideCallback<T, CollidingObject>;
   context?: CollideContext;
 };
 
-export type CollideABConfig<T extends CollidingObject, K extends CollidingObject> = {
+/** Config for specified A object(s) vs specified B object(s). */
   objectA: T | T[];
   objectB: K | K[];
   callback: CollideCallback<T, K>;
