@@ -5,12 +5,12 @@ jest.mock("../logger");
 import logger from "../logger";
 
 describe("scene started without matter", () => {
-  let scene;
-  let plugin;
+  let scene: Phaser.Scene;
+  let plugin: Plugin;
 
   beforeEach(() => {
-    scene = new Scene({ addMatter: false });
-    plugin = new Plugin(scene, {});
+    scene = new Scene({ addMatter: false }) as Phaser.Scene;
+    plugin = new Plugin(scene as Phaser.Scene, {} as Phaser.Plugins.PluginManager, "");
     scene.events.emit("start");
   });
 
@@ -21,12 +21,12 @@ describe("scene started without matter", () => {
 });
 
 describe("scene started with matter", () => {
-  let scene;
-  let plugin;
+  let scene: Phaser.Scene;
+  let plugin: Plugin;
 
   beforeEach(() => {
-    scene = new Scene({ addMatter: true });
-    plugin = new Plugin(scene, {});
+    scene = new Scene({ addMatter: true }) as Phaser.Scene;
+    plugin = new Plugin(scene as Phaser.Scene, {} as Phaser.Plugins.PluginManager, "");
     scene.events.emit("start");
   });
 
