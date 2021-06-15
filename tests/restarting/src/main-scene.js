@@ -39,7 +39,7 @@ export default class MainScene extends Phaser.Scene {
     const image = this.matter.add.image(250, 50, "emoji", "1f92c", {
       restitution: 0,
       friction: 1,
-      shape: "circle"
+      shape: "circle",
     });
 
     this.matterCollision.addOnCollideStart({
@@ -52,7 +52,7 @@ export default class MainScene extends Phaser.Scene {
           passTest();
           this.game.destroy(true);
         }
-      }
+      },
     });
   }
 }

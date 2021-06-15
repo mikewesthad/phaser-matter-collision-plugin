@@ -37,20 +37,20 @@ describe("scene started with matter", () => {
 
   test("after destroying a scene, the plugin should not listen to any scene or matter world events", () => {
     scene.events.emit("destroy");
-    scene.events.eventNames().forEach(name => {
+    scene.events.eventNames().forEach((name) => {
       expect(scene.events.listenerCount(name)).toBe(0);
     });
-    scene.matter.world.eventNames().forEach(name => {
+    scene.matter.world.eventNames().forEach((name) => {
       expect(scene.matter.world.listenerCount(name)).toBe(0);
     });
   });
 
   test("after shutting down a scene, the plugin should not listen to any scene or matter world events", () => {
     scene.events.emit("destroy");
-    scene.events.eventNames().forEach(name => {
+    scene.events.eventNames().forEach((name) => {
       expect(scene.events.listenerCount(name)).toBe(0);
     });
-    scene.matter.world.eventNames().forEach(name => {
+    scene.matter.world.eventNames().forEach((name) => {
       expect(scene.matter.world.listenerCount(name)).toBe(0);
     });
   });

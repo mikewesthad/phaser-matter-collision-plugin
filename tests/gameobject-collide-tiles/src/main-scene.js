@@ -35,18 +35,15 @@ export default class MainScene extends Phaser.Scene {
         M.Bodies.rectangle(0, 0, 20, 200),
         M.Bodies.rectangle(100, 0, 20, 200),
         M.Bodies.rectangle(200, 0, 20, 200),
-        M.Bodies.rectangle(300, 0, 20, 200)
-      ]
+        M.Bodies.rectangle(300, 0, 20, 200),
+      ],
     });
     graphics.fillStyle(0xff0000, 1);
     graphics.fillRect(-160, -100, 20, 200);
     graphics.fillRect(-60, -100, 20, 200);
     graphics.fillRect(40, -100, 20, 200);
     graphics.fillRect(140, -100, 20, 200);
-    this.matter.add
-      .gameObject(graphics)
-      .setExistingBody(compoundBody)
-      .setPosition(400, 0);
+    this.matter.add.gameObject(graphics).setExistingBody(compoundBody).setPosition(400, 0);
 
     const signTile = groundLayer.getTileAt(4, 5);
 
@@ -58,13 +55,13 @@ export default class MainScene extends Phaser.Scene {
 
     this.matterCollision.addOnCollideStart({
       objectA: graphics,
-      callback: pairData => {
+      callback: (pairData) => {
         const { bodyA, bodyB, gameObjectA, gameObjectB } = pairData;
         if (gameObjectB instanceof Phaser.Tilemaps.Tile) {
           state.tilesHit++;
           updateState();
         }
-      }
+      },
     });
 
     this.matterCollision.addOnCollideStart({
@@ -73,7 +70,7 @@ export default class MainScene extends Phaser.Scene {
       callback: () => {
         state.hitSign = true;
         updateState();
-      }
+      },
     });
   }
 }

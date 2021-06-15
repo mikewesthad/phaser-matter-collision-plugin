@@ -32,14 +32,14 @@ export default class MainScene extends Phaser.Scene {
     const image1 = this.matter.add.image(250, 50, "emoji", "1f92c", {
       restitution: 0,
       friction: 1,
-      shape: "circle"
+      shape: "circle",
     });
 
     const image2 = this.matter.add
       .image(250, 150, "emoji", "1f4a9", {
         restitution: 0,
         friction: 1,
-        shape: "circle"
+        shape: "circle",
       })
       .setScale(0.5);
 
@@ -47,7 +47,7 @@ export default class MainScene extends Phaser.Scene {
       .image(250, 0, "emoji", "1f31e", {
         restitution: 0,
         friction: 1,
-        shape: "circle"
+        shape: "circle",
       })
       .setScale(0.25);
 
@@ -66,7 +66,7 @@ export default class MainScene extends Phaser.Scene {
     this.matterCollision.addOnCollideStart({
       objectA: image1,
       objectB: image2,
-      callback: function(pairData) {
+      callback: function (pairData) {
         const { bodyA, gameObjectA, bodyB, gameObjectB, pair } = pairData;
         if (
           !this === scene ||
@@ -82,13 +82,13 @@ export default class MainScene extends Phaser.Scene {
           updateState({ startFired: true });
         }
       },
-      context: this
+      context: this,
     });
 
     this.matterCollision.addOnCollideActive({
       objectA: image1,
       objectB: image2,
-      callback: function(pairData) {
+      callback: function (pairData) {
         const { bodyA, gameObjectA, bodyB, gameObjectB, pair } = pairData;
         if (
           !this === scene ||
@@ -104,13 +104,13 @@ export default class MainScene extends Phaser.Scene {
           updateState({ activeFired: true });
         }
       },
-      context: this
+      context: this,
     });
 
     this.matterCollision.addOnCollideEnd({
       objectA: image1,
       objectB: image2,
-      callback: function(pairData) {
+      callback: function (pairData) {
         const { bodyA, gameObjectA, bodyB, gameObjectB, pair } = pairData;
         if (
           !this === scene ||
@@ -126,7 +126,7 @@ export default class MainScene extends Phaser.Scene {
           updateState({ endFired: true });
         }
       },
-      context: this
+      context: this,
     });
   }
 }

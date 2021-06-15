@@ -31,7 +31,7 @@ export default class MainScene extends Phaser.Scene {
     const image = this.matter.add.image(250, 50, "emoji", "1f92c", {
       restitution: 0.25,
       friction: 0,
-      shape: "circle"
+      shape: "circle",
     });
 
     const state = { startFired: false, activeFired: false, endFired: false };
@@ -43,21 +43,21 @@ export default class MainScene extends Phaser.Scene {
     };
     startTest();
 
-    this.matterCollision.events.on("collisionstart", event => {
+    this.matterCollision.events.on("collisionstart", (event) => {
       event.pairs.forEach(({ gameObjectA, gameObjectB }) => {
         if ([gameObjectA, gameObjectB].includes(image)) {
           updateState({ startFired: true });
         }
       });
     });
-    this.matterCollision.events.on("collisionactive", event => {
+    this.matterCollision.events.on("collisionactive", (event) => {
       event.pairs.forEach(({ gameObjectA, gameObjectB }) => {
         if ([gameObjectA, gameObjectB].includes(image)) {
           updateState({ activeFired: true });
         }
       });
     });
-    this.matterCollision.events.on("collisionend", event => {
+    this.matterCollision.events.on("collisionend", (event) => {
       event.pairs.forEach(({ gameObjectA, gameObjectB }) => {
         if ([gameObjectA, gameObjectB].includes(image)) {
           updateState({ endFired: true });

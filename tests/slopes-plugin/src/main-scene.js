@@ -26,7 +26,7 @@ export default class MainScene extends Phaser.Scene {
         frameWidth: 32,
         frameHeight: 32,
         margin: 1,
-        spacing: 2
+        spacing: 2,
       }
     );
 
@@ -55,7 +55,7 @@ export default class MainScene extends Phaser.Scene {
     this.matter.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 
     // The spawn point is set using a point object inside of Tiled (within the "Spawn" object layer)
-    const { x, y } = map.findObject("Spawn", obj => obj.name === "Spawn Point");
+    const { x, y } = map.findObject("Spawn", (obj) => obj.name === "Spawn Point");
     this.player = new Player(this, x, y);
 
     // Smoothly follow the player
@@ -64,17 +64,17 @@ export default class MainScene extends Phaser.Scene {
     this.unsubscribePlayerCollide = this.matterCollision.addOnCollideStart({
       objectA: this.player.sprite,
       callback: this.onPlayerCollideStart,
-      context: this
+      context: this,
     });
 
     this.unsubscribePlayerCollide = this.matterCollision.addOnCollideEnd({
       objectA: this.player.sprite,
       callback: this.onPlayerCollideEnd,
-      context: this
+      context: this,
     });
 
     // Load up some crates from the "Crates" object layer created in Tiled
-    map.getObjectLayer("Crates").objects.forEach(crateObject => {
+    map.getObjectLayer("Crates").objects.forEach((crateObject) => {
       const { x, y, width, height } = crateObject;
 
       // Tiled origin for coordinate system is (0, 1), but we want (0.5, 0.5)
@@ -84,12 +84,12 @@ export default class MainScene extends Phaser.Scene {
     });
 
     // Create platforms at the point locations in the "Platform Locations" layer created in Tiled
-    map.getObjectLayer("Platform Locations").objects.forEach(point => {
+    map.getObjectLayer("Platform Locations").objects.forEach((point) => {
       createRotatingPlatform(this, point.x, point.y);
     });
 
     // Create a sensor at rectangle object created in Tiled (under the "Sensors" layer)
-    const rect = map.findObject("Sensors", obj => obj.name === "Celebration");
+    const rect = map.findObject("Sensors", (obj) => obj.name === "Celebration");
     const celebrateSensor = this.matter.add.rectangle(
       rect.x + rect.width / 2,
       rect.y + rect.height / 2,
@@ -97,21 +97,21 @@ export default class MainScene extends Phaser.Scene {
       rect.height,
       {
         isSensor: true, // It shouldn't physically interact with other bodies
-        isStatic: true // It shouldn't move
+        isStatic: true, // It shouldn't move
       }
     );
     this.unsubscribeCelebrate = this.matterCollision.addOnCollideStart({
       objectA: this.player.sprite,
       objectB: celebrateSensor,
       callback: this.onPlayerWin,
-      context: this
+      context: this,
     });
 
     const help = this.add.text(16, 16, "Arrows/WASD to move the player.", {
       fontSize: "18px",
       padding: { x: 10, y: 5 },
       backgroundColor: "#ffffff",
-      fill: "#000000"
+      fill: "#000000",
     });
     help.setScrollFactor(0).setDepth(1000);
   }
@@ -155,7 +155,7 @@ export default class MainScene extends Phaser.Scene {
           restitution: 1,
           friction: 0,
           density: 0.0001,
-          shape: "circle"
+          shape: "circle",
         })
         .setScale(0.5);
     }

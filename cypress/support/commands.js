@@ -8,7 +8,7 @@
 // https://on.cypress.io/custom-commands
 // ***********************************************
 
-Cypress.Commands.add("runPhaserTest", path => {
+Cypress.Commands.add("runPhaserTest", (path) => {
   cy.visit(path);
   cy.get(".test-pass").should("be.visible");
 });

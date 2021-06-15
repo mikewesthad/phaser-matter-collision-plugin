@@ -26,15 +26,21 @@ export default class MainScene extends Phaser.Scene {
     // Create two simple animations - one angry => grimace emoji and one heart eyes => grimace
     this.anims.create({
       key: "angry",
-      frames: [{ key: "emoji", frame: "1f92c" }, { key: "emoji", frame: "1f62c" }],
+      frames: [
+        { key: "emoji", frame: "1f92c" },
+        { key: "emoji", frame: "1f62c" },
+      ],
       frameRate: 3,
-      repeat: 0
+      repeat: 0,
     });
     this.anims.create({
       key: "love",
-      frames: [{ key: "emoji", frame: "1f60d" }, { key: "emoji", frame: "1f62c" }],
+      frames: [
+        { key: "emoji", frame: "1f60d" },
+        { key: "emoji", frame: "1f62c" },
+      ],
       frameRate: 3,
-      repeat: 0
+      repeat: 0,
     });
 
     const bodyOptions = { restitution: 1, friction: 0, shape: "circle" };
@@ -50,7 +56,7 @@ export default class MainScene extends Phaser.Scene {
       callback: ({ gameObjectA, gameObjectB }) => {
         gameObjectA.play("angry", false); // gameObjectA will always match the given "objectA"
         gameObjectB.play("love", false); // gameObjectB will always match the given "objectB"
-      }
+      },
     });
     this.matterCollision.addOnCollideActive({
       objectA: emoji1,
@@ -58,7 +64,7 @@ export default class MainScene extends Phaser.Scene {
       callback: ({ gameObjectA, gameObjectB }) => {
         gameObjectA.play("angry", false);
         gameObjectB.play("love", false);
-      }
+      },
     });
 
     // Kill poop emoji on collide with lava
@@ -70,7 +76,7 @@ export default class MainScene extends Phaser.Scene {
           emoji3.destroy();
           unsubscribe();
         }
-      }
+      },
     });
 
     // Make the emoji draggable
@@ -89,7 +95,7 @@ export default class MainScene extends Phaser.Scene {
       fontSize: "18px",
       padding: { x: 10, y: 5 },
       backgroundColor: "#ffffff",
-      fill: "#000000"
+      fill: "#000000",
     });
     help.setScrollFactor(0).setDepth(1000);
 
@@ -100,7 +106,7 @@ export default class MainScene extends Phaser.Scene {
       right: cursors.right,
       up: cursors.up,
       down: cursors.down,
-      speed: 0.5
+      speed: 0.5,
     };
     this.controls = new Phaser.Cameras.Controls.FixedKeyControl(controlConfig);
 

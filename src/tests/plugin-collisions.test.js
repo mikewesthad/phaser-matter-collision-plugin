@@ -232,18 +232,18 @@ describe("scene started with matter", () => {
     plugin.addOnCollideStart({
       objectA: [objectA1, objectA2],
       objectB: [objectB1, objectB2],
-      callback: callback
+      callback: callback,
     });
     plugin.removeOnCollideStart({
       objectA: [objectA1, objectA2],
       objectB: [objectB1, objectB2],
-      callback: callback
+      callback: callback,
     });
     emitMatterCollisionEvent(scene, "collisionstart", [
       createPair(objectA1, objectB1),
       createPair(objectA1, objectB2),
       createPair(objectA2, objectB1),
-      createPair(objectA2, objectB2)
+      createPair(objectA2, objectB2),
     ]);
     expect(callback.mock.calls.length).toBe(0);
   });
@@ -288,7 +288,7 @@ describe("scene started with matter", () => {
     plugin.addOnCollideStart({
       objectA: [objectA, objectB],
       objectB: [objectC, objectD],
-      callback
+      callback,
     });
     emitMatterCollisionEvent(scene, "collisionstart", [acPair, dbPair]);
     expect(callback.mock.calls.length).toBe(2);

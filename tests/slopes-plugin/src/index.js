@@ -14,23 +14,23 @@ const config = {
   physics: {
     default: "matter",
     matter: {
-      debug: false
-    }
+      debug: false,
+    },
   },
   plugins: {
     scene: [
       {
         key: "MatterCollisionPlugin",
         plugin: PhaserMatterCollisionPlugin,
-        mapping: "matterCollision"
+        mapping: "matterCollision",
       },
       {
         key: "Slopes",
         plugin: Slopes,
-        mapping: "slopes"
-      }
-    ]
-  }
+        mapping: "slopes",
+      },
+    ],
+  },
 };
 
 const game = new Phaser.Game(config);
