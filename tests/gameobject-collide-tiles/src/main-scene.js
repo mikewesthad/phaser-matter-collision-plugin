@@ -18,8 +18,8 @@ export default class MainScene extends Phaser.Scene {
   create() {
     const map = this.make.tilemap({ key: "map" });
     const tileset = map.addTilesetImage("kenney-tileset-64px-extruded");
-    const groundLayer = map.createDynamicLayer("Ground", tileset, 0, 0);
-    const lavaLayer = map.createDynamicLayer("Lava", tileset, 0, 0);
+    const groundLayer = map.createLayer("Ground", tileset, 0, 0);
+    const lavaLayer = map.createLayer("Lava", tileset, 0, 0);
 
     groundLayer.setCollisionByProperty({ collides: true });
     lavaLayer.setCollisionByProperty({ collides: true });
