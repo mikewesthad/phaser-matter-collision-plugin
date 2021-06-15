@@ -5,9 +5,10 @@ export function emitMatterCollisionEvent(scene, eventName, pairs) {
 }
 
 export function createBody(options = {}) {
-  // Necessary for faking body detection: collisionFilter, slop, parts
+  // Necessary for faking body detection: gameObject, slop, parts, collisionFilter
   if (!options.collisionFilter) options.collisionFilter = 0;
   if (!options.slop) options.slop = 0.05;
+  if (!options.gameObject) options.gameObject = null;
   const body = { ...options };
   body.parts = [body];
   body.parent = body;
