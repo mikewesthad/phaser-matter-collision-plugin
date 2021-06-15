@@ -8,6 +8,7 @@
     "dist"
   ],
   "scripts": {
+    "prettier": "prettier --write \"{src,tests,config,cypress}/**/*.{js,ts}\"",
     "build:library": "webpack --mode production --config config/webpack.config.js",
     "build:tests": "webpack --mode development --config config/webpack.test.config.js",
     "watch:library": "webpack --mode development --config config/webpack.config.js --watch",
