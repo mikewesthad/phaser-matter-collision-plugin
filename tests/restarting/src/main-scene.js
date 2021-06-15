@@ -45,7 +45,7 @@ export default class MainScene extends Phaser.Scene {
     this.matterCollision.addOnCollideStart({
       objectA: image,
       callback: () => {
-        this.matterCollision.removeAllCollideListenersOf(image);
+        this.matterCollision.removeOnCollideStart({ objectA: image });
         this.restartCount += 1;
         this.scene.restart();
         if (this.restartCount === 3) {
