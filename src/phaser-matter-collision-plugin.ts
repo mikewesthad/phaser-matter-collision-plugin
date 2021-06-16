@@ -12,6 +12,9 @@ import {
   EventData,
   CollideAConfig as AConfig,
   InternalCollideConfig,
+  RemoveCollideConfigA as RemoveAConfig,
+  RemoveCollideConfigAB as RemoveABConfig,
+  InternalCollideRemoveConfig,
 } from "./collision-types";
 
 import Matter = Physics.Matter;
@@ -80,23 +83,23 @@ export default class MatterCollisionPlugin extends Plugins.ScenePlugin {
    * you only specify objectA and objectB, all listeners with objectA & objectB will be removed
    * regardless of the callback or context.
    */
-  public removeOnCollideStart<T extends CO>(config: AConfig<T>): void;
-  public removeOnCollideStart<T extends CO, K extends CO>(config: ABConfig<T, K>): void;
-  public removeOnCollideStart(config: InternalCollideConfig) {
+  public removeOnCollideStart<T extends CO>(config: RemoveAConfig<T>): void;
+  public removeOnCollideStart<T extends CO, K extends CO>(config: RemoveABConfig<T, K>): void;
+  public removeOnCollideStart(config: InternalCollideRemoveConfig) {
     this.removeOnCollide(this.collisionStartListeners, config);
   }
 
   /** This method mirrors {@link MatterCollisionPlugin#removeOnCollideStart} */
-  public removeOnCollideEnd<T extends CO>(config: AConfig<T>): void;
-  public removeOnCollideEnd<T extends CO, K extends CO>(config: ABConfig<T, K>): void;
-  public removeOnCollideEnd(config: InternalCollideConfig) {
+  public removeOnCollideEnd<T extends CO>(config: RemoveAConfig<T>): void;
+  public removeOnCollideEnd<T extends CO, K extends CO>(config: RemoveABConfig<T, K>): void;
+  public removeOnCollideEnd(config: InternalCollideRemoveConfig) {
     this.removeOnCollide(this.collisionEndListeners, config);
   }
 
   /** This method mirrors {@link MatterCollisionPlugin#removeOnCollideStart} */
-  public removeOnCollideActive<T extends CO>(config: AConfig<T>): void;
-  public removeOnCollideActive<T extends CO, K extends CO>(config: ABConfig<T, K>): void;
-  public removeOnCollideActive(config: InternalCollideConfig) {
+  public removeOnCollideActive<T extends CO>(config: RemoveAConfig<T>): void;
+  public removeOnCollideActive<T extends CO, K extends CO>(config: RemoveABConfig<T, K>): void;
+  public removeOnCollideActive(config: InternalCollideRemoveConfig) {
     this.removeOnCollide(this.collisionActiveListeners, config);
   }
 
@@ -140,7 +143,7 @@ export default class MatterCollisionPlugin extends Plugins.ScenePlugin {
     });
   }
 
-  private removeOnCollide(map: ListenerMap, config: InternalCollideConfig) {
+  private removeOnCollide(map: ListenerMap, config: InternalCollideRemoveConfig) {
     const { context, callback, objectA, objectB } = config;
     const objectsA = Array.isArray(objectA) ? objectA : [objectA];
     const objectsB = Array.isArray(objectB) ? objectB : [objectB];

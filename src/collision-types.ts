@@ -2,6 +2,11 @@ import { Physics, Types } from "phaser";
 import { CollidingObject } from "./valid-collision-object";
 
 type CO = CollidingObject;
+
+/** Helper to construct variants of the types where specific properties are optional. */
+export type SelectivePartial<Type, OptionalKeys extends keyof Type> = Omit<Type, OptionalKeys> &
+  Partial<Type>;
+
 /** Alias to Matter type. */
 export type MatterCollisionData = Types.Physics.Matter.MatterCollisionData;
 
@@ -53,8 +58,18 @@ export interface InternalCollideConfig {
 
 export type CollideContext = any;
 
-export interface ListenerInfo<T extends CollidingObject, K extends CollidingObject> {
-  target?: CollidingObject;
+/** Variant of CollideAConfig to be used when removing listeners (where callback is optional). */
+export type RemoveCollideConfigA<T extends CO> = SelectivePartial<CollideAConfig<T>, "callback">;
+
+/** Variant of CollideABConfig to be used when removing listeners (where callback is optional). */
+export type RemoveCollideConfigAB<T extends CO, K extends CO> = SelectivePartial<
+  CollideABConfig<T, K>,
+  "callback"
+>;
+
+export type InternalCollideRemoveConfig = SelectivePartial<InternalCollideConfig, "callback">;
+export interface ListenerInfo<T extends CO, K extends CO> {
+  target?: CO;
   callback: CollideCallback<T, K>;
   context?: CollideContext;
 }

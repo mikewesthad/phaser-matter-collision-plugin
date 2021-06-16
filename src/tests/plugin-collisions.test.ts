@@ -253,7 +253,7 @@ describe("scene started with matter", () => {
     const acPair = createPair(objectA, objectC);
     plugin.addOnCollideStart({ objectA, objectB, callback: abCallback });
     plugin.addOnCollideStart({ objectA, objectB: objectC, callback: acCallback });
-    plugin.removeOnCollideStart({ objectA } as any); // TODO: types need updating.
+    plugin.removeOnCollideStart({ objectA });
     emitMatterCollisionEvent(scene, "collisionstart", [abPair, acPair]);
     expect(abCallback.mock.calls.length).toBe(0);
     expect(acCallback.mock.calls.length).toBe(0);
