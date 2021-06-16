@@ -207,6 +207,42 @@ describe("scene started with matter", () => {
     expect(callback.mock.calls.length).toBe(0);
   });
 
+  test("removeOnCollideStart with objectB omitted but with callback specified should remove all matching callbacks involving objectA", () => {
+    const objectA = createBody() as Phaser.Types.Physics.Matter.MatterBody;
+    const objectB = createBody() as Phaser.Types.Physics.Matter.MatterBody;
+    const objectC = createBody() as Phaser.Types.Physics.Matter.MatterBody;
+    const abCallback1 = jest.fn();
+    const abCallback2 = jest.fn();
+    const acCallback = jest.fn();
+    const abPair = createPair(objectA, objectB);
+    const acPair = createPair(objectA, objectC);
+    plugin.addOnCollideStart({ objectA, objectB, callback: abCallback1 });
+    plugin.addOnCollideStart({ objectA, objectB, callback: abCallback2 });
+    plugin.addOnCollideStart({ objectA, objectB: objectC, callback: acCallback });
+    plugin.removeOnCollideStart({ objectA, callback: abCallback1 });
+    emitMatterCollisionEvent(scene, "collisionstart", [abPair, acPair]);
+    expect(abCallback1.mock.calls.length).toBe(0);
+    expect(abCallback2.mock.calls.length).toBe(1);
+    expect(acCallback.mock.calls.length).toBe(1);
+  });
+
+  test("removeOnCollideStart should only move callbacks that match context when specified", () => {
+    const objectA = createBody() as Phaser.Types.Physics.Matter.MatterBody;
+    const objectB = createBody() as Phaser.Types.Physics.Matter.MatterBody;
+    const objectC = createBody() as Phaser.Types.Physics.Matter.MatterBody;
+    const abCallback = jest.fn();
+    const acCallback = jest.fn();
+    const abPair = createPair(objectA, objectB);
+    const acPair = createPair(objectA, objectC);
+    plugin.addOnCollideStart({ objectA, objectB, callback: abCallback, context: "Callback 1" });
+    plugin.addOnCollideStart({ objectA, objectB, callback: abCallback, context: "Callback 2" });
+    plugin.addOnCollideStart({ objectA, objectB: objectC, callback: acCallback });
+    plugin.removeOnCollideStart({ objectA, callback: abCallback, context: "Callback 1" });
+    emitMatterCollisionEvent(scene, "collisionstart", [abPair, acPair]);
+    expect(abCallback.mock.calls.length).toBe(1);
+    expect(acCallback.mock.calls.length).toBe(1);
+  });
+
   test("removeOnCollideStart with objectB and callback omitted should remove all callbacks involving objectA", () => {
     const objectA = createBody() as Phaser.Types.Physics.Matter.MatterBody;
     const objectB = createBody() as Phaser.Types.Physics.Matter.MatterBody;

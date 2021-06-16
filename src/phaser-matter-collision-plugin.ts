@@ -145,21 +145,17 @@ export default class MatterCollisionPlugin extends Plugins.ScenePlugin {
     const objectsA = Array.isArray(objectA) ? objectA : [objectA];
     const objectsB = Array.isArray(objectB) ? objectB : [objectB];
     objectsA.forEach((a) => {
-      if (!objectB) {
-        map.delete(a);
-      } else {
-        const callbacks = map.get(a) || [];
-        const remainingCallbacks = callbacks.filter(
-          (cb) =>
-            !(
-              objectsB.includes(cb.target) &&
-              (!callback || cb.callback === callback) &&
-              (!context || cb.context === context)
-            )
-        );
-        if (remainingCallbacks.length > 0) map.set(a, remainingCallbacks);
-        else map.delete(a);
-      }
+      const callbacks = map.get(a) || [];
+      const remainingCallbacks = callbacks.filter((cb) => {
+        // If anything doesn't match a provided config value (i.e. anything other than undefined),
+        // we can bail and keep listener.
+        if (context !== undefined && cb.context !== context) return true;
+        if (callback !== undefined && cb.callback !== callback) return true;
+        if (objectB !== undefined && !objectsB.includes(cb.target)) return true;
+        return false;
+      });
+      if (remainingCallbacks.length > 0) map.set(a, remainingCallbacks);
+      else map.delete(a);
     });
   }
 
