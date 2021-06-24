@@ -8,3 +8,12 @@ tests/*/build
 
 # Ignore files used for publishing to gh-pages
 .publish
+
+# Yarn (v2) without plug n' play
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
