@@ -1,6 +1,5 @@
 node_modules
 
-
 # Yarn (v2) without plug n' play
 .yarn/*
 !.yarn/patches
