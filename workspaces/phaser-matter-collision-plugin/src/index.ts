@@ -17,15 +17,14 @@ import {
   Unsubscribe,
 } from "./collision-types";
 
-export default PhaserMatterCollisionPlugin;
-
 export {
+  PhaserMatterCollisionPlugin,
   getRootBody,
   isCollidingObject,
   isMatterBody,
   ObjectWithBody,
   CollidingObject,
-      ExtendedMatterCollisionData,
+  ExtendedMatterCollisionData,
   CollisionEvent,
   EventData,
   CollideCallback,
@@ -34,3 +33,5 @@ export {
   CollideContext,
   Unsubscribe,
 };
+
+export default PhaserMatterCollisionPlugin;
