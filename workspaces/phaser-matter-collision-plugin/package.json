@@ -21,8 +21,7 @@
     "test:jest": "jest --config=./jest.config.js",
     "pretest:cypress": "npm run build:tests",
     "test:cypress": "cypress run",
-    "doc": "esdoc -c ./esdoc.json",
-    "postdoc": "cp -r doc-source-assets/ docs/ && cp -r doc-source-assets/ docs/manual/",
+    "doc": "typedoc --options typedoc.json && cp -r doc-source-assets/ docs/",
     "predeploy:doc": "npm run doc",
     "deploy:doc": "gh-pages --branch gh-pages --dist ./docs --dest docs",
     "prepublishOnly": "npm run build:library"
