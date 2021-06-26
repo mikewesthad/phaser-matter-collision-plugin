@@ -1,0 +1,8 @@
+{
+  "chromeWebSecurity": false,
+  "fileServerFolder": ".",
+  "viewportHeight": 800,
+  "viewportWidth": 1200,
+  "defaultCommandTimeout": 10000,
+  "fixturesFolder": false
+}
