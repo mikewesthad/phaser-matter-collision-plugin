@@ -42,7 +42,7 @@
   "bugs": {
     "url": "https://github.com/mikewesthad/phaser-matter-collision-plugin/issues"
   },
-  "homepage": "https://github.com/mikewesthad/phaser-matter-collision-plugin#readme",
+  "homepage": "https://github.com/mikewesthad/phaser-matter-collision-plugin/workspaces/phaser-matter-collision-plugin#readme",
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.5",
