@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "declaration": true,
+    "target": "es6",
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "module": "es6",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true, // Necessary for default importing Phaser to pick up types properly
+    "allowJs": true,
+    "checkJs": false,
+    "lib": ["dom", "esnext", "scripthost"]
+  },
+  "include": ["src/**/*"]
+}
