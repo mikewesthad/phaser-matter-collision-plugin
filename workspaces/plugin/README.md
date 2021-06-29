@@ -279,13 +279,17 @@ TODO: add a module example and a script example
 
 ## Changelog
 
-Version 0.10.2 - 2019-02-19
-
-- Bug: fixed a bug in `addOnCollide()` that threw an error when the user didn't supply a callback, from [@jvanroose](https://github.com/jvanroose)
-
-Version 0.10.1 - 2018-11-17
-
-- Bug: fixed a bug in the removeOnCollideXXXX methods of the plugin, from [@Fantasix](https://github.com/Fantasix)
+- 1.0.0 (??/??/????)
+  - Conversion to TypeScript.
+  - Update all dependencies.
+  - Add named export for PhaserMatterCollisionPlugin (in addition to existing default export).
+  - Fix removeOnCollideXX methods so that all config parameters are used when matching.
+- 0.10.2 (2019-02-19)
+  - Bug: fixed a bug in `addOnCollide()` that threw an error when the user didn't supply a callback, from [@jvanroose](https://github.com/jvanroose).
+- 0.10.1 (2018-11-17)
+  - Bug: fixed a bug in the removeOnCollideXXXX methods of the plugin, from [@Fantasix](https://github.com/Fantasix).
+- 0.0.0 - 0.9.2 (2018-08-17)
+  - Initial releases.
 
 ## Development
 
