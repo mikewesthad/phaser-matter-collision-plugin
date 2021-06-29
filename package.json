@@ -6,7 +6,7 @@
   ],
   "scripts": {
     "start": "yarn workspaces foreach run start",
-    "ws:plugin": "yarn workspace phaser-matter-collision-plugin",
+    "ws:plugin": "yarn workspace plugin",
     "ws:ts-example": "yarn workspace typescript-example",
     "prettier": "prettier --check \"workspaces/*/src/**/*.{js,ts}\""
   },
