@@ -8542,6 +8542,7 @@ fsevents@^1.2.7:
     gh-pages: ^3.2.1
     jest: ^27.0.4
     phaser-slopes: ^0.1.1
+    prettier: ^2.3.2
     regenerator-runtime: ^0.13.7
     ts-jest: ^27.0.3
     ts-loader: ^9.2.3
@@ -8688,7 +8689,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.3.1":
+"prettier@npm:^2.3.1, prettier@npm:^2.3.2":
   version: 2.3.2
   resolution: "prettier@npm:2.3.2"
   bin:
