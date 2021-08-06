@@ -1,7 +1,4 @@
 import Phaser, { Physics, Scene, Cameras, Tilemaps, Types, Input, GameObjects } from "phaser";
-import { EventData } from "../../phaser-matter-collision-plugin/dist";
-//import { CollideABConfig, EventData } from "phaser-matter-collision-plugin";
-//import MSprite = Physics.Matter.Sprite;
 
 export default class MainScene extends Scene {
   private controls: Cameras.Controls.FixedKeyControl;
