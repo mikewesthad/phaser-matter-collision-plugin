@@ -20,7 +20,7 @@ Or in a slightly more complicated example:
 [![](./workspaces/plugin/doc-source-assets/collision-simple-demo.gif)](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/doc-source-assets/collision-simple-demo.gif)
 _See the interactive version of that example on [codesandbox](https://codesandbox.io/s/0o0917m23l?module=%2Fjs%2Findex.js)._
 
-If you are reading this on Github or NPM, check out the full HTML documentation [here](https://www.mikewesthad.com/phaser-matter-collision-plugin/docs/manual/README.html).
+If you are reading this on Github or NPM, check out the full HTML documentation [here](https://mikewesthad.github.io/phaser-matter-collision-plugin/docs/manual/README.html).
 
 ## Info
 
