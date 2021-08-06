@@ -275,7 +275,7 @@ You can also poke around the ["tests" folder](https://github.com/mikewesthad/pha
 
 ## Changelog
 
-- 1.0.0 (??/??/????)
+- 1.0.0 (2021-08-06)
   - Conversion to TypeScript.
   - Update all dependencies.
   - Add named export for PhaserMatterCollisionPlugin (in addition to existing default export).
