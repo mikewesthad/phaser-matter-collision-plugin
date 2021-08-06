@@ -1,6 +1,13 @@
 import Phaser from "phaser";
+import PhaserMatterCollisionPlugin from "phaser-matter-collision-plugin";
 
 export default class MainScene extends Phaser.Scene {
+  /**
+   * Only necessary if you want your code editor to know type information!
+   * @type {PhaserMatterCollisionPlugin}
+   */
+  matterCollision;
+
   preload() {
     this.load.tilemapTiledJSON("map", "../assets/tilemaps/level.json");
     this.load.image(
