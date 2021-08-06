@@ -2,7 +2,7 @@
 
 A plugin for making it easier to manage collisions with the [Phaser](https://phaser.io/) game engine and the [Matter.js](http://brm.io/matter-js/) physics engine.
 
-Matter is one of the cool physics engine choices you have in Phaser 3. Phaser has a thin wrapper over Matter's API, so you need to dig into Matter's native collision event system if you want to detect and respond to collisions. That system just gives you a dump of all the pairs of bodies that collided in a tick of the engine. This plugin wraps up that collision logic in a friendlier, more modular way:
+Matter is one of the cool physics engine choices you have in Phaser 3. Phaser has a thin wrapper over Matter's API, so you need to dig into Matter's native collision event system if you want to detect and respond to collisions. That system just gives you a dump of all the pairs of bodies that collided in a tick of the engine. This plugin wraps up that collision logic in a more useful way:
 
 ```js
 const player = this.matter.add.sprite(0, 0, "player");
@@ -23,8 +23,8 @@ _See the interactive version of that example on [codesandbox](https://codesandbo
 If you are reading this on Github or NPM, check out the HTML documentation [here](https://www.mikewesthad.com/phaser-matter-collision-plugin/docs/manual/README.html).
 
 - [Installation](#installation)
-  - [As a Script](#as-a-script)
   - [As a Module](#as-a-module)
+  - [As a Script](#as-a-script)
 - [Usage](#usage)
   - [Initial Setup](#initial-setup)
   - [Usage in Scene](#usage-in-scene)
@@ -39,28 +39,7 @@ If you are reading this on Github or NPM, check out the HTML documentation [here
 
 ## Installation
 
-You can install this plugin globally as a script, or locally as a module using your bundler of choice.
-
-### As a Script
-
-You can drop in any of the transpiled code into your project as a standalone script. Choose the version that you want:
-
-- [minified code](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js) & optional [source map](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js.map)
-- [unminified code](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js) & optional [source map](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js.map)
-
-E.g. if you wanted the minified code, you would add this to your HTML:
-
-```html
-<script src="phaser-matter-collision-plugin.min.js"></script>
-```
-
-Or use the jsdelivr CDN:
-
-```html
-<script src="//cdn.jsdelivr.net/npm/phaser-matter-collision-plugin"></script>
-```
-
-Now you can use the global `PhaserMatterCollisionPlugin`. See [usage](#usage) for how to use the plugin.
+You can install this plugin locally as a module using your bundler of choice, or globally as a script.
 
 ### As a Module
 
@@ -70,19 +49,29 @@ Install via npm:
 npm install --save phaser-matter-collision-plugin
 ```
 
-To use the transpiled and minified distribution of the library:
+Then import the plugin into your project:
 
 ```js
 import PhaserMatterCollisionPlugin from "phaser-matter-collision-plugin";
 ```
 
-To use the raw library (so you can transpile it to match your own project settings):
+See [usage](#usage) for how to use the plugin.
 
-```js
-import PhaserMatterCollisionPlugin from "phaser-matter-collision-plugin/src";
+### As a Script
+
+Grab the desired version from the [releases](https://github.com/mikewesthad/phaser-matter-collision-plugin/releases) page and include it as a script in your HTML. E.g. it might look like:
+
+```html
+<script src="./phaser-matter-collision-plugin.min.js"></script>
 ```
 
-See [usage](#usage) for how to use the plugin.
+Or use the jsdelivr CDN:
+
+```html
+<script src="//cdn.jsdelivr.net/npm/phaser-matter-collision-plugin"></script>
+```
+
+Now you can use the global `PhaserMatterCollisionPlugin`. See [usage](#usage) for how to use the plugin.
 
 ## Usage
 
@@ -129,13 +118,13 @@ this.matterCollision.addOnCollideStart({
   objectA: player,
   objectB: trapDoor,
   callback: function(eventData) {
-    // This function will be invoked any time the player and trap door collide
+    // This function will be invoked any time the player and trap door collide.
     const { bodyA, bodyB, gameObjectA, gameObjectB, pair } = eventData;
-    // bodyA & bodyB are the Matter bodies of the player and door respectively
-    // gameObjectA & gameObjectB are the player and door respectively
-    // pair is the raw Matter pair data
+    // bodyA & bodyB are the Matter bodies of the player and door respectively.
+    // gameObjectA & gameObjectB are the player and door respectively.
+    // pair is the raw Matter pair data.
   },
-  context: this // Context to apply to the callback function
+  context: this // Optional context to apply to the callback function.
 });
 ```
 
@@ -149,8 +138,9 @@ this.matterCollision.addOnCollideStart({
   callback: eventData => {
     const { bodyB, gameObjectB } = eventData;
     console.log("Player touched something.");
-    // bodyB will be the matter body that the player touched
+    // bodyB will be the matter body that the player touched.
     // gameObjectB will be the game object that owns bodyB, or undefined if there's no game object
+    // (e.g. the player hitting an invisible Matter body acting as a wall).
   }
 });
 ```
@@ -208,7 +198,7 @@ this.matterCollision.addOnCollideStart({
   callback: eventData => {
     const { bodyB, gameObjectB } = eventData;
 
-    if (gameObjectB !== undefined && gameObjectB instanceof Phaser.Tilemaps.Tile) {
+    if (gameObjectB instanceof Phaser.Tilemaps.Tile) {
       // Now you know that gameObjectB is a Tile, so you can check the index, properties, etc.
       if (gameObjectB.properties.isDeadly) console.log("Stepped on deadly tile");
       else if (gameObjectB.index === 32) console.log("Stepped on the tile with index 32");
@@ -265,18 +255,18 @@ If you want to remove all listeners that have been added - not just one collidin
 
 ## Examples
 
-There's one example at the moment. You can check it out on CodeSandbox (which uses the plugin imported from npm):
+This repo includes two example projects:
+
+- [JavaScript](./workspaces/javascript-example)
+- [TypeScript](./workspaces/typescript-example)
+
+You can also check out versions of those example projects on CodeSandbox:
 
 [![](./doc-source-assets/collision-plugin-demo.gif)](https://codesandbox.io/s/0o0917m23l?module=%2Fjs%2Findex.js)
 
 [![Edit Phaser Matter Collision Plugin Demo 1](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/0o0917m23l?module=%2Fjs%2Findex.js)
 
-Or you can check out the same example, but with the plugin loaded via a CDN in the [examples folder](https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/examples).
-
 You can also poke around the ["tests" folder](https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/tests) of this repository for usage examples.
-
-TODO: add a module example and a script example
-
 ## Changelog
 
 - 1.0.0 (??/??/????)
@@ -318,7 +308,7 @@ The jest unit tests rely on a simple mocking of Phaser and Matter. They are stor
 
 ### New Releases
 
-To prepare a new release, verify that all tests pass with `npm run test:jest` and `npm run test:cypress`, update the changelog, and then:
+To prepare a new release, verify that all tests pass with `yarn test:jest` and `yarn test:cypress`, update the changelog, and then:
 
 ```
 npm login
