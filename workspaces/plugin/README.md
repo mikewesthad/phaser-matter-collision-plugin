@@ -18,7 +18,7 @@ this.matterCollision.addOnCollideStart({
 Or in a slightly more complicated example:
 
 [![](./doc-source-assets/collision-simple-demo.gif)](https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/doc-source-assets/collision-simple-demo.gif)
-_See the interactive version of that example on [codesandbox](https://codesandbox.io/s/0o0917m23l?module=%2Fjs%2Findex.js)._
+_See interactive versions of that example on CodeSandbox in [JavaScript](https://codesandbox.io/s/0o0917m23l) or [TypeScript](https://codesandbox.io/s/my3oyyqj39)._
 
 If you are reading this on Github or NPM, check out the HTML documentation [here](https://www.mikewesthad.com/phaser-matter-collision-plugin/docs/manual/README.html).
 
@@ -256,6 +256,8 @@ If you want to remove all listeners that have been added - not just one collidin
 
 ## Examples
 
+![](./doc-source-assets/collision-plugin-demo.gif)
+
 This repo includes two example projects:
 
 - [JavaScript](./workspaces/javascript-example)
@@ -263,9 +265,8 @@ This repo includes two example projects:
 
 You can also check out versions of those example projects on CodeSandbox:
 
-[![](./doc-source-assets/collision-plugin-demo.gif)](https://codesandbox.io/s/0o0917m23l?module=%2Fjs%2Findex.js)
-
-[![Edit Phaser Matter Collision Plugin Demo 1](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/0o0917m23l?module=%2Fjs%2Findex.js)
+- [JavaScript](https://codesandbox.io/s/0o0917m23l)
+- [TypeScript](https://codesandbox.io/s/my3oyyqj39)
 
 You can also poke around the ["tests" folder](https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/tests) of this repository for usage examples.
 
