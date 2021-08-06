@@ -30,7 +30,23 @@ export interface EventData<T extends CO, K extends CO> {
   pair: ExtendedMatterCollisionData;
 }
 
-export interface CollideCallback<T extends CO, K extends CO> {
+/**
+ * This generic type represents a start/active/end callback. It is used internally, but it can also
+ * be used when you need to type a "callback" property manually, for example:
+ * ```ts
+ * const sprite = this.matter.add.sprite(350, 100, "emoji", "1f62c");
+ * const image = this.matter.add.image(350, 200, "emoji", "1f62c");
+ * const callback: CollideCallback<typeof sprite, typeof image> = (e) => {
+ *   console.log("Hit!");
+ * };
+ * this.matterCollision.addOnCollideStart({
+ *   objectA: sprite,
+ *   objectB: image,
+ *   callback: callback,
+ * });
+ * ```
+ */
+export interface CollideCallback<T extends CO = CO, K extends CO = CO> {
   (event: EventData<T, K>): void;
 }
 

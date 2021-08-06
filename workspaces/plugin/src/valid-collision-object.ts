@@ -8,6 +8,10 @@ export type ObjectWithBody = {
   body: MatterJS.BodyType;
 };
 
+/**
+ * A union of all the types of physics objects we could have in the simulation - from raw Matter.js
+ * bodies to tiles and physics-enabled Phaser GameObjects.
+ */
 export type CollidingObject = MatterBody | MatterJS.BodyType | Tile | ObjectWithBody;
 
 /** Duck type to check if the given object is a Matter body (because there isn't a prototype). */
