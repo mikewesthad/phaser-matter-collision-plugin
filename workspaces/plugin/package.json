@@ -1,0 +1,78 @@
+{
+  "name": "phaser-matter-collision-plugin",
+  "version": "1.0.0",
+  "description": "A plugin for making it easier to manage collisions with Phaser + Matter.js",
+  "main": "dist/phaser-matter-collision.js",
+  "files": [
+    "src/!(mocks|tests)",
+    "dist"
+  ],
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "start": "yarn run dev",
+    "prettier": "prettier --write \"{src,tests,config,cypress}/**/*.{js,ts}\"",
+    "build:library": "webpack --mode production --config webpack.config.js",
+    "build:tests": "webpack --mode development --config webpack.test.config.js",
+    "watch:library": "webpack --mode development --config webpack.config.js --watch",
+    "watch:tests": "webpack --mode development --config webpack.test.config.js --watch",
+    "serve": "browser-sync start --server \".\" --directory --watch --startPath \"/tests\"",
+    "dev": "concurrently \"npm run watch:tests\" \"npm run watch:library\" \"npm run serve\"",
+    "dev:cypress": "concurrently \"npm run watch:tests\" \"npm run watch:library\" \"cypress open\"",
+    "test:jest": "jest --config=./jest.config.js",
+    "pretest:cypress": "npm run build:tests",
+    "test:cypress": "cypress run",
+    "doc": "typedoc --options typedoc.json && cp -r doc-source-assets/ docs/",
+    "predeploy:doc": "npm run doc",
+    "deploy:doc": "gh-pages --branch gh-pages --dist ./docs --dest docs",
+    "prepublishOnly": "npm run build:library"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikewesthad/phaser-matter-collision-plugin.git"
+  },
+  "keywords": [
+    "matter.js",
+    "phaser",
+    "collision detection",
+    "game engine",
+    "physics engine"
+  ],
+  "author": "Michael Hadley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikewesthad/phaser-matter-collision-plugin/issues"
+  },
+  "homepage": "https://github.com/mikewesthad/phaser-matter-collision-plugin/workspaces/plugin#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.5",
+    "@babel/preset-typescript": "^7.14.5",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.2",
+    "babel-loader": "^8.2.2",
+    "browser-sync": "^2.26.14",
+    "concurrently": "^6.2.0",
+    "cypress": "^7.5.0",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eventemitter3": "^4.0.7",
+    "gh-pages": "^3.2.1",
+    "jest": "^27.0.4",
+    "phaser-slopes": "^0.1.1",
+    "prettier": "^2.3.2",
+    "regenerator-runtime": "^0.13.7",
+    "ts-jest": "^27.0.3",
+    "ts-loader": "^9.2.3",
+    "typedoc": "^0.21.1",
+    "typescript": "^4.3.2",
+    "webpack": "^5.39.0",
+    "webpack-cli": "^4.7.2"
+  },
+  "prettier": {
+    "printWidth": 100
+  },
+  "peerDependencies": {
+    "phaser": "^3.55.2"
+  }
+}

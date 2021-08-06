@@ -1,0 +1,25 @@
+{
+  "name": "typescript-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack server --mode development --open",
+    "tsc": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "copy-webpack-plugin": "^9.0.0",
+    "html-webpack-plugin": "^5.3.2",
+    "ts-loader": "^9.2.1",
+    "typescript": "^4.2.4",
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "description": "",
+  "dependencies": {
+    "phaser": "^3.55.2",
+    "phaser-matter-collision-plugin": "workspace:*"
+  }
+}

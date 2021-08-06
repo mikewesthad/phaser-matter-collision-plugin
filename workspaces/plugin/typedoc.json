@@ -1,0 +1,15 @@
+{
+  "entryPoints": [
+    "src/index.ts"
+  ],
+  "out": "docs",
+  "name": "Phaser Matter Collision Plugin",
+  "includeVersion": true,
+  "readme": "./README.md",
+  "theme": "./doc-theme",
+  "sort": [
+    "visibility",
+    "alphabetical"
+  ],
+  "hideGenerator": true
+}
