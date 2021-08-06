@@ -31,6 +31,7 @@ If you are reading this on Github or NPM, check out the HTML documentation [here
     - [Tracking Collisions](#tracking-collisions)
     - [Stop Tracking Collisions](#stop-tracking-collisions)
 - [Examples](#examples)
+- [Tips](#tips)
 - [Changelog](#changelog)
 - [Development](#development)
   - [Scripts](#scripts)
@@ -267,6 +268,11 @@ You can also check out versions of those example projects on CodeSandbox:
 [![Edit Phaser Matter Collision Plugin Demo 1](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/0o0917m23l?module=%2Fjs%2Findex.js)
 
 You can also poke around the ["tests" folder](https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/tests) of this repository for usage examples.
+
+## Tips
+
+- Trying to apply a force during collision? See [@alrdebugne's](https://github.com/alrdebugne) note in this [issue](https://github.com/mikewesthad/phaser-matter-collision-plugin/issues/5#issuecomment-752780477) on how to do that.
+
 ## Changelog
 
 - 1.0.0 (??/??/????)
