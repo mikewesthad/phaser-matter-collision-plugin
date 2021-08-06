@@ -8513,16 +8513,7 @@ fsevents@^1.2.7:
   languageName: unknown
   linkType: soft
 
-"phaser-matter-collision-plugin@workspace:workspaces/phaser-matter-collision-plugin":
-  version: 0.10.2
-  resolution: "phaser-matter-collision-plugin@npm:0.10.2"
-  peerDependencies:
-    phaser: ^3.11.0
-  checksum: 3301708e7c3309730a84b51da888cae75ae2ad9c0ff726781f5e9a048da81b73a348cea3e37cd83df3ce0759018d071123e37da14141b041f63578f1c7ecd237
-  languageName: node
-  linkType: hard
-
-"phaser-matter-collision-plugin@workspace:workspaces/plugin":
+"phaser-matter-collision-plugin@workspace:*, phaser-matter-collision-plugin@workspace:workspaces/plugin":
   version: 0.0.0-use.local
   resolution: "phaser-matter-collision-plugin@workspace:workspaces/plugin"
   dependencies:
@@ -10703,7 +10694,7 @@ fsevents@^1.2.7:
     copy-webpack-plugin: ^9.0.0
     html-webpack-plugin: ^5.3.2
     phaser: ^3.55.2
-    phaser-matter-collision-plugin: "workspace:workspaces/phaser-matter-collision-plugin"
+    phaser-matter-collision-plugin: "workspace:*"
     ts-loader: ^9.2.1
     typescript: ^4.2.4
     webpack: ^5.37.1
