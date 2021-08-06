@@ -260,15 +260,15 @@ If you want to remove all listeners that have been added - not just one collidin
 
 This repo includes two example projects:
 
-- [JavaScript](./workspaces/javascript-example)
-- [TypeScript](./workspaces/typescript-example)
+- [JavaScript](https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/workspaces/javascript-example)
+- [TypeScript](https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/workspaces/typescript-example)
 
 You can also check out versions of those example projects on CodeSandbox:
 
 - [JavaScript](https://codesandbox.io/s/0o0917m23l)
 - [TypeScript](https://codesandbox.io/s/my3oyyqj39)
 
-You can also poke around the ["tests" folder](https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/tests) of this repository for usage examples.
+You can also poke around the ["tests" folder](https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/workspaces/plugin/tests) of this repository for usage examples.
 
 ## Tips
 
