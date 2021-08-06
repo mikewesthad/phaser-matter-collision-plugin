@@ -2,7 +2,7 @@
 
 A plugin for making it easier to manage collisions with the [Phaser](https://phaser.io/) game engine and the [Matter.js](http://brm.io/matter-js/) physics engine.
 
-Matter is one of the cool physics engine choices you have in Phaser 3. Phaser has a thin wrapper over Matter's API, so you need to dig into Matter's native collision event system if you want to detect and respond to collisions. That system just gives you a dump of all the pairs of bodies that collided in a tick of the engine. This plugin wraps up that collision logic in a friendlier, more modular way:
+Matter is one of the cool physics engine choices you have in Phaser 3. Phaser has a thin wrapper over Matter's API, so you need to dig into Matter's native collision event system if you want to detect and respond to collisions. That system just gives you a dump of all the pairs of bodies that collided in a tick of the engine. This plugin wraps up that collision logic in a more useful way:
 
 ```js
 const player = this.matter.add.sprite(0, 0, "player");
@@ -34,7 +34,7 @@ This repository uses yarn workspaces to keep the plugin source code together wit
 
 If you are contributing to this library, here is how to get started:
 
-- Install [Node](https://nodejs.org/en/)
-- `npm install --global yarn`
-- Open the root folder of this repository and run `yarn`.
+- Install [Node](https://nodejs.org/en/).
+- `npm install --global yarn`.
+- Open the root folder of this repository and run `yarn` to install and link dependencies.
 - Head to the workspace you plan to work on and use `yarn run XYZ` to run a script from that workspace.
