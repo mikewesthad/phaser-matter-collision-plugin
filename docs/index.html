@@ -1,488 +1,440 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="default no-js">
 <head>
-  <meta charset="utf-8">
-  <base data-ice="baseUrl" href="./">
-  <title data-ice="title">Manual | phaser-matter-collision-plugin</title>
-  <link type="text/css" rel="stylesheet" href="css/style.css">
-  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
-  <script src="script/prettify/prettify.js"></script>
-  <script src="script/manual.js"></script>
-<link rel="stylesheet" href="./inject/css/0-injected-style.css"><meta name="description" content="A plugin for making it easier to manage collisions with Phaser + Matter.js"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="phaser-matter-collision-plugin"><meta property="twitter:description" content="A plugin for making it easier to manage collisions with Phaser + Matter.js"></head>
-<body class="layout-container manual-root manual-index" data-ice="rootContainer">
-
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Phaser Matter Collision Plugin - v1.0.0</title>
+	<meta name="description" content="Documentation for Phaser Matter Collision Plugin - v1.0.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
 <header>
-  <a href="./">Home</a>
-  
-  <a href="identifiers.html">Reference</a>
-  <a href="source.html">Source</a>
-  
-  <div class="search-box">
-  <span>
-    <img src="./image/search.png">
-    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
-  </span>
-    <ul class="search-result"></ul>
-  </div>
-<a style="position:relative; top:3px;" href="https://github.com/mikewesthad/phaser-matter-collision-plugin"><img width="20px" src="./image/github.png"></a></header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">Phaser Matter Collision Plugin - v1.0.0</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>Phaser Matter Collision Plugin - v1.0.0</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#phaser-matter-collision-plugin-💥-" id="phaser-matter-collision-plugin-💥-" style="color: inherit; text-decoration: none;">
+					<h1>Phaser Matter Collision Plugin 💥 <!-- omit in toc --></h1>
+				</a>
+				<p>A plugin for making it easier to manage collisions with the <a href="https://phaser.io/">Phaser</a> game engine and the <a href="http://brm.io/matter-js/">Matter.js</a> physics engine.</p>
+				<p>Matter is one of the cool physics engine choices you have in Phaser 3. Phaser has a thin wrapper over Matter&#39;s API, so you need to dig into Matter&#39;s native collision event system if you want to detect and respond to collisions. That system just gives you a dump of all the pairs of bodies that collided in a tick of the engine. This plugin wraps up that collision logic in a friendlier, more modular way:</p>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">player</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">matter</span><span style="color: #000000">.</span><span style="color: #001080">add</span><span style="color: #000000">.</span><span style="color: #795E26">sprite</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;player&quot;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">trapDoor</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">matter</span><span style="color: #000000">.</span><span style="color: #001080">add</span><span style="color: #000000">.</span><span style="color: #795E26">sprite</span><span style="color: #000000">(</span><span style="color: #098658">200</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;door&quot;</span><span style="color: #000000">);</span>
 
-<nav class="navigation" data-ice="nav"><div class="manual-toc-root">
-  
-<div data-ice="manual">
-    <ul class="manual-toc">
-      
-    <li data-ice="manualNav" class="indent-h1" data-link="manual/README.html"><a href="manual/README.html" data-ice="link">Phaser Matter Collision Plugin &#x1F4A5; </a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#installation" data-ice="link">Installation</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#as-a-script" data-ice="link">As a Script</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#as-a-module" data-ice="link">As a Module</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#usage" data-ice="link">Usage</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#initial-setup" data-ice="link">Initial Setup</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#usage-in-scene" data-ice="link">Usage in Scene</a></li>
-<li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#tracking-collisions" data-ice="link">Tracking Collisions</a></li>
-<li data-ice="manualNav" class="indent-h4" data-link="manual/README.html"><a href="manual/README.html#stop-tracking-collisions" data-ice="link">Stop Tracking Collisions</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#examples" data-ice="link">Examples</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#changelog" data-ice="link">Changelog</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#development" data-ice="link">Development</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#scripts" data-ice="link">Scripts</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#tests" data-ice="link">Tests</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/README.html"><a href="manual/README.html#new-releases" data-ice="link">New Releases</a></li>
-</ul>
-  </div>
+<span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">matterCollision</span><span style="color: #000000">.</span><span style="color: #795E26">addOnCollideStart</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">objectA:</span><span style="color: #000000"> </span><span style="color: #001080">player</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">objectB:</span><span style="color: #000000"> </span><span style="color: #001080">trapDoor</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #795E26">callback</span><span style="color: #001080">:</span><span style="color: #000000"> () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Player touched door!&quot;</span><span style="color: #000000">)</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<p>Or in a slightly more complicated example:</p>
+				<p><a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/doc-source-assets/collision-simple-demo.gif"><img src="./doc-source-assets/collision-simple-demo.gif" alt=""></a>
+				<em>See the interactive version of that example on <a href="https://codesandbox.io/s/0o0917m23l?module=%2Fjs%2Findex.js">codesandbox</a>.</em></p>
+				<p>If you are reading this on Github or NPM, check out the HTML documentation <a href="https://www.mikewesthad.com/phaser-matter-collision-plugin/docs/manual/README.html">here</a>.</p>
+				<ul>
+					<li><a href="#installation">Installation</a><ul>
+							<li><a href="#as-a-script">As a Script</a></li>
+							<li><a href="#as-a-module">As a Module</a></li>
+						</ul>
+					</li>
+					<li><a href="#usage">Usage</a><ul>
+							<li><a href="#initial-setup">Initial Setup</a></li>
+							<li><a href="#usage-in-scene">Usage in Scene</a><ul>
+									<li><a href="#tracking-collisions">Tracking Collisions</a></li>
+									<li><a href="#stop-tracking-collisions">Stop Tracking Collisions</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li><a href="#examples">Examples</a></li>
+					<li><a href="#changelog">Changelog</a></li>
+					<li><a href="#development">Development</a><ul>
+							<li><a href="#scripts">Scripts</a></li>
+							<li><a href="#tests">Tests</a></li>
+							<li><a href="#new-releases">New Releases</a></li>
+						</ul>
+					</li>
+				</ul>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<p>You can install this plugin globally as a script, or locally as a module using your bundler of choice.</p>
+				<a href="#as-a-script" id="as-a-script" style="color: inherit; text-decoration: none;">
+					<h3>As a Script</h3>
+				</a>
+				<p>You can drop in any of the transpiled code into your project as a standalone script. Choose the version that you want:</p>
+				<ul>
+					<li><a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js">minified code</a> &amp; optional <a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js.map">source map</a></li>
+					<li><a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js">unminified code</a> &amp; optional <a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js.map">source map</a></li>
+				</ul>
+				<p>E.g. if you wanted the minified code, you would add this to your HTML:</p>
+				<pre><code class="language-html"><span style="color: #800000">&lt;script</span><span style="color: #000000FF"> </span><span style="color: #FF0000">src</span><span style="color: #000000FF">=</span><span style="color: #0000FF">&quot;phaser-matter-collision-plugin.min.js&quot;</span><span style="color: #800000">&gt;&lt;/script&gt;</span>
+</code></pre>
+				<p>Or use the jsdelivr CDN:</p>
+				<pre><code class="language-html"><span style="color: #800000">&lt;script</span><span style="color: #000000FF"> </span><span style="color: #FF0000">src</span><span style="color: #000000FF">=</span><span style="color: #0000FF">&quot;//cdn.jsdelivr.net/npm/phaser-matter-collision-plugin&quot;</span><span style="color: #800000">&gt;&lt;/script&gt;</span>
+</code></pre>
+				<p>Now you can use the global <code>PhaserMatterCollisionPlugin</code>. See <a href="#usage">usage</a> for how to use the plugin.</p>
+				<a href="#as-a-module" id="as-a-module" style="color: inherit; text-decoration: none;">
+					<h3>As a Module</h3>
+				</a>
+				<p>Install via npm:</p>
+				<pre><code><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">install</span><span style="color: #000000"> --</span><span style="color: #001080">save</span><span style="color: #000000"> </span><span style="color: #001080">phaser</span><span style="color: #000000">-</span><span style="color: #001080">matter</span><span style="color: #000000">-</span><span style="color: #001080">collision</span><span style="color: #000000">-</span><span style="color: #001080">plugin</span>
+</code></pre>
+				<p>To use the transpiled and minified distribution of the library:</p>
+				<pre><code class="language-js"><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">PhaserMatterCollisionPlugin</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;phaser-matter-collision-plugin&quot;</span><span style="color: #000000">;</span>
+</code></pre>
+				<p>To use the raw library (so you can transpile it to match your own project settings):</p>
+				<pre><code class="language-js"><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">PhaserMatterCollisionPlugin</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;phaser-matter-collision-plugin/src&quot;</span><span style="color: #000000">;</span>
+</code></pre>
+				<p>See <a href="#usage">usage</a> for how to use the plugin.</p>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<a href="#initial-setup" id="initial-setup" style="color: inherit; text-decoration: none;">
+					<h3>Initial Setup</h3>
+				</a>
+				<p>When setting up your game config, add the plugin:</p>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">config</span><span style="color: #000000"> = {</span>
+<span style="color: #000000">  </span><span style="color: #008000">// ...</span>
+<span style="color: #000000">  </span><span style="color: #001080">physics:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">default:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;matter&quot;</span>
+<span style="color: #000000">  },</span>
+<span style="color: #000000">  </span><span style="color: #008000">// Install the scene plugin</span>
+<span style="color: #000000">  </span><span style="color: #001080">plugins:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">scene:</span><span style="color: #000000"> [</span>
+<span style="color: #000000">      {</span>
+<span style="color: #000000">        </span><span style="color: #001080">plugin:</span><span style="color: #000000"> </span><span style="color: #001080">PhaserMatterCollisionPlugin</span><span style="color: #000000">, </span><span style="color: #008000">// The plugin class</span>
+<span style="color: #000000">        </span><span style="color: #001080">key:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;matterCollision&quot;</span><span style="color: #000000">, </span><span style="color: #008000">// Where to store in Scene.Systems, e.g. scene.sys.matterCollision</span>
+<span style="color: #000000">        </span><span style="color: #001080">mapping:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;matterCollision&quot;</span><span style="color: #000000"> </span><span style="color: #008000">// Where to store in the Scene, e.g. scene.matterCollision</span>
+<span style="color: #000000">      }</span>
+<span style="color: #000000">    ]</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">game</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">Phaser</span><span style="color: #000000">.</span><span style="color: #795E26">Game</span><span style="color: #000000">(</span><span style="color: #001080">config</span><span style="color: #000000">);</span>
+</code></pre>
+				<p>Now, within a scene, you can use <code>this.matterCollision</code> to access the plugin instance.</p>
+				<a href="#usage-in-scene" id="usage-in-scene" style="color: inherit; text-decoration: none;">
+					<h3>Usage in Scene</h3>
+				</a>
+				<a href="#tracking-collisions" id="tracking-collisions" style="color: inherit; text-decoration: none;">
+					<h4>Tracking Collisions</h4>
+				</a>
+				<p>The plugin has <code>addOnCollideStart</code>, <code>addOnCollideActive</code> and <code>addOnCollideEnd</code> methods which allow you to listen to collisions between &quot;objects&quot; in your scene. Those objects can be: a native Matter body, a tile, a Matter sprite, any object with a <code>body</code> property, or an array of any of those.</p>
+				<p>For example, game object vs game object collisions:</p>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">player</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">matter</span><span style="color: #000000">.</span><span style="color: #001080">add</span><span style="color: #000000">.</span><span style="color: #795E26">sprite</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;player&quot;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">trapDoor</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">matter</span><span style="color: #000000">.</span><span style="color: #001080">add</span><span style="color: #000000">.</span><span style="color: #795E26">image</span><span style="color: #000000">(</span><span style="color: #098658">200</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;door&quot;</span><span style="color: #000000">);</span>
+
+<span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">matterCollision</span><span style="color: #000000">.</span><span style="color: #795E26">addOnCollideStart</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">objectA:</span><span style="color: #000000"> </span><span style="color: #001080">player</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">objectB:</span><span style="color: #000000"> </span><span style="color: #001080">trapDoor</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #795E26">callback</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #0000FF">function</span><span style="color: #000000">(</span><span style="color: #001080">eventData</span><span style="color: #000000">) {</span>
+<span style="color: #000000">    </span><span style="color: #008000">// This function will be invoked any time the player and trap door collide</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">bodyA</span><span style="color: #000000">, </span><span style="color: #0070C1">bodyB</span><span style="color: #000000">, </span><span style="color: #0070C1">gameObjectA</span><span style="color: #000000">, </span><span style="color: #0070C1">gameObjectB</span><span style="color: #000000">, </span><span style="color: #0070C1">pair</span><span style="color: #000000"> } = </span><span style="color: #001080">eventData</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #008000">// bodyA &amp; bodyB are the Matter bodies of the player and door respectively</span>
+<span style="color: #000000">    </span><span style="color: #008000">// gameObjectA &amp; gameObjectB are the player and door respectively</span>
+<span style="color: #000000">    </span><span style="color: #008000">// pair is the raw Matter pair data</span>
+<span style="color: #000000">  },</span>
+<span style="color: #000000">  </span><span style="color: #001080">context:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000"> </span><span style="color: #008000">// Context to apply to the callback function</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<p>If you omit the <code>objectB</code> property, you&#39;ll get all collisions involving <code>objectA</code>:</p>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">player</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">matter</span><span style="color: #000000">.</span><span style="color: #001080">add</span><span style="color: #000000">.</span><span style="color: #795E26">sprite</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;player&quot;</span><span style="color: #000000">);</span>
+
+<span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">matterCollision</span><span style="color: #000000">.</span><span style="color: #795E26">addOnCollideStart</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">objectA:</span><span style="color: #000000"> </span><span style="color: #001080">player</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #795E26">callback</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #001080">eventData</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">bodyB</span><span style="color: #000000">, </span><span style="color: #0070C1">gameObjectB</span><span style="color: #000000"> } = </span><span style="color: #001080">eventData</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Player touched something.&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">    </span><span style="color: #008000">// bodyB will be the matter body that the player touched</span>
+<span style="color: #000000">    </span><span style="color: #008000">// gameObjectB will be the game object that owns bodyB, or undefined if there&#039;s no game object</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<p>Game object vs Matter sensor:</p>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">player</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">matter</span><span style="color: #000000">.</span><span style="color: #001080">add</span><span style="color: #000000">.</span><span style="color: #795E26">sprite</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;player&quot;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">sensor</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">matter</span><span style="color: #000000">.</span><span style="color: #001080">world</span><span style="color: #000000">.</span><span style="color: #001080">add</span><span style="color: #000000">.</span><span style="color: #795E26">rectangle</span><span style="color: #000000">(</span><span style="color: #098658">100</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #098658">50</span><span style="color: #000000">, </span><span style="color: #098658">50</span><span style="color: #000000">, { </span><span style="color: #001080">isStatic:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">, </span><span style="color: #001080">isSensor:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> });</span>
+
+<span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">matterCollision</span><span style="color: #000000">.</span><span style="color: #795E26">addOnCollideStart</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">objectA:</span><span style="color: #000000"> </span><span style="color: #001080">player</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">objectB:</span><span style="color: #000000"> </span><span style="color: #001080">sensor</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #795E26">callback</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #001080">eventData</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Player touched hidden sensor&quot;</span><span style="color: #000000">)</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<p>Game object vs array of objects:</p>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">player</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">matter</span><span style="color: #000000">.</span><span style="color: #001080">add</span><span style="color: #000000">.</span><span style="color: #795E26">sprite</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;player&quot;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">enemy1</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">matter</span><span style="color: #000000">.</span><span style="color: #001080">add</span><span style="color: #000000">.</span><span style="color: #795E26">sprite</span><span style="color: #000000">(</span><span style="color: #098658">100</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;enemy&quot;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">enemy2</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">matter</span><span style="color: #000000">.</span><span style="color: #001080">add</span><span style="color: #000000">.</span><span style="color: #795E26">sprite</span><span style="color: #000000">(</span><span style="color: #098658">200</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;enemy&quot;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">enemy3</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">matter</span><span style="color: #000000">.</span><span style="color: #001080">add</span><span style="color: #000000">.</span><span style="color: #795E26">sprite</span><span style="color: #000000">(</span><span style="color: #098658">300</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;enemy&quot;</span><span style="color: #000000">);</span>
+
+<span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">matterCollision</span><span style="color: #000000">.</span><span style="color: #795E26">addOnCollideStart</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">objectA:</span><span style="color: #000000"> </span><span style="color: #001080">player</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">objectB:</span><span style="color: #000000"> [</span><span style="color: #001080">enemy1</span><span style="color: #000000">, </span><span style="color: #001080">enemy2</span><span style="color: #000000">, </span><span style="color: #001080">enemy3</span><span style="color: #000000">],</span>
+<span style="color: #000000">  </span><span style="color: #795E26">callback</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #001080">eventData</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Player hit an enemy&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">    </span><span style="color: #008000">// eventData.gameObjectB will be the specific enemy that was hit!</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<p>Or, array vs array:</p>
+				<pre><code class="language-js"><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">matterCollision</span><span style="color: #000000">.</span><span style="color: #795E26">addOnCollideStart</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">objectA:</span><span style="color: #000000"> [</span><span style="color: #001080">player1</span><span style="color: #000000">, </span><span style="color: #001080">player2</span><span style="color: #000000">],</span>
+<span style="color: #000000">  </span><span style="color: #001080">objectB:</span><span style="color: #000000"> [</span><span style="color: #001080">enemy1</span><span style="color: #000000">, </span><span style="color: #001080">enemy2</span><span style="color: #000000">, </span><span style="color: #001080">enemy3</span><span style="color: #000000">],</span>
+<span style="color: #000000">  </span><span style="color: #795E26">callback</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #001080">eventData</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;A player hit an enemy&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">    </span><span style="color: #008000">// eventData.gameObjectA will be the specific player involved in the collision</span>
+<span style="color: #000000">    </span><span style="color: #008000">// eventData.gameObjectB will be the specific enemy involved in the collision</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<p>You can listen for collisions vs a single tile (or an array of tiles), but it&#39;s likely more useful to do something like:</p>
+				<pre><code class="language-js"><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">matterCollision</span><span style="color: #000000">.</span><span style="color: #795E26">addOnCollideStart</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">objectA:</span><span style="color: #000000"> </span><span style="color: #001080">player</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #795E26">callback</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #001080">eventData</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">bodyB</span><span style="color: #000000">, </span><span style="color: #0070C1">gameObjectB</span><span style="color: #000000"> } = </span><span style="color: #001080">eventData</span><span style="color: #000000">;</span>
+
+<span style="color: #000000">    </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">gameObjectB</span><span style="color: #000000"> !== </span><span style="color: #0000FF">undefined</span><span style="color: #000000"> &amp;&amp; </span><span style="color: #001080">gameObjectB</span><span style="color: #000000"> </span><span style="color: #0000FF">instanceof</span><span style="color: #000000"> </span><span style="color: #267F99">Phaser</span><span style="color: #000000">.</span><span style="color: #267F99">Tilemaps</span><span style="color: #000000">.</span><span style="color: #267F99">Tile</span><span style="color: #000000">) {</span>
+<span style="color: #000000">      </span><span style="color: #008000">// Now you know that gameObjectB is a Tile, so you can check the index, properties, etc.</span>
+<span style="color: #000000">      </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">gameObjectB</span><span style="color: #000000">.</span><span style="color: #001080">properties</span><span style="color: #000000">.</span><span style="color: #001080">isDeadly</span><span style="color: #000000">) </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Stepped on deadly tile&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">      </span><span style="color: #AF00DB">else</span><span style="color: #000000"> </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">gameObjectB</span><span style="color: #000000">.</span><span style="color: #001080">index</span><span style="color: #000000"> === </span><span style="color: #098658">32</span><span style="color: #000000">) </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Stepped on the tile with index 32&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<p>The plugin also exposes two sets of events via the <code>this.matterCollision.events</code> event emitter:</p>
+				<ul>
+					<li>&quot;collisionstart&quot;, &quot;collisionactive&quot;, &quot;collisionend&quot; - these match the Matter events. They emit a single parameter <code>event</code>. Aside from the normal Matter data in <code>event</code>, each pair in <code>event.pairs</code> has a <code>gameObjectA</code> and <code>gameObjectB</code> property that points to the game object that owns each body (if one exists).</li>
+					<li>&quot;paircollisionstart&quot;, &quot;paircollisionactive&quot;, &quot;paircollisionend&quot; - these are similar to the above, except they fire once for each pair. They have one parameter that looks like this: <code>{ bodyA, bodyB, gameObjectA, gameObjectB, pair }</code></li>
+				</ul>
+				<p>You can listen to them via <code>this.matterCollision.events.on(&quot;collisionstart&quot;, ...)</code>.</p>
+				<a href="#stop-tracking-collisions" id="stop-tracking-collisions" style="color: inherit; text-decoration: none;">
+					<h4>Stop Tracking Collisions</h4>
+				</a>
+				<p>You can stop tracking a collision via <code>removeOnCollideStart</code>, <code>removeOnCollideActive</code> and <code>removeOnCollideEnd</code>. They take the same parameters as <code>addOnCollideStart</code>. E.g.:</p>
+				<pre><code class="language-js"><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">onCollide</span><span style="color: #000000">() {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;A player hit an enemy&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #008000">// ... after addOnCollideStart has been used</span>
+
+<span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">matterCollision</span><span style="color: #000000">.</span><span style="color: #795E26">removeOnCollideStart</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">objectA:</span><span style="color: #000000"> [</span><span style="color: #001080">player1</span><span style="color: #000000">, </span><span style="color: #001080">player2</span><span style="color: #000000">],</span>
+<span style="color: #000000">  </span><span style="color: #001080">objectB:</span><span style="color: #000000"> [</span><span style="color: #001080">enemy1</span><span style="color: #000000">, </span><span style="color: #001080">enemy2</span><span style="color: #000000">, </span><span style="color: #001080">enemy3</span><span style="color: #000000">],</span>
+<span style="color: #000000">  </span><span style="color: #001080">callback:</span><span style="color: #000000"> </span><span style="color: #001080">onCollide</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<p>In addition, the addOnCollide methods will also return a function that automatically unsubscribes from the collision event (which can be useful if you use arrow functions):</p>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">unsubscribe</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">matterCollision</span><span style="color: #000000">.</span><span style="color: #795E26">addOnCollideStart</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">objectA:</span><span style="color: #000000"> </span><span style="color: #001080">player</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">objectB:</span><span style="color: #000000"> </span><span style="color: #001080">trapDoor</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #795E26">callback</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #001080">eventData</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #008000">// Do something, like dropping the door out underneath the player</span>
+<span style="color: #000000">    </span><span style="color: #008000">// Then unsubscribe so this callback is never called again</span>
+<span style="color: #000000">    </span><span style="color: #795E26">unsubscribe</span><span style="color: #000000">();</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<p>If you want to remove all listeners that have been added - not just one colliding pair - there are also the following methods:</p>
+				<ul>
+					<li><code>removeAllCollideStartListeners</code></li>
+					<li><code>removeAllCollideActiveListeners</code></li>
+					<li><code>removeAllCollideEndListeners</code></li>
+					<li><code>removeAllCollideListeners</code> - removes start, active and end listeners</li>
+				</ul>
+				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
+					<h2>Examples</h2>
+				</a>
+				<p>There&#39;s one example at the moment. You can check it out on CodeSandbox (which uses the plugin imported from npm):</p>
+				<p><a href="https://codesandbox.io/s/0o0917m23l?module=%2Fjs%2Findex.js"><img src="./doc-source-assets/collision-plugin-demo.gif" alt=""></a></p>
+				<p><a href="https://codesandbox.io/s/0o0917m23l?module=%2Fjs%2Findex.js"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit Phaser Matter Collision Plugin Demo 1"></a></p>
+				<p>Or you can check out the same example, but with the plugin loaded via a CDN in the <a href="https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/examples">examples folder</a>.</p>
+				<p>You can also poke around the <a href="https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/tests">&quot;tests&quot; folder</a> of this repository for usage examples.</p>
+				<p>TODO: add a module example and a script example</p>
+				<a href="#changelog" id="changelog" style="color: inherit; text-decoration: none;">
+					<h2>Changelog</h2>
+				</a>
+				<ul>
+					<li>1.0.0 (??/??/????)<ul>
+							<li>Conversion to TypeScript.</li>
+							<li>Update all dependencies.</li>
+							<li>Add named export for PhaserMatterCollisionPlugin (in addition to existing default export).</li>
+							<li>Fix removeOnCollideXX methods so that all config parameters are used when matching.</li>
+						</ul>
+					</li>
+					<li>0.10.2 (2019-02-19)<ul>
+							<li>Bug: fixed a bug in <code>addOnCollide()</code> that threw an error when the user didn&#39;t supply a callback, from <a href="https://github.com/jvanroose">@jvanroose</a>.</li>
+						</ul>
+					</li>
+					<li>0.10.1 (2018-11-17)<ul>
+							<li>Bug: fixed a bug in the removeOnCollideXXXX methods of the plugin, from <a href="https://github.com/Fantasix">@Fantasix</a>.</li>
+						</ul>
+					</li>
+					<li>0.0.0 - 0.9.2 (2018-08-17)<ul>
+							<li>Initial releases.</li>
+						</ul>
+					</li>
+				</ul>
+				<a href="#development" id="development" style="color: inherit; text-decoration: none;">
+					<h2>Development</h2>
+				</a>
+				<p>To set up the project for local development make sure you have node and npm installed. You can grab them bundled together <a href="https://nodejs.org/en/">here</a>. Clone/download the repository and run <code>npm i</code> from a terminal within the folder.</p>
+				<a href="#scripts" id="scripts" style="color: inherit; text-decoration: none;">
+					<h3>Scripts</h3>
+				</a>
+				<p>The project is controlled by npm scripts and uses cypress &amp; jest for testing. Cypress is used for end-to-end verification that the plugin works as expected with Phaser. Jest is used for unit testing the plugin (via heavy mocking since Phaser headless mode is not complete).</p>
+				<ul>
+					<li>The <code>watch</code> and <code>build</code> tasks will build the plugin source in library/ or the projects in tests/</li>
+					<li>The <code>serve</code> task opens the whole project (starting at the root) in a server</li>
+					<li>The <code>dev</code> task will build &amp; watch the library, tests and open up the server. This is useful for creating tests and updating the library.</li>
+					<li>The <code>dev:cypress</code> task will build &amp; watch the library &amp; tests, as well as open up cypress in headed mode. This is useful for checking out individual tests and debugging them.</li>
+					<li>The <code>test:cypress</code> task will build the tests and run cypress in headless mode to check all end-to-end tests.</li>
+					<li>The <code>test:jest</code> will run the jest tests.</li>
+				</ul>
+				<a href="#tests" id="tests" style="color: inherit; text-decoration: none;">
+					<h3>Tests</h3>
+				</a>
+				<p>The cypress tests rely on a particular structure:</p>
+				<ul>
+					<li>Each test game inside of &quot;tests/&quot; should have an &quot;index.html&quot; file as the entry point. &quot;src/js/index.js&quot; will be compiled to &quot;build/js/index.js&quot; by webpack. (Cypress doesn&#39;t support <code>type=&quot;module&quot;</code> on scripts, so this is necessary if we need modules.)</li>
+					<li>Each test has access to <code>test-utils.js</code> which provides <code>startTest</code>, <code>passTest</code> and <code>failTest</code> methods. Call <code>startTest</code> at the beginning and pass/fail when the test passes/fails. This manipulates in the DOM in a way that cypress is expecting.</li>
+					<li>Each test in &quot;cypress/integration/&quot; simply loads up the specified URL and waits for it to pass or timeout. (Technically, startTest and failTest are ignored, but they are useful for visual inspection of a test.)</li>
+				</ul>
+				<p>The jest unit tests rely on a simple mocking of Phaser and Matter. They are stored inside &quot;src/&quot;. Once Phaser headless is available, this testing structure could be re-evaluated.</p>
+				<a href="#new-releases" id="new-releases" style="color: inherit; text-decoration: none;">
+					<h3>New Releases</h3>
+				</a>
+				<p>To prepare a new release, verify that all tests pass with <code>npm run test:jest</code> and <code>npm run test:cypress</code>, update the changelog, and then:</p>
+				<pre><code><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">login</span>
+<span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">version</span><span style="color: #000000"> [&lt;</span><span style="color: #001080">newversion</span><span style="color: #000000">&gt; | </span><span style="color: #001080">major</span><span style="color: #000000"> | </span><span style="color: #001080">minor</span><span style="color: #000000"> | </span><span style="color: #001080">patch</span><span style="color: #000000"> | ...]</span>
+<span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">publish</span>
+</code></pre>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/collideabconfig.html" class="tsd-kind-icon">CollideABConfig</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/collideaconfig.html" class="tsd-kind-icon">CollideAConfig</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/collidecallback.html" class="tsd-kind-icon">Collide<wbr>Callback</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#collidecontext" class="tsd-kind-icon">Collide<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#collidingobject" class="tsd-kind-icon">Colliding<wbr>Object</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#collisionevent" class="tsd-kind-icon">Collision<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/eventdata.html" class="tsd-kind-icon">Event<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/extendedmattercollisiondata.html" class="tsd-kind-icon">Extended<wbr>Matter<wbr>Collision<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#objectwithbody" class="tsd-kind-icon">Object<wbr>With<wbr>Body</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/phasermattercollisionplugin.html" class="tsd-kind-icon">Phaser<wbr>Matter<wbr>Collision<wbr>Plugin</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/unsubscribe.html" class="tsd-kind-icon">Unsubscribe</a>
+					</li>
+					<li class=" tsd-kind-reference">
+						<a href="modules.html#default" class="tsd-kind-icon">default</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#getrootbody" class="tsd-kind-icon">get<wbr>Root<wbr>Body</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#iscollidingobject" class="tsd-kind-icon">is<wbr>Colliding<wbr>Object</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#ismatterbody" class="tsd-kind-icon">is<wbr>Matter<wbr>Body</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
 </div>
-</nav>
-
-<div class="content" data-ice="content"><div class="github-markdown">
-  <div class="manual-user-index" data-ice="manualUserIndex"><h1 id="phaser-matter-collision-plugin-&#x1F4A5;------omit-in-toc----">Phaser Matter Collision Plugin &#x1F4A5; <!-- omit in toc --></h1><p>A plugin for making it easier to manage collisions with the <a href="https://phaser.io/">Phaser</a> game engine and the <a href="http://brm.io/matter-js/">Matter.js</a> physics engine.</p>
-<p>Matter is one of the cool physics engine choices you have in Phaser 3. Phaser has a thin wrapper over Matter&apos;s API, so you need to dig into Matter&apos;s native collision event system if you want to detect and respond to collisions. That system just gives you a dump of all the pairs of bodies that collided in a tick of the engine. This plugin wraps up that collision logic in a friendlier, more modular way:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const player = this.matter.add.sprite(0, 0, &quot;player&quot;);
-const trapDoor = this.matter.add.sprite(200, 0, &quot;door&quot;);
-
-this.matterCollision.addOnCollideStart({
-  objectA: player,
-  objectB: trapDoor,
-  callback: () =&gt; console.log(&quot;Player touched door!&quot;)
-});</code>
-</code></pre>
-<p>Or in a slightly more complicated example:</p>
-<p><a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/doc-source-assets/collision-simple-demo.gif"><img src="./doc-source-assets/collision-simple-demo.gif" alt=""></a>
-<em>See the interactive version of that example on <a href="https://codesandbox.io/s/0o0917m23l?module=%2Fjs%2Findex.js">codesandbox</a>.</em></p>
-<p>If you are reading this on Github or NPM, check out the HTML documentation <a href="https://www.mikewesthad.com/phaser-matter-collision-plugin/docs/manual/README.html">here</a>.</p>
-<ul>
-<li><a href="#installation">Installation</a><ul>
-<li><a href="#as-a-script">As a Script</a></li>
-<li><a href="#as-a-module">As a Module</a></li>
-</ul>
-</li>
-<li><a href="#usage">Usage</a><ul>
-<li><a href="#initial-setup">Initial Setup</a></li>
-<li><a href="#usage-in-scene">Usage in Scene</a><ul>
-<li><a href="#tracking-collisions">Tracking Collisions</a></li>
-<li><a href="#stop-tracking-collisions">Stop Tracking Collisions</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#examples">Examples</a></li>
-<li><a href="#changelog">Changelog</a></li>
-<li><a href="#development">Development</a><ul>
-<li><a href="#scripts">Scripts</a></li>
-<li><a href="#tests">Tests</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="installation">Installation</h2><p>You can install this plugin globally as a script, or locally as a module using your bundler of choice.</p>
-<h3 id="as-a-script">As a Script</h3><p>You can drop in any of the transpiled code into your project as a standalone script. Choose the version that you want:</p>
-<ul>
-<li><a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js">minified code</a> &amp; optional <a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js.map">source map</a></li>
-<li><a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js">unminified code</a> &amp; optional <a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js.map">source map</a></li>
-</ul>
-<p>E.g. if you wanted the minified code, you would add this to your HTML:</p>
-<pre><code class="lang-html"><code class="source-code prettyprint">&lt;script src=&quot;phaser-matter-collision-plugin.min.js&quot;&gt;&lt;/script&gt;</code>
-</code></pre>
-<p>Or use the jsdelivr CDN:</p>
-<pre><code class="lang-html"><code class="source-code prettyprint">&lt;script src=&quot;//cdn.jsdelivr.net/npm/phaser-matter-collision-plugin&quot;&gt;&lt;/script&gt;</code>
-</code></pre>
-<p>Now you can use the global <code>PhaserMatterCollisionPlugin</code>. See <a href="#usage">usage</a> for how to use the plugin.</p>
-<h3 id="as-a-module">As a Module</h3><p>Install via npm:</p>
-<pre><code><code class="source-code prettyprint">npm install --save phaser-matter-collision-plugin</code>
-</code></pre><p>To use the transpiled and minified distribution of the library:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">import PhaserMatterCollisionPlugin from &quot;phaser-matter-collision-plugin&quot;;</code>
-</code></pre>
-<p>To use the raw library (so you can transpile it to match your own project settings):</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">import PhaserMatterCollisionPlugin from &quot;phaser-matter-collision-plugin/src&quot;;</code>
-</code></pre>
-<p>See <a href="#usage">usage</a> for how to use the plugin.</p>
-<h2 id="usage">Usage</h2><h3 id="initial-setup">Initial Setup</h3><p>When setting up your game config, add the plugin:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const config = {
-  // ...
-  physics: {
-    default: &quot;matter&quot;
-  },
-  // Install the scene plugin
-  plugins: {
-    scene: [
-      {
-        plugin: PhaserMatterCollisionPlugin, // The plugin class
-        key: &quot;matterCollision&quot;, // Where to store in Scene.Systems, e.g. scene.sys.matterCollision
-        mapping: &quot;matterCollision&quot; // Where to store in the Scene, e.g. scene.matterCollision
-      }
-    ]
-  }
-};
-
-const game = new Phaser.Game(config);</code>
-</code></pre>
-<p>Now, within a scene, you can use <code>this.matterCollision</code> to access the plugin instance.</p>
-<h3 id="usage-in-scene">Usage in Scene</h3><h4 id="tracking-collisions">Tracking Collisions</h4><p>The plugin has <code>addOnCollideStart</code>, <code>addOnCollideActive</code> and <code>addOnCollideEnd</code> methods which allow you to listen to collisions between &quot;objects&quot; in your scene. Those objects can be: a native Matter body, a tile, a Matter sprite, any object with a <code>body</code> property, or an array of any of those.</p>
-<p>For example, game object vs game object collisions:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const player = this.matter.add.sprite(0, 0, &quot;player&quot;);
-const trapDoor = this.matter.add.image(200, 0, &quot;door&quot;);
-
-this.matterCollision.addOnCollideStart({
-  objectA: player,
-  objectB: trapDoor,
-  callback: function(eventData) {
-    // This function will be invoked any time the player and trap door collide
-    const { bodyA, bodyB, gameObjectA, gameObjectB, pair } = eventData;
-    // bodyA &amp; bodyB are the Matter bodies of the player and door respectively
-    // gameObjectA &amp; gameObjectB are the player and door respectively
-    // pair is the raw Matter pair data
-  },
-  context: this // Context to apply to the callback function
-});</code>
-</code></pre>
-<p>If you omit the <code>objectB</code> property, you&apos;ll get all collisions involving <code>objectA</code>:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const player = this.matter.add.sprite(0, 0, &quot;player&quot;);
-
-this.matterCollision.addOnCollideStart({
-  objectA: player,
-  callback: eventData =&gt; {
-    const { bodyB, gameObjectB } = eventData;
-    console.log(&quot;Player touched something.&quot;);
-    // bodyB will be the matter body that the player touched
-    // gameObjectB will be the game object that owns bodyB, or undefined if there&apos;s no game object
-  }
-});</code>
-</code></pre>
-<p>Game object vs Matter sensor:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const player = this.matter.add.sprite(0, 0, &quot;player&quot;);
-const sensor = this.matter.world.add.rectangle(100, 0, 50, 50, { isStatic: true, isSensor: true });
-
-this.matterCollision.addOnCollideStart({
-  objectA: player,
-  objectB: sensor,
-  callback: eventData =&gt; console.log(&quot;Player touched hidden sensor&quot;)
-});</code>
-</code></pre>
-<p>Game object vs array of objects:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const player = this.matter.add.sprite(0, 0, &quot;player&quot;);
-const enemy1 = this.matter.add.sprite(100, 0, &quot;enemy&quot;);
-const enemy2 = this.matter.add.sprite(200, 0, &quot;enemy&quot;);
-const enemy3 = this.matter.add.sprite(300, 0, &quot;enemy&quot;);
-
-this.matterCollision.addOnCollideStart({
-  objectA: player,
-  objectB: [enemy1, enemy2, enemy3],
-  callback: eventData =&gt; {
-    console.log(&quot;Player hit an enemy&quot;);
-    // eventData.gameObjectB will be the specific enemy that was hit!
-  }
-});</code>
-</code></pre>
-<p>Or, array vs array:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">this.matterCollision.addOnCollideStart({
-  objectA: [player1, player2],
-  objectB: [enemy1, enemy2, enemy3],
-  callback: eventData =&gt; {
-    console.log(&quot;A player hit an enemy&quot;);
-    // eventData.gameObjectA will be the specific player involved in the collision
-    // eventData.gameObjectB will be the specific enemy involved in the collision
-  }
-});</code>
-</code></pre>
-<p>You can listen for collisions vs a single tile (or an array of tiles), but it&apos;s likely more useful to do something like:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">this.matterCollision.addOnCollideStart({
-  objectA: player,
-  callback: eventData =&gt; {
-    const { bodyB, gameObjectB } = eventData;
-
-    if (gameObjectB !== undefined &amp;&amp; gameObjectB instanceof Phaser.Tilemaps.Tile) {
-      // Now you know that gameObjectB is a Tile, so you can check the index, properties, etc.
-      if (gameObjectB.properties.isDeadly) console.log(&quot;Stepped on deadly tile&quot;);
-      else if (gameObjectB.index === 32) console.log(&quot;Stepped on the tile with index 32&quot;);
-    }
-  }
-});</code>
-</code></pre>
-<p>The plugin also exposes two sets of events via the <code>this.matterCollision.events</code> event emitter:</p>
-<ul>
-<li>&quot;collisionstart&quot;, &quot;collisionactive&quot;, &quot;collisionend&quot; - these match the Matter events. They emit a single parameter <code>event</code>. Aside from the normal Matter data in <code>event</code>, each pair in <code>event.pairs</code> has a <code>gameObjectA</code> and <code>gameObjectB</code> property that points to the game object that owns each body (if one exists).</li>
-<li>&quot;paircollisionstart&quot;, &quot;paircollisionactive&quot;, &quot;paircollisionend&quot; - these are similar to the above, except they fire once for each pair. They have one parameter that looks like this: <code>{ bodyA, bodyB, gameObjectA, gameObjectB, pair }</code></li>
-</ul>
-<p>You can listen to them via <code>this.matterCollision.events.on(&quot;collisionstart&quot;, ...)</code>.</p>
-<h4 id="stop-tracking-collisions">Stop Tracking Collisions</h4><p>You can stop tracking a collision via <code>removeOnCollideStart</code>, <code>removeOnCollideActive</code> and <code>removeOnCollideEnd</code>. They take the same parameters as <code>addOnCollideStart</code>. E.g.:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">function onCollide() {
-  console.log(&quot;A player hit an enemy&quot;);
-}
-
-// ... after addOnCollideStart has been used
-
-this.matterCollision.removeOnCollideStart({
-  objectA: [player1, player2],
-  objectB: [enemy1, enemy2, enemy3],
-  callback: onCollide
-});</code>
-</code></pre>
-<p>In addition, the addOnCollide methods will also return a function that automatically unsubscribes from the collision event (which can be useful if you use arrow functions):</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const unsubscribe = this.matterCollision.addOnCollideStart({
-  objectA: player,
-  objectB: trapDoor,
-  callback: eventData =&gt; {
-    // Do something, like dropping the door out underneath the player
-    // Then unsubscribe so this callback is never called again
-    unsubscribe();
-  }
-});</code>
-</code></pre>
-<p>If you want to remove all listeners that have been added - not just one colliding pair - there are also the following methods:</p>
-<ul>
-<li><code>removeAllCollideStartListeners</code></li>
-<li><code>removeAllCollideActiveListeners</code></li>
-<li><code>removeAllCollideEndListeners</code></li>
-<li><code>removeAllCollideListeners</code> - removes start, active and end listeners</li>
-</ul>
-<h2 id="examples">Examples</h2><p>There&apos;s one example at the moment. You can check it out on CodeSandbox (which uses the plugin imported from npm):</p>
-<p><a href="https://codesandbox.io/s/0o0917m23l?module=%2Fjs%2Findex.js"><img src="./doc-source-assets/collision-plugin-demo.gif" alt=""></a></p>
-<p><a href="https://codesandbox.io/s/0o0917m23l?module=%2Fjs%2Findex.js"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit Phaser Matter Collision Plugin Demo 1"></a></p>
-<p>Or you can check out the same example, but with the plugin loaded via a CDN in the <a href="https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/examples">examples folder</a>.</p>
-<p>You can also poke around the <a href="https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/tests">&quot;tests&quot; folder</a> of this repository for usage examples.</p>
-<p>TODO: add a module example and a script example</p>
-<h2 id="changelog">Changelog</h2><p>Version 0.10.2 - 2019-02-19</p>
-<ul>
-<li>Bug: fixed a bug in <code>addOnCollide()</code> that threw an error when the user didn&apos;t supply a callback, from <a href="https://github.com/jvanroose">@jvanroose</a></li>
-</ul>
-<p>Version 0.10.1 - 2018-11-17</p>
-<ul>
-<li>Bug: fixed a bug in the removeOnCollideXXXX methods of the plugin, from <a href="https://github.com/Fantasix">@Fantasix</a></li>
-</ul>
-<h2 id="development">Development</h2><p>To set up the project for local development make sure you have node and npm installed. You can grab them bundled together <a href="https://nodejs.org/en/">here</a>. Clone/download the repository and run <code>npm i</code> from a terminal within the folder.</p>
-<h3 id="scripts">Scripts</h3><p>The project is controlled by npm scripts and uses cypress &amp; jest for testing. Cypress is used for end-to-end verification that the plugin works as expected with Phaser. Jest is used for unit testing the plugin (via heavy mocking since Phaser headless mode is not complete).</p>
-<ul>
-<li>The <code>watch</code> and <code>build</code> tasks will build the plugin source in library/ or the projects in tests/</li>
-<li>The <code>serve</code> task opens the whole project (starting at the root) in a server</li>
-<li>The <code>dev</code> task will build &amp; watch the library, tests and open up the server. This is useful for creating tests and updating the library.</li>
-<li>The <code>dev:cypress</code> task will build &amp; watch the library &amp; tests, as well as open up cypress in headed mode. This is useful for checking out individual tests and debugging them.</li>
-<li>The <code>test:cypress</code> task will build the tests and run cypress in headless mode to check all end-to-end tests.</li>
-<li>The <code>test:jest</code> will run the jest tests.</li>
-</ul>
-<h3 id="tests">Tests</h3><p>The cypress tests rely on a particular structure:</p>
-<ul>
-<li>Each test game inside of &quot;tests/&quot; should have an &quot;index.html&quot; file as the entry point. &quot;src/js/index.js&quot; will be compiled to &quot;build/js/index.js&quot; by webpack. (Cypress doesn&apos;t support <code>type=&quot;module&quot;</code> on scripts, so this is necessary if we need modules.)</li>
-<li>Each test has access to <code>test-utils.js</code> which provides <code>startTest</code>, <code>passTest</code> and <code>failTest</code> methods. Call <code>startTest</code> at the beginning and pass/fail when the test passes/fails. This manipulates in the DOM in a way that cypress is expecting.</li>
-<li>Each test in &quot;cypress/integration/&quot; simply loads up the specified URL and waits for it to pass or timeout. (Technically, startTest and failTest are ignored, but they are useful for visual inspection of a test.)</li>
-</ul>
-<p>The jest unit tests rely on a simple mocking of Phaser and Matter. They are stored inside &quot;src/&quot;. Once Phaser headless is available, this testing structure could be re-evaluated.</p>
-<h3 id="new-releases">New Releases</h3><p>To prepare a new release, verify that all tests pass with <code>npm run test:jest</code> and <code>npm run test:cypress</code>, and then:</p>
-<pre><code><code class="source-code prettyprint">npm login
-npm version [&lt;newversion&gt; | major | minor | patch | ...]
-npm publish</code>
-</code></pre></div>
-
-  
-
-  <div class="manual-cards">
-    
-  <div class="manual-card-wrap" data-ice="cards">
-      <div class="manual-card">
-        <div data-ice="card"><h1>Phaser Matter Collision Plugin &#x1F4A5; </h1><p>A plugin for making it easier to manage collisions with the <a href="https://phaser.io/">Phaser</a> game engine and the <a href="http://brm.io/matter-js/">Matter.js</a> physics engine.</p><p>Matter is one of the cool physics engine choices you have in Phaser 3. Phaser has a thin wrapper over Matter&apos;s API, so you need to dig into Matter&apos;s native collision event system if you want to detect and respond to collisions. That system just gives you a dump of all the pairs of bodies that collided in a tick of the engine. This plugin wraps up that collision logic in a friendlier, more modular way:</p><pre><code class="lang-js"><code class="source-code prettyprint">const player = this.matter.add.sprite(0, 0, &quot;player&quot;);
-const trapDoor = this.matter.add.sprite(200, 0, &quot;door&quot;);
-
-this.matterCollision.addOnCollideStart({
-  objectA: player,
-  objectB: trapDoor,
-  callback: () =&gt; console.log(&quot;Player touched door!&quot;)
-});</code>
-</code></pre><p>Or in a slightly more complicated example:</p><p><a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/doc-source-assets/collision-simple-demo.gif"><img src="./manual/./doc-source-assets/collision-simple-demo.gif" alt=""></a>
-<em>See the interactive version of that example on <a href="https://codesandbox.io/s/0o0917m23l?module=%2Fjs%2Findex.js">codesandbox</a>.</em></p><p>If you are reading this on Github or NPM, check out the HTML documentation <a href="https://www.mikewesthad.com/phaser-matter-collision-plugin/docs/manual/README.html">here</a>.</p><ul>
-<li><a href="#installation">Installation</a><ul>
-<li><a href="#as-a-script">As a Script</a></li>
-<li><a href="#as-a-module">As a Module</a></li>
-</ul>
-</li>
-<li><a href="#usage">Usage</a><ul>
-<li><a href="#initial-setup">Initial Setup</a></li>
-<li><a href="#usage-in-scene">Usage in Scene</a><ul>
-<li><a href="#tracking-collisions">Tracking Collisions</a></li>
-<li><a href="#stop-tracking-collisions">Stop Tracking Collisions</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#examples">Examples</a></li>
-<li><a href="#changelog">Changelog</a></li>
-<li><a href="#development">Development</a><ul>
-<li><a href="#scripts">Scripts</a></li>
-<li><a href="#tests">Tests</a></li>
-</ul>
-</li>
-</ul><h2>Installation</h2><p>You can install this plugin globally as a script, or locally as a module using your bundler of choice.</p><h3>As a Script</h3><p>You can drop in any of the transpiled code into your project as a standalone script. Choose the version that you want:</p><ul>
-<li><a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js">minified code</a> &amp; optional <a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.min.js.map">source map</a></li>
-<li><a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js">unminified code</a> &amp; optional <a href="https://raw.githubusercontent.com/mikewesthad/phaser-matter-collision-plugin/master/dist/phaser-matter-collision-plugin.js.map">source map</a></li>
-</ul><p>E.g. if you wanted the minified code, you would add this to your HTML:</p><pre><code class="lang-html"><code class="source-code prettyprint">&lt;script src=&quot;phaser-matter-collision-plugin.min.js&quot;&gt;&lt;/script&gt;</code>
-</code></pre><p>Or use the jsdelivr CDN:</p><pre><code class="lang-html"><code class="source-code prettyprint">&lt;script src=&quot;//cdn.jsdelivr.net/npm/phaser-matter-collision-plugin&quot;&gt;&lt;/script&gt;</code>
-</code></pre><p>Now you can use the global <code>PhaserMatterCollisionPlugin</code>. See <a href="#usage">usage</a> for how to use the plugin.</p><h3>As a Module</h3><p>Install via npm:</p><pre><code><code class="source-code prettyprint">npm install --save phaser-matter-collision-plugin</code>
-</code></pre><p>To use the transpiled and minified distribution of the library:</p><pre><code class="lang-js"><code class="source-code prettyprint">import PhaserMatterCollisionPlugin from &quot;phaser-matter-collision-plugin&quot;;</code>
-</code></pre><p>To use the raw library (so you can transpile it to match your own project settings):</p><pre><code class="lang-js"><code class="source-code prettyprint">import PhaserMatterCollisionPlugin from &quot;phaser-matter-collision-plugin/src&quot;;</code>
-</code></pre><p>See <a href="#usage">usage</a> for how to use the plugin.</p><h2>Usage</h2><h3>Initial Setup</h3><p>When setting up your game config, add the plugin:</p><pre><code class="lang-js"><code class="source-code prettyprint">const config = {
-  // ...
-  physics: {
-    default: &quot;matter&quot;
-  },
-  // Install the scene plugin
-  plugins: {
-    scene: [
-      {
-        plugin: PhaserMatterCollisionPlugin, // The plugin class
-        key: &quot;matterCollision&quot;, // Where to store in Scene.Systems, e.g. scene.sys.matterCollision
-        mapping: &quot;matterCollision&quot; // Where to store in the Scene, e.g. scene.matterCollision
-      }
-    ]
-  }
-};
-
-const game = new Phaser.Game(config);</code>
-</code></pre><p>Now, within a scene, you can use <code>this.matterCollision</code> to access the plugin instance.</p><h3>Usage in Scene</h3><h4>Tracking Collisions</h4><p>The plugin has <code>addOnCollideStart</code>, <code>addOnCollideActive</code> and <code>addOnCollideEnd</code> methods which allow you to listen to collisions between &quot;objects&quot; in your scene. Those objects can be: a native Matter body, a tile, a Matter sprite, any object with a <code>body</code> property, or an array of any of those.</p><p>For example, game object vs game object collisions:</p><pre><code class="lang-js"><code class="source-code prettyprint">const player = this.matter.add.sprite(0, 0, &quot;player&quot;);
-const trapDoor = this.matter.add.image(200, 0, &quot;door&quot;);
-
-this.matterCollision.addOnCollideStart({
-  objectA: player,
-  objectB: trapDoor,
-  callback: function(eventData) {
-    // This function will be invoked any time the player and trap door collide
-    const { bodyA, bodyB, gameObjectA, gameObjectB, pair } = eventData;
-    // bodyA &amp; bodyB are the Matter bodies of the player and door respectively
-    // gameObjectA &amp; gameObjectB are the player and door respectively
-    // pair is the raw Matter pair data
-  },
-  context: this // Context to apply to the callback function
-});</code>
-</code></pre><p>If you omit the <code>objectB</code> property, you&apos;ll get all collisions involving <code>objectA</code>:</p><pre><code class="lang-js"><code class="source-code prettyprint">const player = this.matter.add.sprite(0, 0, &quot;player&quot;);
-
-this.matterCollision.addOnCollideStart({
-  objectA: player,
-  callback: eventData =&gt; {
-    const { bodyB, gameObjectB } = eventData;
-    console.log(&quot;Player touched something.&quot;);
-    // bodyB will be the matter body that the player touched
-    // gameObjectB will be the game object that owns bodyB, or undefined if there&apos;s no game object
-  }
-});</code>
-</code></pre><p>Game object vs Matter sensor:</p><pre><code class="lang-js"><code class="source-code prettyprint">const player = this.matter.add.sprite(0, 0, &quot;player&quot;);
-const sensor = this.matter.world.add.rectangle(100, 0, 50, 50, { isStatic: true, isSensor: true });
-
-this.matterCollision.addOnCollideStart({
-  objectA: player,
-  objectB: sensor,
-  callback: eventData =&gt; console.log(&quot;Player touched hidden sensor&quot;)
-});</code>
-</code></pre><p>Game object vs array of objects:</p><pre><code class="lang-js"><code class="source-code prettyprint">const player = this.matter.add.sprite(0, 0, &quot;player&quot;);
-const enemy1 = this.matter.add.sprite(100, 0, &quot;enemy&quot;);
-const enemy2 = this.matter.add.sprite(200, 0, &quot;enemy&quot;);
-const enemy3 = this.matter.add.sprite(300, 0, &quot;enemy&quot;);
-
-this.matterCollision.addOnCollideStart({
-  objectA: player,
-  objectB: [enemy1, enemy2, enemy3],
-  callback: eventData =&gt; {
-    console.log(&quot;Player hit an enemy&quot;);
-    // eventData.gameObjectB will be the specific enemy that was hit!
-  }
-});</code>
-</code></pre><p>Or, array vs array:</p><pre><code class="lang-js"><code class="source-code prettyprint">this.matterCollision.addOnCollideStart({
-  objectA: [player1, player2],
-  objectB: [enemy1, enemy2, enemy3],
-  callback: eventData =&gt; {
-    console.log(&quot;A player hit an enemy&quot;);
-    // eventData.gameObjectA will be the specific player involved in the collision
-    // eventData.gameObjectB will be the specific enemy involved in the collision
-  }
-});</code>
-</code></pre><p>You can listen for collisions vs a single tile (or an array of tiles), but it&apos;s likely more useful to do something like:</p><pre><code class="lang-js"><code class="source-code prettyprint">this.matterCollision.addOnCollideStart({
-  objectA: player,
-  callback: eventData =&gt; {
-    const { bodyB, gameObjectB } = eventData;
-
-    if (gameObjectB !== undefined &amp;&amp; gameObjectB instanceof Phaser.Tilemaps.Tile) {
-      // Now you know that gameObjectB is a Tile, so you can check the index, properties, etc.
-      if (gameObjectB.properties.isDeadly) console.log(&quot;Stepped on deadly tile&quot;);
-      else if (gameObjectB.index === 32) console.log(&quot;Stepped on the tile with index 32&quot;);
-    }
-  }
-});</code>
-</code></pre><p>The plugin also exposes two sets of events via the <code>this.matterCollision.events</code> event emitter:</p><ul>
-<li>&quot;collisionstart&quot;, &quot;collisionactive&quot;, &quot;collisionend&quot; - these match the Matter events. They emit a single parameter <code>event</code>. Aside from the normal Matter data in <code>event</code>, each pair in <code>event.pairs</code> has a <code>gameObjectA</code> and <code>gameObjectB</code> property that points to the game object that owns each body (if one exists).</li>
-<li>&quot;paircollisionstart&quot;, &quot;paircollisionactive&quot;, &quot;paircollisionend&quot; - these are similar to the above, except they fire once for each pair. They have one parameter that looks like this: <code>{ bodyA, bodyB, gameObjectA, gameObjectB, pair }</code></li>
-</ul><p>You can listen to them via <code>this.matterCollision.events.on(&quot;collisionstart&quot;, ...)</code>.</p><h4>Stop Tracking Collisions</h4><p>You can stop tracking a collision via <code>removeOnCollideStart</code>, <code>removeOnCollideActive</code> and <code>removeOnCollideEnd</code>. They take the same parameters as <code>addOnCollideStart</code>. E.g.:</p><pre><code class="lang-js"><code class="source-code prettyprint">function onCollide() {
-  console.log(&quot;A player hit an enemy&quot;);
-}
-
-// ... after addOnCollideStart has been used
-
-this.matterCollision.removeOnCollideStart({
-  objectA: [player1, player2],
-  objectB: [enemy1, enemy2, enemy3],
-  callback: onCollide
-});</code>
-</code></pre><p>In addition, the addOnCollide methods will also return a function that automatically unsubscribes from the collision event (which can be useful if you use arrow functions):</p><pre><code class="lang-js"><code class="source-code prettyprint">const unsubscribe = this.matterCollision.addOnCollideStart({
-  objectA: player,
-  objectB: trapDoor,
-  callback: eventData =&gt; {
-    // Do something, like dropping the door out underneath the player
-    // Then unsubscribe so this callback is never called again
-    unsubscribe();
-  }
-});</code>
-</code></pre><p>If you want to remove all listeners that have been added - not just one colliding pair - there are also the following methods:</p><ul>
-<li><code>removeAllCollideStartListeners</code></li>
-<li><code>removeAllCollideActiveListeners</code></li>
-<li><code>removeAllCollideEndListeners</code></li>
-<li><code>removeAllCollideListeners</code> - removes start, active and end listeners</li>
-</ul><h2>Examples</h2><p>There&apos;s one example at the moment. You can check it out on CodeSandbox (which uses the plugin imported from npm):</p><p><a href="https://codesandbox.io/s/0o0917m23l?module=%2Fjs%2Findex.js"><img src="./manual/./doc-source-assets/collision-plugin-demo.gif" alt=""></a></p><p><a href="https://codesandbox.io/s/0o0917m23l?module=%2Fjs%2Findex.js"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit Phaser Matter Collision Plugin Demo 1"></a></p><p>Or you can check out the same example, but with the plugin loaded via a CDN in the <a href="https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/examples">examples folder</a>.</p><p>You can also poke around the <a href="https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/tests">&quot;tests&quot; folder</a> of this repository for usage examples.</p><p>TODO: add a module example and a script example</p><h2>Changelog</h2><p>Version 0.10.2 - 2019-02-19</p><ul>
-<li>Bug: fixed a bug in <code>addOnCollide()</code> that threw an error when the user didn&apos;t supply a callback, from <a href="https://github.com/jvanroose">@jvanroose</a></li>
-</ul><p>Version 0.10.1 - 2018-11-17</p><ul>
-<li>Bug: fixed a bug in the removeOnCollideXXXX methods of the plugin, from <a href="https://github.com/Fantasix">@Fantasix</a></li>
-</ul><h2>Development</h2><p>To set up the project for local development make sure you have node and npm installed. You can grab them bundled together <a href="https://nodejs.org/en/">here</a>. Clone/download the repository and run <code>npm i</code> from a terminal within the folder.</p><h3>Scripts</h3><p>The project is controlled by npm scripts and uses cypress &amp; jest for testing. Cypress is used for end-to-end verification that the plugin works as expected with Phaser. Jest is used for unit testing the plugin (via heavy mocking since Phaser headless mode is not complete).</p><ul>
-<li>The <code>watch</code> and <code>build</code> tasks will build the plugin source in library/ or the projects in tests/</li>
-<li>The <code>serve</code> task opens the whole project (starting at the root) in a server</li>
-<li>The <code>dev</code> task will build &amp; watch the library, tests and open up the server. This is useful for creating tests and updating the library.</li>
-<li>The <code>dev:cypress</code> task will build &amp; watch the library &amp; tests, as well as open up cypress in headed mode. This is useful for checking out individual tests and debugging them.</li>
-<li>The <code>test:cypress</code> task will build the tests and run cypress in headless mode to check all end-to-end tests.</li>
-<li>The <code>test:jest</code> will run the jest tests.</li>
-</ul><h3>Tests</h3><p>The cypress tests rely on a particular structure:</p><ul>
-<li>Each test game inside of &quot;tests/&quot; should have an &quot;index.html&quot; file as the entry point. &quot;src/js/index.js&quot; will be compiled to &quot;build/js/index.js&quot; by webpack. (Cypress doesn&apos;t support <code>type=&quot;module&quot;</code> on scripts, so this is necessary if we need modules.)</li>
-<li>Each test has access to <code>test-utils.js</code> which provides <code>startTest</code>, <code>passTest</code> and <code>failTest</code> methods. Call <code>startTest</code> at the beginning and pass/fail when the test passes/fails. This manipulates in the DOM in a way that cypress is expecting.</li>
-<li>Each test in &quot;cypress/integration/&quot; simply loads up the specified URL and waits for it to pass or timeout. (Technically, startTest and failTest are ignored, but they are useful for visual inspection of a test.)</li>
-</ul><p>The jest unit tests rely on a simple mocking of Phaser and Matter. They are stored inside &quot;src/&quot;. Once Phaser headless is available, this testing structure could be re-evaluated.</p><h3>New Releases</h3><p>To prepare a new release, verify that all tests pass with <code>npm run test:jest</code> and <code>npm run test:cypress</code>, and then:</p><pre><code><code class="source-code prettyprint">npm login
-npm version [&lt;newversion&gt; | major | minor | patch | ...]
-npm publish</code>
-</code></pre></div>
-        <a data-ice="link" href="manual/README.html"></a>
-      </div>
-    </div>
-</div>
-</div>
-</div>
-
-<footer class="footer">
-  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+<footer>
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+		</div>
+	</div>
 </footer>
-
-<script src="script/search_index.js"></script>
-<script src="script/search.js"></script>
-<script src="script/pretty-print.js"></script>
-<script src="script/inherited-summary.js"></script>
-<script src="script/test-summary.js"></script>
-<script src="script/inner-link.js"></script>
-<script src="script/patch-for-local.js"></script>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

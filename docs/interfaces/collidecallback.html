@@ -1,0 +1,211 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>CollideCallback | Phaser Matter Collision Plugin - v1.0.0</title>
+	<meta name="description" content="Documentation for Phaser Matter Collision Plugin - v1.0.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">Phaser Matter Collision Plugin - v1.0.0</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../modules.html">Phaser Matter Collision Plugin - v1.0.0</a>
+				</li>
+				<li>
+					<a href="collidecallback.html">CollideCallback</a>
+				</li>
+			</ul>
+			<h1>Interface CollideCallback&lt;T, K&gt;</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CO</span> = <span class="tsd-signature-type">CO</span></h4>
+					</li>
+					<li>
+						<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CO</span> = <span class="tsd-signature-type">CO</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">CollideCallback</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3 class="tsd-before-signature">Callable</h3>
+				<ul class="tsd-signatures tsd-kind-interface tsd-has-type-parameter">
+					<li class="tsd-signature tsd-kind-icon">Collide<wbr>Callback<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="eventdata.html" class="tsd-signature-type" data-tsd-kind="Interface">EventData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/mikewesthad/phaser-matter-collision-plugin/blob/7ce45b7/workspaces/plugin/src/collision-types.ts#L47">workspaces/plugin/src/collision-types.ts:47</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>This generic type represents a start/active/end callback. It is used internally, but it can also
+								be used when you need to type a &quot;callback&quot; property manually, e.g.</p>
+								<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">callback</span><span style="color: #000000">: </span><span style="color: #267F99">CollideCallback</span><span style="color: #000000">&lt;</span><span style="color: #267F99">Sprite</span><span style="color: #000000">, </span><span style="color: #267F99">Image</span><span style="color: #000000">&gt; = (</span><span style="color: #001080">e</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Hit!&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">};</span>
+<span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">matterCollision</span><span style="color: #000000">.</span><span style="color: #795E26">addOnCollideStart</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">objectA:</span><span style="color: #000000"> </span><span style="color: #001080">sprite</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">objectB:</span><span style="color: #000000"> </span><span style="color: #001080">image</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">callback:</span><span style="color: #000000"> </span><span style="color: #001080">callback</span><span style="color: #000000">,</span>
+<span style="color: #000000">});</span>
+</code></pre>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>event: <a href="eventdata.html" class="tsd-signature-type" data-tsd-kind="Interface">EventData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+					</li>
+				</ul>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="../modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="collideabconfig.html" class="tsd-kind-icon">CollideABConfig</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="collideaconfig.html" class="tsd-kind-icon">CollideAConfig</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-has-type-parameter">
+						<a href="collidecallback.html" class="tsd-kind-icon">Collide<wbr>Callback</a>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#collidecontext" class="tsd-kind-icon">Collide<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#collidingobject" class="tsd-kind-icon">Colliding<wbr>Object</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#collisionevent" class="tsd-kind-icon">Collision<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="eventdata.html" class="tsd-kind-icon">Event<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="extendedmattercollisiondata.html" class="tsd-kind-icon">Extended<wbr>Matter<wbr>Collision<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#objectwithbody" class="tsd-kind-icon">Object<wbr>With<wbr>Body</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/phasermattercollisionplugin.html" class="tsd-kind-icon">Phaser<wbr>Matter<wbr>Collision<wbr>Plugin</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="unsubscribe.html" class="tsd-kind-icon">Unsubscribe</a>
+					</li>
+					<li class=" tsd-kind-reference">
+						<a href="../modules.html#default" class="tsd-kind-icon">default</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../modules.html#getrootbody" class="tsd-kind-icon">get<wbr>Root<wbr>Body</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../modules.html#iscollidingobject" class="tsd-kind-icon">is<wbr>Colliding<wbr>Object</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../modules.html#ismatterbody" class="tsd-kind-icon">is<wbr>Matter<wbr>Body</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer>
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
