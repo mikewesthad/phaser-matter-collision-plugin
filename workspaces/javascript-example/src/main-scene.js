@@ -1,3 +1,5 @@
+import Phaser from "phaser";
+
 export default class MainScene extends Phaser.Scene {
   preload() {
     this.load.tilemapTiledJSON("map", "../assets/tilemaps/level.json");
