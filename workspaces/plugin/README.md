@@ -317,7 +317,6 @@ The jest unit tests rely on a simple mocking of Phaser and Matter. They are stor
 To prepare a new release, verify that all tests pass with `yarn test:jest` and `yarn test:cypress`, update the changelog, and then:
 
 ```
-npm login
-npm version [<newversion> | major | minor | patch | ...]
-npm publish
+yarn npm login
+yarn npm publish
 ```
