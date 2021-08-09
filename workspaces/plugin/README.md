@@ -72,7 +72,7 @@ Or use the jsdelivr CDN:
 <script src="//cdn.jsdelivr.net/npm/phaser-matter-collision-plugin"></script>
 ```
 
-Now you can use the global `PhaserMatterCollisionPlugin`. See [usage](#usage) for how to use the plugin.
+Now you can use the global `PhaserMatterCollisionPlugin`. See [usage](#usage) for how to use the plugin. Note: when used this way `PhaserMatterCollisionPlugin` is an object that contains all the exports from the library. So if you want a reference to the plugin class, use `PhaserMatterCollisionPlugin.default`. 
 
 ## Usage
 
@@ -93,6 +93,10 @@ const config = {
         plugin: PhaserMatterCollisionPlugin, // The plugin class
         key: "matterCollision", // Where to store in Scene.Systems, e.g. scene.sys.matterCollision
         mapping: "matterCollision" // Where to store in the Scene, e.g. scene.matterCollision
+
+        // Note! If you are including the library via the CDN script tag, the plugin 
+        // line should be:
+        // plugin: PhaserMatterCollisionPlugin.default
       }
     ]
   }
