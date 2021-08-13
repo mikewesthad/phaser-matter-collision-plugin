@@ -29,6 +29,7 @@ This repository uses yarn workspaces to keep the plugin source code together wit
 - `workspaces/plugin`
 - `workspaces/javascript-example`
 - `workspaces/typescript-example`
+- `workspaces/javascript-no-module-example`
 
 If you are looking for the plugin readme, you can find it [here](https://github.com/mikewesthad/phaser-matter-collision-plugin/tree/master/workspaces/plugin).
 
