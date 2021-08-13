@@ -105,6 +105,7 @@
 					<h2>Installation</h2>
 				</a>
 				<p>You can install this plugin locally as a module using your bundler of choice, or globally as a script.</p>
+				<p>This plugin expects you to have Phaser included as a dependency in your project. The current version of this plugin is compatible with &gt;3.50.0 version of Phaser. If you need to use an older version of Phaser, try using v0.10.2 of this plugin (e.g. via <a href="https://nodejs.dev/learn/install-an-older-version-of-an-npm-package">npm</a> or via <a href="https://cdn.jsdelivr.net/npm/phaser-matter-collision-plugin@0.10.2/dist/phaser-matter-collision-plugin.min.js">jsdelivr</a>).</p>
 				<a href="#as-a-module" id="as-a-module" style="color: inherit; text-decoration: none;">
 					<h3>As a Module</h3>
 				</a>
@@ -124,7 +125,7 @@
 				<p>Or use the jsdelivr CDN:</p>
 				<pre><code class="language-html"><span style="color: #800000">&lt;script</span><span style="color: #000000FF"> </span><span style="color: #FF0000">src</span><span style="color: #000000FF">=</span><span style="color: #0000FF">&quot;//cdn.jsdelivr.net/npm/phaser-matter-collision-plugin&quot;</span><span style="color: #800000">&gt;&lt;/script&gt;</span>
 </code></pre>
-				<p>Now you can use the global <code>PhaserMatterCollisionPlugin</code>. See <a href="#usage">usage</a> for how to use the plugin.</p>
+				<p>Now you can use the global <code>PhaserMatterCollisionPlugin</code>. See <a href="#usage">usage</a> for how to use the plugin. Note: when used this way <code>PhaserMatterCollisionPlugin</code> is an object that contains all the exports from the library. So if you want a reference to the plugin class, use <code>PhaserMatterCollisionPlugin.default</code>. </p>
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h2>Usage</h2>
 				</a>
@@ -144,6 +145,10 @@
 <span style="color: #000000">        </span><span style="color: #001080">plugin:</span><span style="color: #000000"> </span><span style="color: #001080">PhaserMatterCollisionPlugin</span><span style="color: #000000">, </span><span style="color: #008000">// The plugin class</span>
 <span style="color: #000000">        </span><span style="color: #001080">key:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;matterCollision&quot;</span><span style="color: #000000">, </span><span style="color: #008000">// Where to store in Scene.Systems, e.g. scene.sys.matterCollision</span>
 <span style="color: #000000">        </span><span style="color: #001080">mapping:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;matterCollision&quot;</span><span style="color: #000000"> </span><span style="color: #008000">// Where to store in the Scene, e.g. scene.matterCollision</span>
+
+<span style="color: #000000">        </span><span style="color: #008000">// Note! If you are including the library via the CDN script tag, the plugin </span>
+<span style="color: #000000">        </span><span style="color: #008000">// line should be:</span>
+<span style="color: #000000">        </span><span style="color: #008000">// plugin: PhaserMatterCollisionPlugin.default</span>
 <span style="color: #000000">      }</span>
 <span style="color: #000000">    ]</span>
 <span style="color: #000000">  }</span>
