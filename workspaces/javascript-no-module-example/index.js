@@ -5,8 +5,6 @@
  *  - Tilesets by Kenney, https://www.kenney.nl/assets/platformer-art-pixel-redux and
  *    https://www.kenney.nl/assets/abstract-platformer, public domain
  */
-console.log(PhaserMatterCollisionPlugin);
-
 class MainScene extends Phaser.Scene {
   /**
    * Only necessary if you want your code editor to know type information!
