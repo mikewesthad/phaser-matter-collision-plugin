@@ -42,6 +42,8 @@ If you are reading this on Github or NPM, check out the HTML documentation [here
 
 You can install this plugin locally as a module using your bundler of choice, or globally as a script.
 
+This plugin expects you to have Phaser included as a dependency in your project. The current version of this plugin is compatible with >3.50.0 version of Phaser. If you need to use an older version of Phaser, try using v0.10.2 of this plugin (e.g. via [npm](https://nodejs.dev/learn/install-an-older-version-of-an-npm-package) or via [jsdelivr](https://cdn.jsdelivr.net/npm/phaser-matter-collision-plugin@0.10.2/dist/phaser-matter-collision-plugin.min.js)).
+
 ### As a Module
 
 Install via npm:
