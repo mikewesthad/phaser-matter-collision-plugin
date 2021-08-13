@@ -1,4 +1,4 @@
-import { Physics, Plugins, Scene, Events, Scenes, Tilemaps } from "phaser";
+import { Physics, Plugins, Scene, Events, Scenes } from "phaser";
 import { getRootBody, warnInvalidObject } from "./utils";
 import logger from "./logger";
 import { CollidingObject as CO, isCollidingObject } from "./valid-collision-object";
